@@ -19,8 +19,7 @@
             max-width: 100%;
             overflow-x: hidden;
             font-family: 'Montserrat', sans-serif;
-            background: 
-                linear-gradient(135deg, #fdfaf5 0%, #f9f4eb 100%);
+            background: linear-gradient(135deg, #fdfaf5 0%, #f9f4eb 100%);
             position: relative;
         }
 
@@ -144,13 +143,9 @@
             overflow: hidden;
             position: relative;
             border-radius: 8px;
-            box-shadow: 
-                0 10px 25px rgba(139, 115, 85, 0.1),
-                0 5px 10px rgba(139, 115, 85, 0.05);
+            box-shadow: 0 10px 25px rgba(139, 115, 85, 0.1), 0 5px 10px rgba(139, 115, 85, 0.05);
             transition: transform 0.4s ease, box-shadow 0.4s ease;
-            background: 
-                url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise' x='0' y='0'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='1' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100' height='100' filter='url(%23noise)' opacity='0.08'/%3E%3C/svg%3E"),
-                linear-gradient(135deg, #fdfaf5 0%, #f9f4eb 100%);
+            background: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise' x='0' y='0'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='1' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100' height='100' filter='url(%23noise)' opacity='0.08'/%3E%3C/svg%3E"), linear-gradient(135deg, #fdfaf5 0%, #f9f4eb 100%);
             padding: 10px;
             display: flex;
             align-items: center;
@@ -159,9 +154,7 @@
 
         .photo-container:hover {
             transform: translateY(-5px);
-            box-shadow: 
-                0 15px 30px rgba(139, 115, 85, 0.15),
-                0 8px 15px rgba(139, 115, 85, 0.08);
+            box-shadow: 0 15px 30px rgba(139, 115, 85, 0.15), 0 8px 15px rgba(139, 115, 85, 0.08);
         }
         
         .photo-frame {
@@ -169,9 +162,7 @@
             width: 100%;
             height: 100%;
             padding: 8px;
-            background: 
-                url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23d4af87' fill-opacity='0.05'%3E%3Cpath d='M0,0 L20,0 L20,20 L0,20 Z' fill='none'/%3E%3Cpath d='M0,0 L20,20 M20,0 L0,20' stroke-width='0.5'/%3E%3C/g%3E%3C/svg%3E"),
-                linear-gradient(135deg, #f5f0e6 0%, #ece5d8 100%);
+            background: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23d4af87' fill-opacity='0.05'%3E%3Cpath d='M0,0 L20,0 L20,20 L0,20 Z' fill='none'/%3E%3Cpath d='M0,0 L20,20 M20,0 L0,20' stroke-width='0.5'/%3E%3C/g%3E%3C/svg%3E"), linear-gradient(135deg, #f5f0e6 0%, #ece5d8 100%);
             border-radius: 6px;
             display: flex;
             align-items: center;
@@ -221,15 +212,6 @@
             color: rgba(212, 175, 135, 0.2);
             font-family: 'Playfair Display', serif;
             line-height: 1;
-        }
-        
-        .funny-element {
-            background: rgba(212, 175, 135, 0.1);
-            border-left: 3px solid #d4af87;
-            padding: 10px 15px;
-            margin: 15px 0;
-            border-radius: 0 8px 8px 0;
-            font-size: 15px;
         }
         
         .section {
@@ -299,32 +281,6 @@
             border-left: 2px solid rgba(212, 175, 135, 0.3);
         }
         
-        .dress-text {
-            font-size: 17px;
-            line-height: 1.8;
-            margin: 20px 0;
-            text-align: center;
-            background: rgba(255, 253, 250, 0.7);
-            padding: 20px;
-            border-radius: 10px;
-            border: 1px solid rgba(212, 175, 135, 0.1);
-        }
-        
-        .gift-text {
-            font-size: 17px;
-            line-height: 1.8;
-            margin: 20px 0;
-            background: rgba(255, 253, 250, 0.7);
-            padding: 20px;
-            border-radius: 10px;
-            border: 1px solid rgba(212, 175, 135, 0.1);
-        }
-
-        .gift-text strong {
-            color: #8b7355;
-            font-weight: 600;
-        }
-        
         .address {
             font-size: 18px;
             text-align: center;
@@ -365,28 +321,11 @@
             box-shadow: 0 5px 15px rgba(139, 115, 85, 0.2);
             font-weight: 500;
             letter-spacing: 0.5px;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .map-button::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
-            transition: left 0.5s;
         }
 
         .map-button:hover {
             transform: translateY(-3px);
             box-shadow: 0 8px 20px rgba(139, 115, 85, 0.3);
-        }
-
-        .map-button:hover::before {
-            left: 100%;
         }
         
         .rsvp {
@@ -479,26 +418,10 @@
             margin: 30px auto;
             border-radius: 12px;
             overflow: hidden;
-            box-shadow: 
-                0 15px 35px rgba(139, 115, 85, 0.15),
-                0 5px 15px rgba(139, 115, 85, 0.1);
+            box-shadow: 0 15px 35px rgba(139, 115, 85, 0.15), 0 5px 15px rgba(139, 115, 85, 0.1);
             position: relative;
-            background: 
-                url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise' x='0' y='0'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='1' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100' height='100' filter='url(%23noise)' opacity='0.08'/%3E%3C/svg%3E"),
-                linear-gradient(135deg, #fdfaf5 0%, #f9f4eb 100%);
+            background: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise' x='0' y='0'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='1' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100' height='100' filter='url(%23noise)' opacity='0.08'/%3E%3C/svg%3E"), linear-gradient(135deg, #fdfaf5 0%, #f9f4eb 100%);
             padding: 12px;
-        }
-
-        .couple-photo-container::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            border: 1px solid rgba(212, 175, 135, 0.2);
-            border-radius: 12px;
-            pointer-events: none;
         }
         
         .couple-photo {
@@ -508,8 +431,6 @@
             object-position: center;
             transition: transform 0.5s ease;
             border-radius: 6px;
-            border: 1px solid rgba(212, 175, 135, 0.2);
-            box-shadow: inset 0 0 15px rgba(139, 115, 85, 0.1);
         }
 
         .couple-photo-container:hover .couple-photo {
@@ -583,9 +504,7 @@
         .photo-placeholder {
             width: 100%;
             height: 100%;
-            background: 
-                url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise' x='0' y='0'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='1' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100' height='100' filter='url(%23noise)' opacity='0.08'/%3E%3C/svg%3E"),
-                linear-gradient(135deg, #fdfaf5 0%, #f9f4eb 100%);
+            background: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise' x='0' y='0'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='1' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100' height='100' filter='url(%23noise)' opacity='0.08'/%3E%3C/svg%3E"), linear-gradient(135deg, #fdfaf5 0%, #f9f4eb 100%);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -596,7 +515,6 @@
             border-radius: 8px;
         }
         
-        /* Декоративные элементы */
         .floral-divider {
             text-align: center;
             margin: 30px 0;
@@ -605,7 +523,6 @@
             opacity: 0.5;
         }
 
-        /* Адаптивность */
         @media (max-width: 768px) {
             .container {
                 padding: 15px 15px 30px;
@@ -682,18 +599,15 @@
             <h2>Владислав & Анастасия</h2>
             <div class="date">12 декабря 2025</div>
             
-            <!-- Детские фото в одну строку с фоном пригласительного -->
             <div class="childhood-photos">
                 <div class="photo-container">
                     <div class="photo-frame">
-                        <img src="22/vlad-child.jpg" alt="Владислав в детстве" class="child-photo"
-                             onerror="this.style.display='none'; this.parentNode.innerHTML='<div class=\'photo-placeholder\'>Фото Владислава в детстве</div>';">
+                        <img src="22/vlad-child.jpg" alt="Владислав в детстве" class="child-photo" onerror="this.style.display='none'; this.parentNode.innerHTML='<div class=\'photo-placeholder\'>Фото Владислава в детстве</div>';">
                     </div>
                 </div>
                 <div class="photo-container">
                     <div class="photo-frame">
-                        <img src="22/nastya-child.jpg" alt="Анастасия в детстве" class="child-photo"
-                             onerror="this.style.display='none'; this.parentNode.innerHTML='<div class=\'photo-placeholder\'>Фото Анастасии в детстве</div>';">
+                        <img src="22/nastya-child.jpg" alt="Анастасия в детстве" class="child-photo" onerror="this.style.display='none'; this.parentNode.innerHTML='<div class=\'photo-placeholder\'>Фото Анастасии в детстве</div>';">
                     </div>
                 </div>
             </div>
@@ -716,115 +630,42 @@
             
             <div class="program-item">
                 <div class="program-time">14:30</div>
-                <div class="program-event">
-                    Сбор гостей
-                    <div class="program-note">
-                        Опоздавшим - дополнительное задание: рассказать анекдот
-                    </div>
-                </div>
+                <div class="program-event">Сбор гостей</div>
             </div>
             
             <div class="program-item">
                 <div class="program-time">15:00</div>
-                <div class="program-event">
-                    Торжественная церемония
-                    <div class="program-note">
-                        Самый волнительный момент дня!
-                    </div>
-                </div>
+                <div class="program-event">Торжественная церемония</div>
             </div>
             
             <div class="program-item">
                 <div class="program-time">16:00</div>
-                <div class="program-event">
-                    Первые танцы молодых
-                    <div class="program-note">
-                        Постараемся не запутаться в ногах!
-                    </div>
-                </div>
+                <div class="program-event">Первые танцы молодых</div>
             </div>
             
             <div class="program-item">
                 <div class="program-time">17:00</div>
-                <div class="program-event">
-                    Банкет: тосты и поздравления
-                    <div class="program-note">
-                        Готовьте самые теплые слова!
-                    </div>
-                </div>
+                <div class="program-event">Банкет: тосты и поздравления</div>
             </div>
             
             <div class="program-item">
                 <div class="program-time">18:30</div>
-                <div class="program-event">
-                    Конкурсы и развлечения
-                    <div class="program-note">
-                        Будет весело и незабываемо!
-                    </div>
-                </div>
+                <div class="program-event">Конкурсы и развлечения</div>
             </div>
             
             <div class="program-item">
                 <div class="program-time">20:00</div>
-                <div class="program-event">
-                    Торжественное разрезание торта
-                    <div class="program-note">
-                        Сладкий финал вечера
-                    </div>
-                </div>
+                <div class="program-event">Торжественное разрезание торта</div>
             </div>
             
             <div class="program-item">
                 <div class="program-time">20:30</div>
-                <div class="program-event">
-                    Танцы и дискотека
-                    <div class="program-note">
-                        Танцуют все!
-                    </div>
-                </div>
+                <div class="program-event">Танцы и дискотека</div>
             </div>
             
             <div class="program-item">
                 <div class="program-time">21:00</div>
-                <div class="program-event">
-                    Окончание праздника
-                    <div class="program-note">
-                        Благодарим за этот прекрасный день!
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-        <div class="section">
-            <div class="section-title">Дресс-код</div>
-            <div class="dress-text">
-                <strong>Свободный!</strong> Приходите в том, в чем вам удобно и красиво!<br><br>
-                
-                <em>Хотите быть в вечернем платье или костюме? Прекрасно!</em><br>
-                <em>Предпочитаете удобный стиль? Идеально!</em><br>
-                <em>Главное - ваше присутствие и хорошее настроение!</em>
-            </div>
-        </div>
-        
-        <div class="section">
-            <div class="section-title">Наши пожелания о подарках</div>
-            <div class="gift-text">
-                Ваше присутствие - уже самый ценный подарок для нас!<br><br>
-                
-                <div class="funny-element">
-                    <strong>Вместо цветов и алкоголя мы будем рады:</strong><br><br>
-                    • Подарочным картам в магазины для дома (IKEA, Hoff, Leroy Merlin и др.)<br>
-                    • Набору качественной посуды или кухонных принадлежностей<br>
-                    • Красивому постельному белью или текстилю для дома<br>
-                    • Сертификатам на совместный ужин в хорошем ресторане<br>
-                    • Электронике для дома (кофемашина, блендер, умные устройства)<br>
-                    • Красивым рамкам для наших совместных фото<br>
-                    • Подарку-впечатлению (сертификат на спа, мастер-класс и т.д.)
-                </div>
-                
-                <div class="humor-note" style="margin-top: 15px;">
-                    P.S. Денежные подарки тоже примем с благодарностью - мы точно найдем им хорошее применение!
-                </div>
+                <div class="program-event">Окончание праздника</div>
             </div>
         </div>
         
@@ -834,9 +675,7 @@
             <em>Лесной тракт, 85</em>
         </div>
         
-        <a href="https://go.2gis.com/Kupg2" class="map-button" target="_blank">
-            ПОСМОТРЕТЬ НА КАРТЕ
-        </a>
+        <a href="https://go.2gis.com/Kupg2" class="map-button" target="_blank">ПОСМОТРЕТЬ НА КАРТЕ</a>
         
         <div class="rsvp">
             <div class="section-title">Подтвердите участие</div>
@@ -888,7 +727,6 @@
                     <textarea id="wishes" name="wishes" rows="3" placeholder="Напишите ваши пожелания или особые предпочтения..."></textarea>
                 </div>
                 
-                <!-- Защита от спама -->
                 <input type="text" name="_gotcha" style="display: none;">
                 
                 <button type="submit" class="submit-button">ОТПРАВИТЬ ОТВЕТ</button>
@@ -896,8 +734,7 @@
         </div>
         
         <div class="couple-photo-container">
-            <img src="22/our-photo.jpg" alt="Владислав и Анастасия" class="couple-photo"
-                 onerror="this.style.display='none'; this.parentNode.innerHTML='<div class=\'photo-placeholder\' style=\'height:320px\'>Наше совместное фото</div>';">
+            <img src="22/our-photo.jpg" alt="Владислав и Анастасия" class="couple-photo" onerror="this.style.display='none'; this.parentNode.innerHTML='<div class=\'photo-placeholder\' style=\'height:320px\'>Наше совместное фото</div>';">
         </div>
         
         <div class="hearts">💖 💕 💗 💓 💞</div>
