@@ -909,7 +909,7 @@
     </div>
 
     <audio id="weddingMusic" loop>
-        <source src="wedding-music.mp3" type="audio/mpeg">
+        <source src="22/wedding-music.mp3" type="audio/mpeg">
         <source src="wedding-music.ogg" type="audio/ogg">
         Ваш браузер не поддерживает аудио элемент.
     </audio>
