@@ -1,4 +1,4 @@
-
+<!DOCTYPE html>
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
@@ -813,7 +813,7 @@
                 
                 <div class="funny-element">
                     <strong>Вместо цветов и алкоголя мы будем рады:</strong><br><br>
-                    • Подарочным картам в магазины для дома (Hoff, Leroy Merlin и др.)<br>
+                    • Подарочным картам в магазины для дома (IKEA, Hoff, Leroy Merlin и др.)<br>
                     • Набору качественной посуды или кухонных принадлежностей<br>
                     • Красивому постельному белью или текстилю для дома<br>
                     • Сертификатам на совместный ужин в хорошем ресторане<br>
@@ -842,7 +842,10 @@
             <div class="section-title">Подтвердите участие</div>
             <p>Пожалуйста, ответьте до 1 декабря 2025 года</p>
             
-            <form class="poll-form" id="weddingPoll">
+            <form class="poll-form" action="https://formspree.io/f/manlrqre" method="POST">
+                <input type="hidden" name="_subject" value="Новый ответ на свадьбу Владислава и Анастасии!">
+                <input type="hidden" name="_language" value="ru">
+                
                 <div class="form-group">
                     <label for="name">Ваше имя и фамилия</label>
                     <input type="text" id="name" name="name" required placeholder="Например, Иван Иванов">
@@ -863,6 +866,8 @@
                     <select id="companions" name="companions">
                         <option value="1">1 человек</option>
                         <option value="2">2 человека</option>
+                        <option value="3">3 человека</option>
+                        <option value="4">4 человека</option>
                     </select>
                 </div>
 
@@ -882,6 +887,9 @@
                     <label for="wishes">Ваши пожелания или особые предпочтения в напитках</label>
                     <textarea id="wishes" name="wishes" rows="3" placeholder="Напишите ваши пожелания или особые предпочтения..."></textarea>
                 </div>
+                
+                <!-- Защита от спама -->
+                <input type="text" name="_gotcha" style="display: none;">
                 
                 <button type="submit" class="submit-button">ОТПРАВИТЬ ОТВЕТ</button>
             </form>
@@ -910,37 +918,11 @@
 
     <audio id="weddingMusic" loop>
         <source src="22/wedding-music.mp3" type="audio/mpeg">
-        <source src="wedding-music.ogg" type="audio/ogg">
+        <source src="22/wedding-music.ogg" type="audio/ogg">
         Ваш браузер не поддерживает аудио элемент.
     </audio>
 
     <script>
-        document.getElementById('weddingPoll').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            const name = document.getElementById('name').value;
-            const attendance = document.getElementById('attendance').value;
-            
-            const messages = [
-                "Отлично! Будем ждать вас с нетерпением!",
-                "Супер! Уже представляем, как вы украсите наш праздник своим присутствием!",
-                "Замечательно! Предупреждаем: будет весело и незабываемо!",
-                "Ура! Готовьтесь к прекрасному дню вместе с нами!"
-            ];
-            
-            const randomMessage = messages[Math.floor(Math.random() * messages.length)];
-            
-            if (attendance === 'yes') {
-                alert(`Дорогой(ая) ${name}! ${randomMessage}`);
-            } else if (attendance === 'no') {
-                alert(`Дорогой(ая) ${name}! Очень жаль, что вы не сможете быть с нами! Спасибо, что дали знать!`);
-            } else {
-                alert(`Дорогой(ая) ${name}! Спасибо за ответ! Надеемся, что вы сможете присоединиться к нам в этот день!`);
-            }
-            
-            this.reset();
-        });
-
         const music = document.getElementById('weddingMusic');
         let isPlaying = false;
 
