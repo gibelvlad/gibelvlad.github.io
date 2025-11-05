@@ -686,13 +686,13 @@
             <div class="childhood-photos">
                 <div class="photo-container">
                     <div class="photo-frame">
-                        <img src="vlad-child.jpg" alt="Владислав в детстве" class="child-photo"
+                        <img src="22/vlad-child.jpg" alt="Владислав в детстве" class="child-photo"
                              onerror="this.style.display='none'; this.parentNode.innerHTML='<div class=\'photo-placeholder\'>Фото Владислава в детстве</div>';">
                     </div>
                 </div>
                 <div class="photo-container">
                     <div class="photo-frame">
-                        <img src="nastya-child.jpg" alt="Анастасия в детстве" class="child-photo"
+                        <img src="22/nastya-child.jpg" alt="Анастасия в детстве" class="child-photo"
                              onerror="this.style.display='none'; this.parentNode.innerHTML='<div class=\'photo-placeholder\'>Фото Анастасии в детстве</div>';">
                     </div>
                 </div>
@@ -888,7 +888,7 @@
         </div>
         
         <div class="couple-photo-container">
-            <img src="our-photo.jpg" alt="Владислав и Анастасия" class="couple-photo"
+            <img src="22/our-photo.jpg" alt="Владислав и Анастасия" class="couple-photo"
                  onerror="this.style.display='none'; this.parentNode.innerHTML='<div class=\'photo-placeholder\' style=\'height:320px\'>Наше совместное фото</div>';">
         </div>
         
