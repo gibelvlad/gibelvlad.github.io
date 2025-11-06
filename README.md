@@ -7,7 +7,7 @@
     <!-- Open Graph метатеги для красивых превью в соцсетях -->
     <meta property="og:title" content="Владислав & Анастасия - Свадьба 12 декабря 2025">
     <meta property="og:description" content="Приглашение на свадьбу Владислава и Анастасии. Ждём вас 12 декабря 2025 года в банкетном зале 'Олимп'">
-    <meta property="og:image" content="https://gibelvlad.github.io/22/wedding-preview.jpg">
+   <meta property="og:image" content="https://avatars.mds.yandex.net/i?id=d893b6d62eccbc0068d6117fce7e9370_l-5666476-images-thumbs&n=13">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
     <meta property="og:image:type" content="image/jpeg">
