@@ -8,15 +8,20 @@
     <meta property="og:title" content="Владислав & Анастасия - Свадьба 12 декабря 2025">
     <meta property="og:description" content="Приглашение на свадьбу Владислава и Анастасии. Ждём вас 12 декабря 2025 года в банкетном зале 'Олимп'">
     <meta property="og:image" content="https://gibelvlad.github.io/22/wedding-preview.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:type" content="image/jpeg">
     <meta property="og:url" content="https://gibelvlad.github.io">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Свадьба Владислава и Анастасии">
+    <meta property="og:locale" content="ru_RU">
     
     <!-- Twitter Card метатеги -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Владислав & Анастасия - Свадьба 12 декабря 2025">
     <meta name="twitter:description" content="Приглашение на свадьбу Владислава и Анастасии">
     <meta name="twitter:image" content="https://gibelvlad.github.io/22/wedding-preview.jpg">
+    <meta name="twitter:site" content="@wedding">
     
     <!-- Дополнительные метатеги -->
     <meta name="description" content="Приглашение на свадьбу Владислава и Анастасии. 12 декабря 2025 года. Банкетный зал 'Олимп'">
@@ -504,10 +509,10 @@
         <!-- Ваше приглашение с 4 фотографиями вертикально -->
         <div class="custom-invitation">
             <div class="vertical-gallery" id="invitationImage">
-                <img src="22/photo1.png" alt="Свадебное фото 1">
-                <img src="22/photo2.png" alt="Свадебное фото 2">
-                <img src="22/photo3.png" alt="Свадебное фото 3">
-                <img src="22/photo4.png" alt="Свадебное фото 4">
+                <img src="22/photo1.png" alt="Свадебное фото 1" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAwIiBoZWlnaHQ9IjQwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZTljZWM1Ii8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIyNCIgZmlsbD0iI2M5MjIzNiIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZHk9Ii4zZW0iPuKEliDQv9C+0LTQtNC10YDQttC60LAg0L3QtSDRgdC+0YXRgNCw0L3QuNGC0Yw8L3RleHQ+PC9zdmc+'">
+                <img src="22/photo2.png" alt="Свадебное фото 2" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAwIiBoZWlnaHQ9IjQwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZTljZWM1Ii8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIyNCIgZmlsbD0iI2M5MjIzNiIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZHk9Ii4zZW0iPuKEliDQv9C+0LTQtNC10YDQttC60LAg0L3QtSDRgdC+0YXRgNCw0L3QuNGC0Yw8L3RleHQ+PC9zdmc+'">
+                <img src="22/photo3.png" alt="Свадебное фото 3" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAwIiBoZWlnaHQ9IjQwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZTljZWM1Ii8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIyNCIgZmlsbD0iI2M5MjIzNiIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZHk9Ii4zZW0iPuKEliDQv9C+0LTQtNC10YDQttC60LAg0L3QtSDRgdC+0YXRgNCw0L3QuNGC0Yw8L3RleHQ+PC9zdmc+'">
+                <img src="22/photo4.png" alt="Свадебное фото 4" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAwIiBoZWlnaHQ9IjQwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZTljZWM1Ii8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIyNCIgZmlsbD0iI2M5MjIzNiIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZHk9Ii4zZW0iPuKEliDQv9C+0LTQtNC10YDQttC60LAg0L3QtSDRgdC+0YXRgNCw0L3QuNGC0Yw8L3RleHQ+PC9zdmc+'">
             </div>
         </div>
 
@@ -612,7 +617,7 @@
     </audio>
 
     <script>
-        // JavaScript код остается таким же
+        // JavaScript код
         const music = document.getElementById('weddingMusic');
         let isPlaying = false;
 
@@ -646,7 +651,7 @@
             }
         });
 
-        // Код для эффектов (остается таким же как в предыдущей версии)
+        // Код для эффектов
         const mainCanvas = document.getElementById('effectsCanvas');
         const mainCtx = mainCanvas.getContext('2d');
         
