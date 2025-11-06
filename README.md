@@ -3,7 +3,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Владислав & Анастасия - Свадьба 12 декабря 2025</title>
+    
+    <!-- Open Graph метатеги для красивых превью в соцсетях -->
+    <meta property="og:title" content="Владислав & Анастасия - Свадьба 12 декабря 2025">
+    <meta property="og:description" content="Приглашение на свадьбу Владислава и Анастасии. Ждём вас 12 декабря 2025 года в банкетном зале 'Олимп'">
+    <meta property="og:image" content="https://gibelvlad.github.io/gibelvlad.github.io/22/wedding-preview.jpg">
+    <meta property="og:url" content="https://gibelvlad.github.io/gibelvlad.github.io">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Свадьба Владислава и Анастасии">
+    
+    <!-- Twitter Card метатеги -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Владислав & Анастасия - Свадьба 12 декабря 2025">
+    <meta name="twitter:description" content="Приглашение на свадьбу Владислава и Анастасии">
+    <meta name="twitter:image" content="https://gibelvlad.github.io/gibelvlad.github.io/22/wedding-preview.jpg">
+    
+    <!-- Дополнительные метатеги -->
+    <meta name="description" content="Приглашение на свадьбу Владислава и Анастасии. 12 декабря 2025 года. Банкетный зал 'Олимп'">
+    <meta name="keywords" content="свадьба, приглашение, Владислав, Анастасия, 12 декабря 2025">
+    
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+    
+    <!-- Остальные стили остаются без изменений -->
     <style>
         * {
             margin: 0;
@@ -484,10 +505,10 @@
         <!-- Ваше приглашение с 4 фотографиями вертикально -->
         <div class="custom-invitation">
             <div class="vertical-gallery" id="invitationImage">
-                <img src="22/photo1.png" alt="Свадебное фото 1">
-                <img src="22/photo2.png" alt="Свадебное фото 2">
-                <img src="22/photo3.png" alt="Свадебное фото 3">
-                <img src="22/photo4.png" alt="Свадебное фото 4">
+                <img src="22/photo1.jpg" alt="Свадебное фото 1">
+                <img src="22/photo2.jpg" alt="Свадебное фото 2">
+                <img src="22/photo3.jpg" alt="Свадебное фото 3">
+                <img src="22/photo4.jpg" alt="Свадебное фото 4">
             </div>
         </div>
 
@@ -592,7 +613,7 @@
     </audio>
 
     <script>
-        // JavaScript код остается таким же как в предыдущей версии
+        // JavaScript код остается таким же
         const music = document.getElementById('weddingMusic');
         let isPlaying = false;
 
