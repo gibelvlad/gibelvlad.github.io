@@ -482,7 +482,7 @@
         <!-- Ваше длинное приглашение с изображением -->
         <div class="custom-invitation">
             <div class="invitation-image">
-                <img src="long-invitation.jpg" alt="Свадебное приглашение" id="invitationImage">
+                <img src="22/long-invitation.jpg" alt="Свадебное приглашение" id="invitationImage">
             </div>
         </div>
 
