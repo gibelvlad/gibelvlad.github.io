@@ -7,8 +7,8 @@
     <!-- Open Graph метатеги для красивых превью в соцсетях -->
     <meta property="og:title" content="Владислав & Анастасия - Свадьба 12 декабря 2025">
     <meta property="og:description" content="Приглашение на свадьбу Владислава и Анастасии. Ждём вас 12 декабря 2025 года в банкетном зале 'Олимп'">
-    <meta property="og:image" content="https://gibelvlad.github.io/gibelvlad.github.io/22/wedding-preview.jpg">
-    <meta property="og:url" content="https://gibelvlad.github.io/gibelvlad.github.io">
+    <meta property="og:image" content="https://gibelvlad.github.io/22/wedding-preview.jpg">
+    <meta property="og:url" content="https://gibelvlad.github.io">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Свадьба Владислава и Анастасии">
     
@@ -16,7 +16,7 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Владислав & Анастасия - Свадьба 12 декабря 2025">
     <meta name="twitter:description" content="Приглашение на свадьбу Владислава и Анастасии">
-    <meta name="twitter:image" content="https://gibelvlad.github.io/gibelvlad.github.io/22/wedding-preview.jpg">
+    <meta name="twitter:image" content="https://gibelvlad.github.io/22/wedding-preview.jpg">
     
     <!-- Дополнительные метатеги -->
     <meta name="description" content="Приглашение на свадьбу Владислава и Анастасии. 12 декабря 2025 года. Банкетный зал 'Олимп'">
@@ -24,7 +24,6 @@
     
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
     
-    <!-- Остальные стили остаются без изменений -->
     <style>
         * {
             margin: 0;
