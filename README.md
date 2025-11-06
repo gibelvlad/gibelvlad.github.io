@@ -1,4 +1,3 @@
-
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
@@ -44,150 +43,39 @@
             padding: 20px 20px 40px;
         }
         
-        .header {
-            text-align: center;
+        /* Стили для вашего приглашения */
+        .custom-invitation {
+            background: rgba(255, 253, 250, 0.9);
+            padding: 0;
+            border-radius: 12px;
+            box-shadow: 0 8px 25px rgba(139, 115, 85, 0.1);
+            border: 1px solid rgba(212, 175, 135, 0.15);
             margin-bottom: 40px;
-            padding-top: 30px;
+            text-align: center;
             position: relative;
-        }
-
-        .header::after {
-            content: '❦';
-            display: block;
-            font-size: 24px;
-            color: #d4af87;
-            margin-top: 15px;
-            opacity: 0.6;
+            overflow: hidden;
         }
         
-        h1 {
-            font-size: 24px;
-            letter-spacing: 4px;
-            margin-bottom: 15px;
-            color: #d4af87;
-            font-weight: 400;
-            text-transform: uppercase;
-            font-family: 'Montserrat', sans-serif;
-        }
-        
-        h2 {
-            font-size: 42px;
-            margin: 20px 0;
-            color: #8b7355;
-            font-weight: 500;
-            font-family: 'Playfair Display', serif;
-            position: relative;
-            display: inline-block;
-            line-height: 1.2;
-        }
-
-        h2::before, h2::after {
-            content: '✦';
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            color: #d4af87;
-            font-size: 16px;
-            opacity: 0.6;
-        }
-
-        h2::before {
-            left: -30px;
-        }
-
-        h2::after {
-            right: -30px;
-        }
-        
-        .date {
-            font-size: 20px;
-            margin: 30px 0;
-            color: #d4af87;
-            font-weight: 500;
-            letter-spacing: 1px;
-            position: relative;
-            display: inline-block;
-            padding: 0 20px;
-        }
-
-        .date::before, .date::after {
+        .custom-invitation::before {
             content: '';
             position: absolute;
-            top: 50%;
-            width: 40px;
-            height: 1px;
-            background: linear-gradient(90deg, transparent, #d4af87);
-        }
-
-        .date::before {
-            left: -40px;
-            background: linear-gradient(90deg, #d4af87, transparent);
-        }
-
-        .date::after {
-            right: -40px;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #d4af87, #c19a67, #d4af87);
+            border-radius: 12px 12px 0 0;
         }
         
-        .childhood-photos {
-            display: flex;
-            justify-content: center;
-            gap: 25px;
-            margin: 50px 0;
-            flex-wrap: wrap;
-        }
-        
-        .photo-container {
-            width: 45%;
-            max-width: 220px;
-            height: 280px;
-            overflow: hidden;
-            position: relative;
-            border-radius: 8px;
-            box-shadow: 0 10px 25px rgba(139, 115, 85, 0.1), 0 5px 10px rgba(139, 115, 85, 0.05);
-            transition: transform 0.4s ease, box-shadow 0.4s ease;
-            background: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise' x='0' y='0'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='1' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100' height='100' filter='url(%23noise)' opacity='0.08'/%3E%3C/svg%3E"), linear-gradient(135deg, #fdfaf5 0%, #f9f4eb 100%);
-            padding: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .photo-container:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(139, 115, 85, 0.15), 0 8px 15px rgba(139, 115, 85, 0.08);
-        }
-        
-        .photo-frame {
-            position: relative;
+        .invitation-image {
             width: 100%;
-            height: 100%;
-            padding: 8px;
-            background: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23d4af87' fill-opacity='0.05'%3E%3Cpath d='M0,0 L20,0 L20,20 L0,20 Z' fill='none'/%3E%3Cpath d='M0,0 L20,20 M20,0 L0,20' stroke-width='0.5'/%3E%3C/g%3E%3C/svg%3E"), linear-gradient(135deg, #f5f0e6 0%, #ece5d8 100%);
-            border-radius: 6px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            margin: 0 auto;
         }
         
-        .child-photo {
+        .invitation-image img {
             width: 100%;
-            height: 100%;
-            object-fit: cover;
-            object-position: center;
-            border: none;
+            height: auto;
             display: block;
-            border-radius: 4px;
-            border: 1px solid rgba(212, 175, 135, 0.2);
-            box-shadow: inset 0 0 10px rgba(139, 115, 85, 0.1);
-        }
-        
-        .humor-note {
-            font-size: 14px;
-            color: #a08c6f;
-            font-style: italic;
-            margin-top: 5px;
-            text-align: center;
-            opacity: 0.7;
         }
         
         .greeting {
@@ -268,6 +156,7 @@
         .program-event {
             font-size: 17px;
             color: #5a4d3a;
+            flex: 1;
         }
         
         .program-note {
@@ -523,33 +412,81 @@
             opacity: 0.5;
         }
 
+        /* Новые стили для дресс-кода */
+        .dress-code {
+            text-align: center;
+            margin: 40px 0;
+            padding: 30px 25px;
+            background: rgba(253, 250, 245, 0.8);
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(139, 115, 85, 0.1);
+            border: 1px solid rgba(212, 175, 135, 0.15);
+            position: relative;
+        }
+
+        .dress-code::before {
+            content: '👔';
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: white;
+            padding: 5px 10px;
+            border-radius: 50%;
+            font-size: 20px;
+            box-shadow: 0 3px 10px rgba(139, 115, 85, 0.1);
+        }
+
+        .dress-code-title {
+            font-size: 26px;
+            margin-bottom: 15px;
+            color: #8b7355;
+            font-weight: 500;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .dress-code-description {
+            font-size: 17px;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            color: #5a4d3a;
+        }
+
+        .dress-code-humor {
+            font-size: 16px;
+            color: #a08c6f;
+            font-style: italic;
+            line-height: 1.6;
+            margin-top: 15px;
+        }
+
+        /* Стили для второй кнопки музыки */
+        .program-music-btn {
+            display: block;
+            width: 100%;
+            padding: 12px;
+            background: linear-gradient(135deg, #8b7355, #6d5a3f);
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 8px;
+            font-size: 16px;
+            margin: 20px 0;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 10px rgba(139, 115, 85, 0.2);
+            font-weight: 500;
+            border: none;
+            cursor: pointer;
+        }
+
+        .program-music-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(139, 115, 85, 0.3);
+        }
+
         @media (max-width: 768px) {
             .container {
                 padding: 15px 15px 30px;
-            }
-            
-            h2 {
-                font-size: 36px;
-            }
-            
-            h2::before, h2::after {
-                display: none;
-            }
-            
-            .date {
-                font-size: 18px;
-            }
-            
-            .childhood-photos {
-                flex-direction: column;
-                align-items: center;
-                gap: 20px;
-            }
-            
-            .photo-container {
-                width: 85%;
-                max-width: 280px;
-                height: 220px;
             }
             
             .music-player {
@@ -568,19 +505,6 @@
                 padding: 10px 10px 20px;
             }
             
-            h2 {
-                font-size: 32px;
-            }
-            
-            .date {
-                font-size: 16px;
-            }
-            
-            .photo-container {
-                width: 90%;
-                height: 200px;
-            }
-            
             .program-item {
                 flex-direction: column;
                 text-align: center;
@@ -594,26 +518,10 @@
 </head>
 <body>
     <div class="container">
-        <div class="header">
-            <h1>Приглашение на свадьбу</h1>
-            <h2>Владислав & Анастасия</h2>
-            <div class="date">12 декабря 2025</div>
-            
-            <div class="childhood-photos">
-                <div class="photo-container">
-                    <div class="photo-frame">
-                        <img src="22/vlad-child.jpg" alt="Владислав в детстве" class="child-photo" onerror="this.style.display='none'; this.parentNode.innerHTML='<div class=\'photo-placeholder\'>Фото Владислава в детстве</div>';">
-                    </div>
-                </div>
-                <div class="photo-container">
-                    <div class="photo-frame">
-                        <img src="22/nastya-child.jpg" alt="Анастасия в детстве" class="child-photo" onerror="this.style.display='none'; this.parentNode.innerHTML='<div class=\'photo-placeholder\'>Фото Анастасии в детстве</div>';">
-                    </div>
-                </div>
-            </div>
-            
-            <div class="humor-note">
-                Да-да, это мы! Те самые милые дети, которые когда-то думали, что брак - это когда делишься конфетами
+        <!-- Ваше приглашение с изображением -->
+        <div class="custom-invitation">
+            <div class="invitation-image">
+                <img src="уауауа.jfif" alt="Свадебное приглашение">
             </div>
         </div>
         
@@ -630,42 +538,72 @@
             
             <div class="program-item">
                 <div class="program-time">14:30</div>
-                <div class="program-event">Сбор гостей</div>
+                <div class="program-event">Сбор гостей
+                    <div class="program-note">Приходите пораньше, чтобы занять лучшие места для фото!</div>
+                </div>
             </div>
             
             <div class="program-item">
                 <div class="program-time">15:00</div>
-                <div class="program-event">Торжественная церемония</div>
+                <div class="program-event">Торжественная церемония
+                    <div class="program-note">Тот самый момент, когда мы скажем "ДА!"</div>
+                </div>
             </div>
             
             <div class="program-item">
                 <div class="program-time">16:00</div>
-                <div class="program-event">Первые танцы молодых</div>
+                <div class="program-event">Первые танцы молодых
+                    <div class="program-note">Готовьте телефоны - будет много милых моментов!</div>
+                </div>
             </div>
+            
+            <button class="program-music-btn" onclick="toggleFirstDanceMusic()">🎵 Включить музыку для первого танца</button>
             
             <div class="program-item">
                 <div class="program-time">17:00</div>
-                <div class="program-event">Банкет: тосты и поздравления</div>
+                <div class="program-event">Банкет: тосты и поздравления
+                    <div class="program-note">Готовьте самые трогательные речи!</div>
+                </div>
             </div>
             
             <div class="program-item">
                 <div class="program-time">18:30</div>
-                <div class="program-event">Конкурсы и развлечения</div>
+                <div class="program-event">Конкурсы и развлечения
+                    <div class="program-note">Призы гарантированы, хорошее настроение - обязательно!</div>
+                </div>
             </div>
             
             <div class="program-item">
                 <div class="program-time">20:00</div>
-                <div class="program-event">Торжественное разрезание торта</div>
+                <div class="program-event">Торжественное разрезание торта
+                    <div class="program-note">Сладости для всех!</div>
+                </div>
             </div>
             
             <div class="program-item">
                 <div class="program-time">20:30</div>
-                <div class="program-event">Танцы и дискотека</div>
+                <div class="program-event">Танцы и дискотека
+                    <div class="program-note">Готовьте свои танцевальные па!</div>
+                </div>
             </div>
             
             <div class="program-item">
                 <div class="program-time">21:00</div>
-                <div class="program-event">Окончание праздника</div>
+                <div class="program-event">Окончание праздника
+                    <div class="program-note">Но дружба и любовь остаются навсегда!</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="dress-code">
+            <div class="dress-code-title">Дресс-код</div>
+            <div class="dress-code-description">
+                Мы будем рады, если вы поддержите цветовую гамму нашего праздника:<br>
+                <strong>Элегантные наряды в пастельных тонах</strong>
+            </div>
+            <div class="dress-code-humor">
+                P.S. Не переживайте слишком сильно о нарядах! Главное - ваше присутствие и хорошее настроение.<br>
+                Но если появится желание надеть что-то сверкающее - мы только "за"! ✨
             </div>
         </div>
         
@@ -759,9 +697,17 @@
         Ваш браузер не поддерживает аудио элемент.
     </audio>
 
+    <audio id="firstDanceMusic">
+        <source src="22/first-dance-music.mp3" type="audio/mpeg">
+        <source src="22/first-dance-music.ogg" type="audio/ogg">
+        Ваш браузер не поддерживает аудио элемент.
+    </audio>
+
     <script>
         const music = document.getElementById('weddingMusic');
+        const firstDanceMusic = document.getElementById('firstDanceMusic');
         let isPlaying = false;
+        let isFirstDancePlaying = false;
 
         function toggleMusic() {
             if (isPlaying) {
@@ -769,6 +715,12 @@
                 isPlaying = false;
                 document.querySelector('.music-btn').innerHTML = '♫';
             } else {
+                // Останавливаем музыку первого танца если она играет
+                if (isFirstDancePlaying) {
+                    firstDanceMusic.pause();
+                    isFirstDancePlaying = false;
+                }
+                
                 music.play().then(() => {
                     isPlaying = true;
                     document.querySelector('.music-btn').innerHTML = '❚❚';
@@ -778,9 +730,31 @@
             }
         }
 
+        function toggleFirstDanceMusic() {
+            if (isFirstDancePlaying) {
+                firstDanceMusic.pause();
+                isFirstDancePlaying = false;
+                document.querySelector('.program-music-btn').innerHTML = '🎵 Включить музыку для первого танца';
+            } else {
+                // Останавливаем основную музыку если она играет
+                if (isPlaying) {
+                    music.pause();
+                    isPlaying = false;
+                    document.querySelector('.music-btn').innerHTML = '♫';
+                }
+                
+                firstDanceMusic.play().then(() => {
+                    isFirstDancePlaying = true;
+                    document.querySelector('.program-music-btn').innerHTML = '❚❚ Остановить музыку';
+                }).catch(e => {
+                    alert('Нажмите на кнопку музыки еще раз чтобы включить');
+                });
+            }
+        }
+
         let firstClick = true;
         document.addEventListener('click', function() {
-            if (firstClick && !isPlaying) {
+            if (firstClick && !isPlaying && !isFirstDancePlaying) {
                 firstClick = false;
                 setTimeout(() => {
                     music.play().then(() => {
