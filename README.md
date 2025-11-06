@@ -12,13 +12,13 @@
         }
         
         body {
-            background-color: #fefefe;
+            background-color: #e5cabf;
             color: #5a4d3a;
             line-height: 1.7;
             max-width: 100%;
             overflow-x: hidden;
             font-family: 'Montserrat', sans-serif;
-            background: linear-gradient(135deg, #fdfaf5 0%, #f9f4eb 100%);
+            background: linear-gradient(135deg, #e5cabf 0%, #d8b4a5 100%);
             position: relative;
         }
 
@@ -30,9 +30,9 @@
             right: 0;
             bottom: 0;
             background-image: 
-                radial-gradient(circle at 20% 80%, rgba(212, 175, 135, 0.03) 0%, transparent 50%),
-                radial-gradient(circle at 80% 20%, rgba(212, 175, 135, 0.03) 0%, transparent 50%),
-                radial-gradient(circle at 40% 40%, rgba(212, 175, 135, 0.02) 0%, transparent 50%);
+                radial-gradient(circle at 20% 80%, rgba(120, 90, 80, 0.05) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(120, 90, 80, 0.05) 0%, transparent 50%),
+                radial-gradient(circle at 40% 40%, rgba(120, 90, 80, 0.03) 0%, transparent 50%);
             pointer-events: none;
             z-index: -1;
         }
@@ -48,8 +48,8 @@
             background: rgba(255, 253, 250, 0.9);
             padding: 0;
             border-radius: 12px;
-            box-shadow: 0 8px 25px rgba(139, 115, 85, 0.1);
-            border: 1px solid rgba(212, 175, 135, 0.15);
+            box-shadow: 0 8px 25px rgba(139, 115, 85, 0.15);
+            border: 1px solid rgba(212, 175, 135, 0.2);
             margin-bottom: 40px;
             text-align: center;
             position: relative;
@@ -78,107 +78,15 @@
             display: block;
         }
         
-        .greeting {
-            font-size: 18px;
-            margin: 40px 0;
-            text-align: center;
-            line-height: 1.8;
-            background: rgba(255, 253, 250, 0.7);
-            padding: 25px;
-            border-radius: 12px;
-            box-shadow: 0 5px 15px rgba(139, 115, 85, 0.05);
-            border: 1px solid rgba(212, 175, 135, 0.1);
-            position: relative;
-        }
-
-        .greeting::before {
-            content: '"';
-            position: absolute;
-            top: -10px;
-            left: 20px;
-            font-size: 60px;
-            color: rgba(212, 175, 135, 0.2);
-            font-family: 'Playfair Display', serif;
-            line-height: 1;
-        }
-        
-        .section {
-            margin: 45px 0;
-            padding: 0 10px;
-        }
-        
-        .section-title {
-            font-size: 26px;
-            margin-bottom: 25px;
-            padding-bottom: 12px;
-            border-bottom: 1px solid rgba(212, 175, 135, 0.3);
-            color: #8b7355;
-            font-weight: 500;
-            font-family: 'Playfair Display', serif;
-            text-align: center;
-            position: relative;
-        }
-
-        .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: -1px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 2px;
-            background: linear-gradient(90deg, transparent, #d4af87, transparent);
-        }
-        
-        .program-item {
-            display: flex;
-            justify-content: space-between;
-            margin: 22px 0;
-            padding: 18px 20px;
-            background: rgba(255, 253, 250, 0.7);
-            border-radius: 10px;
-            box-shadow: 0 3px 10px rgba(139, 115, 85, 0.05);
-            border-left: 3px solid #d4af87;
-            transition: transform 0.3s ease;
-        }
-
-        .program-item:hover {
-            transform: translateX(5px);
-        }
-        
-        .program-time {
-            font-weight: 600;
-            color: #d4af87;
-            font-size: 18px;
-            min-width: 70px;
-        }
-        
-        .program-event {
-            font-size: 17px;
-            color: #5a4d3a;
-            flex: 1;
-        }
-        
-        .program-note {
-            font-size: 14px;
-            color: #a08c6f;
-            font-style: italic;
-            margin-top: 5px;
-            text-align: left;
-            opacity: 0.8;
-            padding-left: 10px;
-            border-left: 2px solid rgba(212, 175, 135, 0.3);
-        }
-        
         .address {
             font-size: 18px;
             text-align: center;
             margin: 30px 0;
             padding: 25px;
-            background: rgba(255, 253, 250, 0.7);
+            background: rgba(255, 253, 250, 0.8);
             border-radius: 12px;
-            box-shadow: 0 5px 15px rgba(139, 115, 85, 0.05);
-            border: 1px solid rgba(212, 175, 135, 0.1);
+            box-shadow: 0 5px 15px rgba(139, 115, 85, 0.1);
+            border: 1px solid rgba(212, 175, 135, 0.15);
             position: relative;
         }
 
@@ -221,7 +129,7 @@
             text-align: center;
             margin: 40px 0;
             padding: 30px 25px;
-            background: rgba(253, 250, 245, 0.8);
+            background: rgba(253, 250, 245, 0.85);
             border-radius: 15px;
             box-shadow: 0 8px 25px rgba(139, 115, 85, 0.1);
             border: 1px solid rgba(212, 175, 135, 0.15);
@@ -266,7 +174,7 @@
             border: 1px solid rgba(212, 175, 135, 0.3);
             border-radius: 8px;
             font-size: 16px;
-            background: rgba(255, 255, 255, 0.8);
+            background: rgba(255, 255, 255, 0.9);
             transition: all 0.3s ease;
             font-family: 'Montserrat', sans-serif;
         }
@@ -300,32 +208,6 @@
             box-shadow: 0 8px 20px rgba(139, 115, 85, 0.3);
         }
         
-        .couple-photo-container {
-            width: 100%;
-            max-width: 450px;
-            height: 320px;
-            margin: 30px auto;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 15px 35px rgba(139, 115, 85, 0.15), 0 5px 15px rgba(139, 115, 85, 0.1);
-            position: relative;
-            background: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise' x='0' y='0'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='1' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100' height='100' filter='url(%23noise)' opacity='0.08'/%3E%3C/svg%3E"), linear-gradient(135deg, #fdfaf5 0%, #f9f4eb 100%);
-            padding: 12px;
-        }
-        
-        .couple-photo {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            object-position: center;
-            transition: transform 0.5s ease;
-            border-radius: 6px;
-        }
-
-        .couple-photo-container:hover .couple-photo {
-            transform: scale(1.03);
-        }
-        
         .hearts {
             text-align: center;
             font-size: 2.2em;
@@ -345,11 +227,11 @@
             font-size: 18px;
             margin: 25px 0;
             line-height: 1.8;
-            background: rgba(255, 253, 250, 0.7);
+            background: rgba(255, 253, 250, 0.8);
             padding: 25px;
             border-radius: 12px;
-            box-shadow: 0 5px 15px rgba(139, 115, 85, 0.05);
-            border: 1px solid rgba(212, 175, 135, 0.1);
+            box-shadow: 0 5px 15px rgba(139, 115, 85, 0.1);
+            border: 1px solid rgba(212, 175, 135, 0.15);
         }
         
         .music-player {
@@ -384,24 +266,10 @@
             text-align: center;
             margin-top: 50px;
             font-size: 15px;
-            color: #a08c6f;
+            color: #8b7355;
             padding-top: 20px;
             border-top: 1px solid rgba(212, 175, 135, 0.2);
             font-style: italic;
-        }
-        
-        .photo-placeholder {
-            width: 100%;
-            height: 100%;
-            background: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise' x='0' y='0'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='1' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100' height='100' filter='url(%23noise)' opacity='0.08'/%3E%3C/svg%3E"), linear-gradient(135deg, #fdfaf5 0%, #f9f4eb 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #d4af87;
-            font-size: 16px;
-            text-align: center;
-            border: 2px dashed #d4af87;
-            border-radius: 8px;
         }
         
         .floral-divider {
@@ -410,78 +278,6 @@
             color: #d4af87;
             font-size: 24px;
             opacity: 0.5;
-        }
-
-        /* Новые стили для дресс-кода */
-        .dress-code {
-            text-align: center;
-            margin: 40px 0;
-            padding: 30px 25px;
-            background: rgba(253, 250, 245, 0.8);
-            border-radius: 15px;
-            box-shadow: 0 8px 25px rgba(139, 115, 85, 0.1);
-            border: 1px solid rgba(212, 175, 135, 0.15);
-            position: relative;
-        }
-
-        .dress-code::before {
-            content: '👔';
-            position: absolute;
-            top: -15px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: white;
-            padding: 5px 10px;
-            border-radius: 50%;
-            font-size: 20px;
-            box-shadow: 0 3px 10px rgba(139, 115, 85, 0.1);
-        }
-
-        .dress-code-title {
-            font-size: 26px;
-            margin-bottom: 15px;
-            color: #8b7355;
-            font-weight: 500;
-            font-family: 'Playfair Display', serif;
-        }
-
-        .dress-code-description {
-            font-size: 17px;
-            line-height: 1.6;
-            margin-bottom: 20px;
-            color: #5a4d3a;
-        }
-
-        .dress-code-humor {
-            font-size: 16px;
-            color: #a08c6f;
-            font-style: italic;
-            line-height: 1.6;
-            margin-top: 15px;
-        }
-
-        /* Стили для второй кнопки музыки */
-        .program-music-btn {
-            display: block;
-            width: 100%;
-            padding: 12px;
-            background: linear-gradient(135deg, #8b7355, #6d5a3f);
-            color: white;
-            text-align: center;
-            text-decoration: none;
-            border-radius: 8px;
-            font-size: 16px;
-            margin: 20px 0;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 10px rgba(139, 115, 85, 0.2);
-            font-weight: 500;
-            border: none;
-            cursor: pointer;
-        }
-
-        .program-music-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 15px rgba(139, 115, 85, 0.3);
         }
 
         @media (max-width: 768px) {
@@ -504,108 +300,19 @@
             .container {
                 padding: 10px 10px 20px;
             }
-            
-            .program-item {
-                flex-direction: column;
-                text-align: center;
-            }
-            
-            .program-time {
-                margin-bottom: 5px;
-            }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <!-- Ваше приглашение с изображением -->
+        <!-- Ваше длинное приглашение с изображением -->
         <div class="custom-invitation">
             <div class="invitation-image">
-                <img src="22/уауауа.jpg" alt="Свадебное приглашение">
+                <img src="long-invitation.jpg" alt="Свадебное приглашение">
             </div>
-        </div>
-        
-        <div class="greeting">
-            Дорогие наши родные и друзья!<br><br>
-            Мы с радостью приглашаем вас разделить с нами самый важный день в нашей жизни - день нашей свадьбы. 
-            Этот праздник был бы неполным без тех, кто сопровождал нас на пути друг к другу.
         </div>
 
         <div class="floral-divider">❀ ❀ ❀</div>
-        
-        <div class="section">
-            <div class="section-title">Программа дня</div>
-            
-            <div class="program-item">
-                <div class="program-time">14:30</div>
-                <div class="program-event">Сбор гостей
-                    <div class="program-note">Приходите пораньше, чтобы занять лучшие места для фото!</div>
-                </div>
-            </div>
-            
-            <div class="program-item">
-                <div class="program-time">15:00</div>
-                <div class="program-event">Торжественная церемония
-                    <div class="program-note">Тот самый момент, когда мы скажем "ДА!"</div>
-                </div>
-            </div>
-            
-            <div class="program-item">
-                <div class="program-time">16:00</div>
-                <div class="program-event">Первые танцы молодых
-                    <div class="program-note">Готовьте телефоны - будет много милых моментов!</div>
-                </div>
-            </div>
-            
-            <button class="program-music-btn" onclick="toggleFirstDanceMusic()">🎵 Включить музыку для первого танца</button>
-            
-            <div class="program-item">
-                <div class="program-time">17:00</div>
-                <div class="program-event">Банкет: тосты и поздравления
-                    <div class="program-note">Готовьте самые трогательные речи!</div>
-                </div>
-            </div>
-            
-            <div class="program-item">
-                <div class="program-time">18:30</div>
-                <div class="program-event">Конкурсы и развлечения
-                    <div class="program-note">Призы гарантированы, хорошее настроение - обязательно!</div>
-                </div>
-            </div>
-            
-            <div class="program-item">
-                <div class="program-time">20:00</div>
-                <div class="program-event">Торжественное разрезание торта
-                    <div class="program-note">Сладости для всех!</div>
-                </div>
-            </div>
-            
-            <div class="program-item">
-                <div class="program-time">20:30</div>
-                <div class="program-event">Танцы и дискотека
-                    <div class="program-note">Готовьте свои танцевальные па!</div>
-                </div>
-            </div>
-            
-            <div class="program-item">
-                <div class="program-time">21:00</div>
-                <div class="program-event">Окончание праздника
-                    <div class="program-note">Но дружба и любовь остаются навсегда!</div>
-                </div>
-            </div>
-        </div>
-
-        <div class="dress-code">
-            <div class="dress-code-title">Дресс-код</div>
-            <div class="dress-code-description">
-                Мы будем рады, если вы поддержите цветовую гамму нашего праздника:<br>
-                <strong>Элегантные наряды в пастельных тонах</strong>
-            </div>
-            <div class="dress-code-humor">
-                P.S. Не переживайте слишком сильно о нарядах! Главное - ваше присутствие и хорошее настроение.<br>
-                Но если появится желание надеть что-то сверкающее - мы только "за"! ✨
-            </div>
-        </div>
         
         <div class="address">
             Ждём вас в банкетном зале<br>
@@ -643,20 +350,18 @@
                     <select id="companions" name="companions">
                         <option value="1">1 человек</option>
                         <option value="2">2 человека</option>
-                        <option value="3">3 человека</option>
-                        <option value="4">4 человека</option>
+                        <option value="2">3 человека</option>
                     </select>
                 </div>
 
                 <div class="form-group">
                     <label for="alcohol">Ваши предпочтения в напитках</label>
                     <select id="alcohol" name="alcohol">
-                        <option value="none">Не употребляю алкоголь</option>
-                        <option value="wine">Вино (красное/белое)</option>
-                        <option value="champagne">Шампанское/игристое</option>
-                        <option value="strong">Крепкие напитки</option>
-                        <option value="all">Любые напитки</option>
-                        <option value="other">Свой вариант (напишите в пожеланиях)</option>
+                        <option value="none">💧 Я сегодня трезвый, слежу за порядком</option>
+                        <option value="wine">🍷 Вино (красное/белое) — для ценителей </option>
+                        <option value="champagne">🥂 Шампанское - чтобы любовь искрилась!</option>
+                        <option value="strong">🎯 Любые напитки - я доверяю вашему вкусу!</option>
+                        <option value="other">💫 У меня есть особые пожелания...(напишите в пожеланиях)</option>
                     </select>
                 </div>
                 
@@ -669,10 +374,6 @@
                 
                 <button type="submit" class="submit-button">ОТПРАВИТЬ ОТВЕТ</button>
             </form>
-        </div>
-        
-        <div class="couple-photo-container">
-            <img src="22/our-photo.jpg" alt="Владислав и Анастасия" class="couple-photo" onerror="this.style.display='none'; this.parentNode.innerHTML='<div class=\'photo-placeholder\' style=\'height:320px\'>Наше совместное фото</div>';">
         </div>
         
         <div class="hearts">💖 💕 💗 💓 💞</div>
@@ -697,17 +398,9 @@
         Ваш браузер не поддерживает аудио элемент.
     </audio>
 
-    <audio id="firstDanceMusic">
-        <source src="22/first-dance-music.mp3" type="audio/mpeg">
-        <source src="22/first-dance-music.ogg" type="audio/ogg">
-        Ваш браузер не поддерживает аудио элемент.
-    </audio>
-
     <script>
         const music = document.getElementById('weddingMusic');
-        const firstDanceMusic = document.getElementById('firstDanceMusic');
         let isPlaying = false;
-        let isFirstDancePlaying = false;
 
         function toggleMusic() {
             if (isPlaying) {
@@ -715,12 +408,6 @@
                 isPlaying = false;
                 document.querySelector('.music-btn').innerHTML = '♫';
             } else {
-                // Останавливаем музыку первого танца если она играет
-                if (isFirstDancePlaying) {
-                    firstDanceMusic.pause();
-                    isFirstDancePlaying = false;
-                }
-                
                 music.play().then(() => {
                     isPlaying = true;
                     document.querySelector('.music-btn').innerHTML = '❚❚';
@@ -730,31 +417,9 @@
             }
         }
 
-        function toggleFirstDanceMusic() {
-            if (isFirstDancePlaying) {
-                firstDanceMusic.pause();
-                isFirstDancePlaying = false;
-                document.querySelector('.program-music-btn').innerHTML = '🎵 Включить музыку для первого танца';
-            } else {
-                // Останавливаем основную музыку если она играет
-                if (isPlaying) {
-                    music.pause();
-                    isPlaying = false;
-                    document.querySelector('.music-btn').innerHTML = '♫';
-                }
-                
-                firstDanceMusic.play().then(() => {
-                    isFirstDancePlaying = true;
-                    document.querySelector('.program-music-btn').innerHTML = '❚❚ Остановить музыку';
-                }).catch(e => {
-                    alert('Нажмите на кнопку музыки еще раз чтобы включить');
-                });
-            }
-        }
-
         let firstClick = true;
         document.addEventListener('click', function() {
-            if (firstClick && !isPlaying && !isFirstDancePlaying) {
+            if (firstClick && !isPlaying) {
                 firstClick = false;
                 setTimeout(() => {
                     music.play().then(() => {
