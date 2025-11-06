@@ -521,7 +521,7 @@
         <!-- Ваше приглашение с изображением -->
         <div class="custom-invitation">
             <div class="invitation-image">
-                <img src="уауауа.jfif" alt="Свадебное приглашение">
+                <img src="22/уауауа.jfif" alt="Свадебное приглашение">
             </div>
         </div>
         
