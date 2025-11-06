@@ -74,7 +74,7 @@
             width: 100%;
         }
         
-        .vertical-gallery  {
+        .vertical-gallery img {
             width: 100%;
             height: auto;
             display: block;
@@ -82,7 +82,7 @@
         }
         
         /* Убираем любые промежутки между фото */
-        .vertical-gallery :not(:last-child) {
+        .vertical-gallery img:not(:last-child) {
             margin-bottom: 0;
             border-bottom: none;
         }
