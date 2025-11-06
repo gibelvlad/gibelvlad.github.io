@@ -12,13 +12,13 @@
         }
         
         body {
-            background-color: #e5cabf;
+            background-color: #e9cec5;
             color: #5a4d3a;
             line-height: 1.7;
             max-width: 100%;
             overflow-x: hidden;
             font-family: 'Montserrat', sans-serif;
-            background: linear-gradient(135deg, #e5cabf 0%, #d8b4a5 100%);
+            background: linear-gradient(135deg, #e9cec5 0%, #eedad3 100%);
             position: relative;
         }
 
@@ -30,9 +30,9 @@
             right: 0;
             bottom: 0;
             background-image: 
-                radial-gradient(circle at 20% 80%, rgba(120, 90, 80, 0.05) 0%, transparent 50%),
-                radial-gradient(circle at 80% 20%, rgba(120, 90, 80, 0.05) 0%, transparent 50%),
-                radial-gradient(circle at 40% 40%, rgba(120, 90, 80, 0.03) 0%, transparent 50%);
+                radial-gradient(circle at 20% 80%, rgba(201, 34, 54, 0.05) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(201, 34, 54, 0.05) 0%, transparent 50%),
+                radial-gradient(circle at 40% 40%, rgba(201, 34, 54, 0.03) 0%, transparent 50%);
             pointer-events: none;
             z-index: -1;
         }
@@ -41,15 +41,17 @@
             max-width: 600px;
             margin: 0 auto;
             padding: 20px 20px 40px;
+            position: relative;
+            z-index: 2;
         }
         
         /* Стили для вашего приглашения */
         .custom-invitation {
-            background: rgba(255, 253, 250, 0.9);
+            background: rgba(248, 247, 243, 0.95);
             padding: 0;
             border-radius: 12px;
-            box-shadow: 0 8px 25px rgba(139, 115, 85, 0.15);
-            border: 1px solid rgba(212, 175, 135, 0.2);
+            box-shadow: 0 8px 25px rgba(201, 34, 54, 0.15);
+            border: 1px solid rgba(201, 34, 54, 0.1);
             margin-bottom: 40px;
             text-align: center;
             position: relative;
@@ -63,19 +65,23 @@
             left: 0;
             right: 0;
             height: 3px;
-            background: linear-gradient(90deg, #d4af87, #c19a67, #d4af87);
+            background: linear-gradient(90deg, #c92236, #e9cec5, #c92236);
             border-radius: 12px 12px 0 0;
         }
         
         .invitation-image {
             width: 100%;
             margin: 0 auto;
+            position: relative;
+            overflow: hidden;
         }
         
         .invitation-image img {
             width: 100%;
             height: auto;
             display: block;
+            position: relative;
+            z-index: 1;
         }
         
         .address {
@@ -83,11 +89,12 @@
             text-align: center;
             margin: 30px 0;
             padding: 25px;
-            background: rgba(255, 253, 250, 0.8);
+            background: rgba(248, 247, 243, 0.9);
             border-radius: 12px;
-            box-shadow: 0 5px 15px rgba(139, 115, 85, 0.1);
-            border: 1px solid rgba(212, 175, 135, 0.15);
+            box-shadow: 0 5px 15px rgba(201, 34, 54, 0.1);
+            border: 1px solid rgba(201, 34, 54, 0.08);
             position: relative;
+            z-index: 2;
         }
 
         .address::before {
@@ -96,44 +103,111 @@
             top: -15px;
             left: 50%;
             transform: translateX(-50%);
-            background: white;
+            background: #f8f7f3;
             padding: 5px 10px;
             border-radius: 50%;
             font-size: 20px;
-            box-shadow: 0 3px 10px rgba(139, 115, 85, 0.1);
+            box-shadow: 0 3px 10px rgba(201, 34, 54, 0.1);
+            color: #c92236;
         }
         
+        /* Новая кнопка в вашей цветовой гамме */
         .map-button {
+            position: relative;
             display: block;
             width: 100%;
-            padding: 16px;
-            background: linear-gradient(135deg, #d4af87, #c19a67);
-            color: white;
-            text-align: center;
-            text-decoration: none;
-            border-radius: 10px;
+            padding: 18px 32px;
+            background: linear-gradient(135deg, #c92236, #b31e30);
+            color: #f8f7f3;
+            border: none;
+            border-radius: 50px;
             font-size: 18px;
-            margin: 25px 0;
-            transition: all 0.3s ease;
-            box-shadow: 0 5px 15px rgba(139, 115, 85, 0.2);
             font-weight: 500;
+            cursor: pointer;
+            text-decoration: none;
+            text-align: center;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(201, 34, 54, 0.4);
+            font-family: 'Montserrat', sans-serif;
             letter-spacing: 0.5px;
+            margin: 25px 0;
+            z-index: 2;
         }
 
         .map-button:hover {
             transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(139, 115, 85, 0.3);
+            box-shadow: 0 8px 25px rgba(201, 34, 54, 0.6);
+            background: linear-gradient(135deg, #d9263a, #c92236);
+        }
+
+        .map-button:active {
+            transform: translateY(1px);
+        }
+
+        /* Анимация пузырьков в цветовой гамме */
+        @keyframes bubble {
+            0% {
+                transform: translateY(0) scale(0.5);
+                opacity: 0;
+            }
+            50% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-80px) scale(1.2);
+                opacity: 0;
+            }
+        }
+
+        .bubble {
+            position: absolute;
+            bottom: -20px;
+            background: rgba(248, 247, 243, 0.7);
+            border-radius: 50%;
+            pointer-events: none;
+            animation: bubble 2s infinite;
+        }
+
+        /* Случайные позиции и размеры пузырьков */
+        .bubble:nth-child(1) {
+            left: 20%;
+            width: 20px;
+            height: 20px;
+            animation-delay: 0s;
+        }
+
+        .bubble:nth-child(2) {
+            left: 40%;
+            width: 15px;
+            height: 15px;
+            animation-delay: 0.5s;
+        }
+
+        .bubble:nth-child(3) {
+            left: 60%;
+            width: 25px;
+            height: 25px;
+            animation-delay: 1s;
+        }
+
+        .bubble:nth-child(4) {
+            left: 80%;
+            width: 18px;
+            height: 18px;
+            animation-delay: 1.5s;
         }
         
         .rsvp {
             text-align: center;
             margin: 40px 0;
             padding: 30px 25px;
-            background: rgba(253, 250, 245, 0.85);
+            background: rgba(248, 247, 243, 0.9);
             border-radius: 15px;
-            box-shadow: 0 8px 25px rgba(139, 115, 85, 0.1);
-            border: 1px solid rgba(212, 175, 135, 0.15);
+            box-shadow: 0 8px 25px rgba(201, 34, 54, 0.1);
+            border: 1px solid rgba(201, 34, 54, 0.08);
             position: relative;
+            z-index: 2;
         }
 
         .rsvp::before {
@@ -142,11 +216,12 @@
             top: -15px;
             left: 50%;
             transform: translateX(-50%);
-            background: white;
+            background: #f8f7f3;
             padding: 5px 10px;
             border-radius: 50%;
             font-size: 20px;
-            box-shadow: 0 3px 10px rgba(139, 115, 85, 0.1);
+            box-shadow: 0 3px 10px rgba(201, 34, 54, 0.1);
+            color: #c92236;
         }
         
         .poll-form {
@@ -162,7 +237,7 @@
             display: block;
             margin-bottom: 10px;
             font-weight: 500;
-            color: #8b7355;
+            color: #c92236;
             font-size: 16px;
         }
         
@@ -171,7 +246,7 @@
         .form-group textarea {
             width: 100%;
             padding: 14px;
-            border: 1px solid rgba(212, 175, 135, 0.3);
+            border: 1px solid rgba(201, 34, 54, 0.2);
             border-radius: 8px;
             font-size: 16px;
             background: rgba(255, 255, 255, 0.9);
@@ -183,38 +258,44 @@
         .form-group select:focus,
         .form-group textarea:focus {
             outline: none;
-            border-color: #d4af87;
-            box-shadow: 0 0 0 3px rgba(212, 175, 135, 0.1);
+            border-color: #c92236;
+            box-shadow: 0 0 0 3px rgba(201, 34, 54, 0.1);
         }
         
         .submit-button {
             width: 100%;
             padding: 16px;
-            background: linear-gradient(135deg, #8b7355, #6d5a3f);
-            color: white;
+            background: linear-gradient(135deg, #c92236, #b31e30);
+            color: #f8f7f3;
             border: none;
             border-radius: 8px;
             font-size: 18px;
             cursor: pointer;
             margin-top: 15px;
             transition: all 0.3s ease;
-            box-shadow: 0 5px 15px rgba(139, 115, 85, 0.2);
+            box-shadow: 0 5px 15px rgba(201, 34, 54, 0.3);
             font-weight: 500;
             letter-spacing: 0.5px;
+            position: relative;
+            overflow: hidden;
+            z-index: 2;
         }
 
         .submit-button:hover {
             transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(139, 115, 85, 0.3);
+            box-shadow: 0 8px 20px rgba(201, 34, 54, 0.4);
+            background: linear-gradient(135deg, #d9263a, #c92236);
         }
         
         .hearts {
             text-align: center;
             font-size: 2.2em;
-            color: #d4af87;
+            color: #c92236;
             margin: 25px 0;
             animation: heartbeat 1.5s infinite;
             letter-spacing: 10px;
+            z-index: 2;
+            position: relative;
         }
         
         @keyframes heartbeat {
@@ -227,11 +308,13 @@
             font-size: 18px;
             margin: 25px 0;
             line-height: 1.8;
-            background: rgba(255, 253, 250, 0.8);
+            background: rgba(248, 247, 243, 0.9);
             padding: 25px;
             border-radius: 12px;
-            box-shadow: 0 5px 15px rgba(139, 115, 85, 0.1);
-            border: 1px solid rgba(212, 175, 135, 0.15);
+            box-shadow: 0 5px 15px rgba(201, 34, 54, 0.1);
+            border: 1px solid rgba(201, 34, 54, 0.08);
+            position: relative;
+            z-index: 2;
         }
         
         .music-player {
@@ -245,12 +328,12 @@
             width: 55px;
             height: 55px;
             border-radius: 50%;
-            background: linear-gradient(135deg, #d4af87, #c19a67);
-            color: white;
+            background: linear-gradient(135deg, #c92236, #b31e30);
+            color: #f8f7f3;
             border: none;
             font-size: 1.4em;
             cursor: pointer;
-            box-shadow: 0 5px 15px rgba(139, 115, 85, 0.3);
+            box-shadow: 0 5px 15px rgba(201, 34, 54, 0.3);
             transition: all 0.3s ease;
             display: flex;
             align-items: center;
@@ -259,25 +342,95 @@
 
         .music-btn:hover {
             transform: scale(1.1);
-            box-shadow: 0 8px 20px rgba(139, 115, 85, 0.4);
+            box-shadow: 0 8px 20px rgba(201, 34, 54, 0.4);
         }
         
         .designer {
             text-align: center;
             margin-top: 50px;
             font-size: 15px;
-            color: #8b7355;
+            color: #c92236;
             padding-top: 20px;
-            border-top: 1px solid rgba(212, 175, 135, 0.2);
+            border-top: 1px solid rgba(201, 34, 54, 0.2);
             font-style: italic;
+            position: relative;
+            z-index: 2;
         }
         
         .floral-divider {
             text-align: center;
             margin: 30px 0;
-            color: #d4af87;
+            color: #c92236;
             font-size: 24px;
-            opacity: 0.5;
+            opacity: 0.7;
+            position: relative;
+            z-index: 2;
+        }
+
+        .section-title {
+            font-size: 24px;
+            color: #c92236;
+            margin-bottom: 15px;
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+        }
+
+        /* Стили для эффектов - теперь они будут только в определенных областях */
+        .effects-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+            overflow: hidden;
+        }
+
+        #effectsCanvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .success-message {
+            display: none;
+            text-align: center;
+            padding: 20px;
+            background: rgba(248, 247, 243, 0.95);
+            border-radius: 12px;
+            margin: 20px 0;
+            border: 2px solid #c92236;
+            box-shadow: 0 5px 20px rgba(201, 34, 54, 0.3);
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Контейнеры для боковых конфетти */
+        .side-confetti-left, .side-confetti-right {
+            position: absolute;
+            top: 0;
+            width: 100px;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .side-confetti-left {
+            left: 0;
+        }
+
+        .side-confetti-right {
+            right: 0;
+        }
+
+        .side-confetti-canvas {
+            position: absolute;
+            top: 0;
+            width: 100%;
+            height: 100%;
         }
 
         @media (max-width: 768px) {
@@ -294,21 +447,42 @@
                 width: 50px;
                 height: 50px;
             }
+            
+            .side-confetti-left, .side-confetti-right {
+                width: 60px;
+            }
         }
         
         @media (max-width: 480px) {
             .container {
                 padding: 10px 10px 20px;
             }
+            
+            .side-confetti-left, .side-confetti-right {
+                width: 40px;
+            }
         }
     </style>
 </head>
 <body>
+    <!-- Контейнер для эффектов на заднем плане -->
+    <div class="effects-container">
+        <canvas id="effectsCanvas"></canvas>
+    </div>
+
+    <!-- Контейнеры для боковых конфетти -->
+    <div class="side-confetti-left">
+        <canvas id="leftConfettiCanvas" class="side-confetti-canvas"></canvas>
+    </div>
+    <div class="side-confetti-right">
+        <canvas id="rightConfettiCanvas" class="side-confetti-canvas"></canvas>
+    </div>
+
     <div class="container">
         <!-- Ваше длинное приглашение с изображением -->
         <div class="custom-invitation">
             <div class="invitation-image">
-                <img src="22/long-invitation.jpg" alt="Свадебное приглашение">
+                <img src="long-invitation.jpg" alt="Свадебное приглашение" id="invitationImage">
             </div>
         </div>
 
@@ -320,13 +494,20 @@
             <em>Лесной тракт, 85</em>
         </div>
         
-        <a href="https://go.2gis.com/Kupg2" class="map-button" target="_blank">ПОСМОТРЕТЬ НА КАРТЕ</a>
+        <!-- Новая кнопка с пузырьками в вашей цветовой гамме -->
+        <a href="https://go.2gis.com/Kupg2" class="map-button" target="_blank">
+            ПОСМОТРЕТЬ НА КАРТЕ
+            <div class="bubble"></div>
+            <div class="bubble"></div>
+            <div class="bubble"></div>
+            <div class="bubble"></div>
+        </a>
         
         <div class="rsvp">
             <div class="section-title">Подтвердите участие</div>
             <p>Пожалуйста, ответьте до 1 декабря 2025 года</p>
             
-            <form class="poll-form" action="https://formspree.io/f/manlrqre" method="POST">
+            <form class="poll-form" id="rsvpForm" action="https://formspree.io/f/manlrqre" method="POST">
                 <input type="hidden" name="_subject" value="Новый ответ на свадьбу Владислава и Анастасии!">
                 <input type="hidden" name="_language" value="ru">
                 
@@ -372,7 +553,14 @@
                 
                 <input type="text" name="_gotcha" style="display: none;">
                 
-                <button type="submit" class="submit-button">ОТПРАВИТЬ ОТВЕТ</button>
+                <button type="submit" class="submit-button" id="submitBtn">
+                    ОТПРАВИТЬ ОТВЕТ
+                </button>
+                
+                <div class="success-message" id="successMessage">
+                    <h3>Спасибо за ваш ответ! 💖</h3>
+                    <p>Мы очень рады, что вы сможете разделить с нами этот особенный день!</p>
+                </div>
             </form>
         </div>
         
@@ -430,6 +618,333 @@
                     });
                 }, 1000);
             }
+        });
+
+        // Код для эффектов - теперь с раздельными canvas
+        const mainCanvas = document.getElementById('effectsCanvas');
+        const mainCtx = mainCanvas.getContext('2d');
+        
+        const leftCanvas = document.getElementById('leftConfettiCanvas');
+        const leftCtx = leftCanvas.getContext('2d');
+        
+        const rightCanvas = document.getElementById('rightConfettiCanvas');
+        const rightCtx = rightCanvas.getContext('2d');
+        
+        let particles = [];
+        let leftConfettiParticles = [];
+        let rightConfettiParticles = [];
+        let sideConfettiInterval;
+        let invitationFireworkPlayed = false;
+
+        // Цвета в вашей гамме
+        const colors = {
+            fireworks: ['#c92236', '#e9cec5', '#eedad3', '#f8f7f3', '#ffd700'],
+            confetti: ['#c92236', '#e9cec5', '#eedad3', '#f8f7f3', '#ffd700', '#c0c0c0']
+        };
+
+        // Установка размеров canvas
+        function resizeCanvases() {
+            mainCanvas.width = window.innerWidth;
+            mainCanvas.height = window.innerHeight;
+            
+            const invitationRect = document.querySelector('.custom-invitation').getBoundingClientRect();
+            const imageHeight = invitationRect.height;
+            
+            leftCanvas.width = 100;
+            leftCanvas.height = imageHeight;
+            rightCanvas.width = 100;
+            rightCanvas.height = imageHeight;
+            
+            // Позиционируем боковые canvas рядом с изображением
+            const leftContainer = document.querySelector('.side-confetti-left');
+            const rightContainer = document.querySelector('.side-confetti-right');
+            
+            leftContainer.style.top = invitationRect.top + 'px';
+            leftContainer.style.height = imageHeight + 'px';
+            rightContainer.style.top = invitationRect.top + 'px';
+            rightContainer.style.height = imageHeight + 'px';
+        }
+
+        // Класс для частиц фейерверка
+        class Firework {
+            constructor(x, y, color) {
+                this.x = x;
+                this.y = y;
+                this.color = color || colors.fireworks[Math.floor(Math.random() * colors.fireworks.length)];
+                this.particles = [];
+                this.createParticles();
+            }
+            
+            createParticles() {
+                const particleCount = 80 + Math.floor(Math.random() * 40);
+                
+                for (let i = 0; i < particleCount; i++) {
+                    const angle = Math.random() * Math.PI * 2;
+                    const speed = Math.random() * 4 + 2;
+                    const size = Math.random() * 3 + 1;
+                    const decay = Math.random() * 0.02 + 0.01;
+                    
+                    this.particles.push({
+                        x: this.x,
+                        y: this.y,
+                        vx: Math.cos(angle) * speed,
+                        vy: Math.sin(angle) * speed,
+                        size: size,
+                        color: this.color,
+                        alpha: 1,
+                        decay: decay,
+                        gravity: 0.05
+                    });
+                }
+            }
+            
+            update() {
+                for (let i = this.particles.length - 1; i >= 0; i--) {
+                    const p = this.particles[i];
+                    
+                    p.x += p.vx;
+                    p.y += p.vy;
+                    p.vy += p.gravity;
+                    p.alpha -= p.decay;
+                    
+                    if (p.alpha <= 0) {
+                        this.particles.splice(i, 1);
+                    }
+                }
+                
+                return this.particles.length > 0;
+            }
+            
+            draw(ctx) {
+                for (const p of this.particles) {
+                    ctx.save();
+                    ctx.globalAlpha = p.alpha;
+                    ctx.fillStyle = p.color;
+                    ctx.beginPath();
+                    ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+                    ctx.fill();
+                    ctx.restore();
+                }
+            }
+        }
+
+        // Класс для конфетти
+        class Confetti {
+            constructor(x, y, canvasWidth, isLeft = true) {
+                this.x = x;
+                this.y = y;
+                this.canvasWidth = canvasWidth;
+                this.isLeft = isLeft;
+                this.particles = [];
+                this.createParticles();
+            }
+            
+            createParticles() {
+                const particleCount = 20 + Math.floor(Math.random() * 15);
+                
+                for (let i = 0; i < particleCount; i++) {
+                    const angle = this.isLeft ? 
+                        Math.random() * Math.PI * 0.5 + Math.PI * 0.25 : // Вправо
+                        Math.random() * Math.PI * 0.5 + Math.PI * 0.75;  // Влево
+                    
+                    const speed = Math.random() * 2 + 1;
+                    const size = Math.random() * 4 + 2;
+                    const shape = Math.random() > 0.5 ? 'rect' : 'circle';
+                    const color = colors.confetti[Math.floor(Math.random() * colors.confetti.length)];
+                    
+                    this.particles.push({
+                        x: this.x,
+                        y: this.y,
+                        vx: Math.cos(angle) * speed,
+                        vy: Math.sin(angle) * speed,
+                        size: size,
+                        color: color,
+                        shape: shape,
+                        rotation: Math.random() * Math.PI * 2,
+                        rotationSpeed: (Math.random() - 0.5) * 0.1,
+                        gravity: 0.1
+                    });
+                }
+            }
+            
+            update() {
+                for (let i = this.particles.length - 1; i >= 0; i--) {
+                    const p = this.particles[i];
+                    
+                    p.x += p.vx;
+                    p.y += p.vy;
+                    p.vy += p.gravity;
+                    p.rotation += p.rotationSpeed;
+                    
+                    p.vx *= 0.99;
+                    p.vy *= 0.99;
+                    
+                    // Удаляем частицы, которые вышли за пределы canvas
+                    if (p.y > this.canvasWidth || p.x < 0 || p.x > this.canvasWidth) {
+                        this.particles.splice(i, 1);
+                    }
+                }
+                
+                return this.particles.length > 0;
+            }
+            
+            draw(ctx) {
+                for (const p of this.particles) {
+                    ctx.save();
+                    ctx.translate(p.x, p.y);
+                    ctx.rotate(p.rotation);
+                    ctx.fillStyle = p.color;
+                    
+                    if (p.shape === 'rect') {
+                        ctx.fillRect(-p.size/2, -p.size/2, p.size, p.size);
+                    } else {
+                        ctx.beginPath();
+                        ctx.arc(0, 0, p.size/2, 0, Math.PI * 2);
+                        ctx.fill();
+                    }
+                    
+                    ctx.restore();
+                }
+            }
+        }
+
+        // Функции для создания эффектов
+        function createFirework(x, y) {
+            particles.push(new Firework(x, y));
+        }
+
+        function createLeftConfetti() {
+            const x = 10; // Слева
+            const y = Math.random() * leftCanvas.height;
+            leftConfettiParticles.push(new Confetti(x, y, leftCanvas.width, true));
+        }
+
+        function createRightConfetti() {
+            const x = rightCanvas.width - 10; // Справа
+            const y = Math.random() * rightCanvas.height;
+            rightConfettiParticles.push(new Confetti(x, y, rightCanvas.width, false));
+        }
+
+        // Функции анимации для каждого canvas
+        function animateMain() {
+            mainCtx.clearRect(0, 0, mainCanvas.width, mainCanvas.height);
+            
+            for (let i = particles.length - 1; i >= 0; i--) {
+                if (!particles[i].update()) {
+                    particles.splice(i, 1);
+                } else {
+                    particles[i].draw(mainCtx);
+                }
+            }
+            
+            requestAnimationFrame(animateMain);
+        }
+
+        function animateLeftConfetti() {
+            leftCtx.clearRect(0, 0, leftCanvas.width, leftCanvas.height);
+            
+            for (let i = leftConfettiParticles.length - 1; i >= 0; i--) {
+                if (!leftConfettiParticles[i].update()) {
+                    leftConfettiParticles.splice(i, 1);
+                } else {
+                    leftConfettiParticles[i].draw(leftCtx);
+                }
+            }
+            
+            requestAnimationFrame(animateLeftConfetti);
+        }
+
+        function animateRightConfetti() {
+            rightCtx.clearRect(0, 0, rightCanvas.width, rightCanvas.height);
+            
+            for (let i = rightConfettiParticles.length - 1; i >= 0; i--) {
+                if (!rightConfettiParticles[i].update()) {
+                    rightConfettiParticles.splice(i, 1);
+                } else {
+                    rightConfettiParticles[i].draw(rightCtx);
+                }
+            }
+            
+            requestAnimationFrame(animateRightConfetti);
+        }
+
+        // Запуск анимаций
+        animateMain();
+        animateLeftConfetti();
+        animateRightConfetti();
+
+        // Конфетти по бокам фотографии
+        function startSideConfetti() {
+            sideConfettiInterval = setInterval(() => {
+                // Случайно выбираем левую или правую сторону
+                if (Math.random() > 0.5) {
+                    createLeftConfetti();
+                } else {
+                    createRightConfetti();
+                }
+            }, 2000); // Каждые 2 секунды
+        }
+
+        // Салют при появлении приглашения
+        function checkInvitationVisibility() {
+            const invitation = document.querySelector('.custom-invitation');
+            const rect = invitation.getBoundingClientRect();
+            
+            if (rect.top < window.innerHeight * 0.8 && rect.bottom > 0 && !invitationFireworkPlayed) {
+                invitationFireworkPlayed = true;
+                
+                // Запускаем несколько фейерверков вокруг приглашения
+                for (let i = 0; i < 3; i++) {
+                    setTimeout(() => {
+                        const x = rect.left + Math.random() * rect.width;
+                        const y = rect.top + Math.random() * rect.height;
+                        createFirework(x, y);
+                    }, i * 400);
+                }
+            }
+        }
+
+        // Фейерверк при отправке формы
+        document.getElementById('rsvpForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Показываем сообщение об успехе
+            document.getElementById('successMessage').style.display = 'block';
+            document.getElementById('submitBtn').style.display = 'none';
+            
+            // Запускаем большой фейерверк в центре экрана
+            for (let i = 0; i < 5; i++) {
+                setTimeout(() => {
+                    const x = window.innerWidth / 2;
+                    const y = window.innerHeight / 2;
+                    createFirework(x, y);
+                }, i * 300);
+            }
+            
+            // Также отправляем форму (через 3 секунды, чтобы показать эффекты)
+            setTimeout(() => {
+                this.submit();
+            }, 3000);
+        });
+
+        // Запускаем эффекты при загрузке
+        window.addEventListener('load', () => {
+            resizeCanvases();
+            
+            // Начинаем конфетти по бокам
+            startSideConfetti();
+            
+            // Проверяем видимость приглашения при скролле
+            window.addEventListener('scroll', checkInvitationVisibility);
+            checkInvitationVisibility(); // Проверяем сразу
+            
+            // Обновляем размеры при изменении размера окна
+            window.addEventListener('resize', resizeCanvases);
+        });
+
+        // Останавливаем конфетти при уходе со страницы
+        window.addEventListener('beforeunload', () => {
+            clearInterval(sideConfettiInterval);
         });
     </script>
 </body>
