@@ -408,25 +408,25 @@
             z-index: 2;
         }
 
-        /* Контейнеры для боковых конфетти */
-        .side-confetti-left, .side-confetti-right {
+        /* Контейнеры для боковых эффектов */
+        .side-effects-left, .side-effects-right {
             position: absolute;
             top: 0;
-            width: 100px;
+            width: 150px;
             height: 100%;
             pointer-events: none;
             z-index: 1;
         }
 
-        .side-confetti-left {
+        .side-effects-left {
             left: 0;
         }
 
-        .side-confetti-right {
+        .side-effects-right {
             right: 0;
         }
 
-        .side-confetti-canvas {
+        .side-effects-canvas {
             position: absolute;
             top: 0;
             width: 100%;
@@ -448,8 +448,8 @@
                 height: 50px;
             }
             
-            .side-confetti-left, .side-confetti-right {
-                width: 60px;
+            .side-effects-left, .side-effects-right {
+                width: 80px;
             }
         }
         
@@ -458,8 +458,8 @@
                 padding: 10px 10px 20px;
             }
             
-            .side-confetti-left, .side-confetti-right {
-                width: 40px;
+            .side-effects-left, .side-effects-right {
+                width: 60px;
             }
         }
     </style>
@@ -470,12 +470,12 @@
         <canvas id="effectsCanvas"></canvas>
     </div>
 
-    <!-- Контейнеры для боковых конфетти -->
-    <div class="side-confetti-left">
-        <canvas id="leftConfettiCanvas" class="side-confetti-canvas"></canvas>
+    <!-- Контейнеры для боковых эффектов -->
+    <div class="side-effects-left">
+        <canvas id="leftEffectsCanvas" class="side-effects-canvas"></canvas>
     </div>
-    <div class="side-confetti-right">
-        <canvas id="rightConfettiCanvas" class="side-confetti-canvas"></canvas>
+    <div class="side-effects-right">
+        <canvas id="rightEffectsCanvas" class="side-effects-canvas"></canvas>
     </div>
 
     <div class="container">
@@ -531,7 +531,7 @@
                     <select id="companions" name="companions">
                         <option value="1">1 человек</option>
                         <option value="2">2 человека</option>
-                        <option value="2">3 человека</option>
+                        <option value="3">3 человека</option>
                     </select>
                 </div>
 
@@ -620,21 +620,20 @@
             }
         });
 
-        // Код для эффектов - теперь с раздельными canvas
+        // Код для эффектов
         const mainCanvas = document.getElementById('effectsCanvas');
         const mainCtx = mainCanvas.getContext('2d');
         
-        const leftCanvas = document.getElementById('leftConfettiCanvas');
+        const leftCanvas = document.getElementById('leftEffectsCanvas');
         const leftCtx = leftCanvas.getContext('2d');
         
-        const rightCanvas = document.getElementById('rightConfettiCanvas');
+        const rightCanvas = document.getElementById('rightEffectsCanvas');
         const rightCtx = rightCanvas.getContext('2d');
         
         let particles = [];
-        let leftConfettiParticles = [];
-        let rightConfettiParticles = [];
-        let sideConfettiInterval;
-        let invitationFireworkPlayed = false;
+        let leftParticles = [];
+        let rightParticles = [];
+        let periodicFireworksInterval;
 
         // Цвета в вашей гамме
         const colors = {
@@ -650,14 +649,14 @@
             const invitationRect = document.querySelector('.custom-invitation').getBoundingClientRect();
             const imageHeight = invitationRect.height;
             
-            leftCanvas.width = 100;
+            leftCanvas.width = 150;
             leftCanvas.height = imageHeight;
-            rightCanvas.width = 100;
+            rightCanvas.width = 150;
             rightCanvas.height = imageHeight;
             
             // Позиционируем боковые canvas рядом с изображением
-            const leftContainer = document.querySelector('.side-confetti-left');
-            const rightContainer = document.querySelector('.side-confetti-right');
+            const leftContainer = document.querySelector('.side-effects-left');
+            const rightContainer = document.querySelector('.side-effects-right');
             
             leftContainer.style.top = invitationRect.top + 'px';
             leftContainer.style.height = imageHeight + 'px';
@@ -740,15 +739,15 @@
             }
             
             createParticles() {
-                const particleCount = 20 + Math.floor(Math.random() * 15);
+                const particleCount = 30 + Math.floor(Math.random() * 20);
                 
                 for (let i = 0; i < particleCount; i++) {
                     const angle = this.isLeft ? 
                         Math.random() * Math.PI * 0.5 + Math.PI * 0.25 : // Вправо
                         Math.random() * Math.PI * 0.5 + Math.PI * 0.75;  // Влево
                     
-                    const speed = Math.random() * 2 + 1;
-                    const size = Math.random() * 4 + 2;
+                    const speed = Math.random() * 3 + 1;
+                    const size = Math.random() * 5 + 3;
                     const shape = Math.random() > 0.5 ? 'rect' : 'circle';
                     const color = colors.confetti[Math.floor(Math.random() * colors.confetti.length)];
                     
@@ -813,16 +812,47 @@
             particles.push(new Firework(x, y));
         }
 
-        function createLeftConfetti() {
-            const x = 10; // Слева
-            const y = Math.random() * leftCanvas.height;
-            leftConfettiParticles.push(new Confetti(x, y, leftCanvas.width, true));
+        function createLeftEffects() {
+            // Создаем несколько эффектов слева
+            for (let i = 0; i < 3; i++) {
+                setTimeout(() => {
+                    const x = 20;
+                    const y = Math.random() * leftCanvas.height;
+                    leftParticles.push(new Confetti(x, y, leftCanvas.width, true));
+                    
+                    // Также добавляем фейерверк
+                    const fireworkX = 30;
+                    const fireworkY = Math.random() * leftCanvas.height * 0.8;
+                    leftParticles.push(new Firework(fireworkX, fireworkY));
+                }, i * 400);
+            }
         }
 
-        function createRightConfetti() {
-            const x = rightCanvas.width - 10; // Справа
-            const y = Math.random() * rightCanvas.height;
-            rightConfettiParticles.push(new Confetti(x, y, rightCanvas.width, false));
+        function createRightEffects() {
+            // Создаем несколько эффектов справа
+            for (let i = 0; i < 3; i++) {
+                setTimeout(() => {
+                    const x = rightCanvas.width - 20;
+                    const y = Math.random() * rightCanvas.height;
+                    rightParticles.push(new Confetti(x, y, rightCanvas.width, false));
+                    
+                    // Также добавляем фейерверк
+                    const fireworkX = rightCanvas.width - 30;
+                    const fireworkY = Math.random() * rightCanvas.height * 0.8;
+                    rightParticles.push(new Firework(fireworkX, fireworkY));
+                }, i * 400);
+            }
+        }
+
+        // Периодические фейерверки в верхней части экрана
+        function startPeriodicFireworks() {
+            // Запускаем фейерверки каждые 5-8 секунд
+            periodicFireworksInterval = setInterval(() => {
+                // Случайная позиция в верхней трети экрана
+                const x = Math.random() * mainCanvas.width;
+                const y = Math.random() * mainCanvas.height * 0.3;
+                createFirework(x, y);
+            }, 5000 + Math.random() * 3000); // 5-8 секунд
         }
 
         // Функции анимации для каждого canvas
@@ -840,68 +870,46 @@
             requestAnimationFrame(animateMain);
         }
 
-        function animateLeftConfetti() {
+        function animateLeftEffects() {
             leftCtx.clearRect(0, 0, leftCanvas.width, leftCanvas.height);
             
-            for (let i = leftConfettiParticles.length - 1; i >= 0; i--) {
-                if (!leftConfettiParticles[i].update()) {
-                    leftConfettiParticles.splice(i, 1);
+            for (let i = leftParticles.length - 1; i >= 0; i--) {
+                if (!leftParticles[i].update()) {
+                    leftParticles.splice(i, 1);
                 } else {
-                    leftConfettiParticles[i].draw(leftCtx);
+                    leftParticles[i].draw(leftCtx);
                 }
             }
             
-            requestAnimationFrame(animateLeftConfetti);
+            requestAnimationFrame(animateLeftEffects);
         }
 
-        function animateRightConfetti() {
+        function animateRightEffects() {
             rightCtx.clearRect(0, 0, rightCanvas.width, rightCanvas.height);
             
-            for (let i = rightConfettiParticles.length - 1; i >= 0; i--) {
-                if (!rightConfettiParticles[i].update()) {
-                    rightConfettiParticles.splice(i, 1);
+            for (let i = rightParticles.length - 1; i >= 0; i--) {
+                if (!rightParticles[i].update()) {
+                    rightParticles.splice(i, 1);
                 } else {
-                    rightConfettiParticles[i].draw(rightCtx);
+                    rightParticles[i].draw(rightCtx);
                 }
             }
             
-            requestAnimationFrame(animateRightConfetti);
+            requestAnimationFrame(animateRightEffects);
         }
 
         // Запуск анимаций
         animateMain();
-        animateLeftConfetti();
-        animateRightConfetti();
+        animateLeftEffects();
+        animateRightEffects();
 
-        // Конфетти по бокам фотографии
-        function startSideConfetti() {
-            sideConfettiInterval = setInterval(() => {
-                // Случайно выбираем левую или правую сторону
-                if (Math.random() > 0.5) {
-                    createLeftConfetti();
-                } else {
-                    createRightConfetti();
-                }
-            }, 2000); // Каждые 2 секунды
-        }
-
-        // Салют при появлении приглашения
-        function checkInvitationVisibility() {
-            const invitation = document.querySelector('.custom-invitation');
-            const rect = invitation.getBoundingClientRect();
-            
-            if (rect.top < window.innerHeight * 0.8 && rect.bottom > 0 && !invitationFireworkPlayed) {
-                invitationFireworkPlayed = true;
-                
-                // Запускаем несколько фейерверков вокруг приглашения
-                for (let i = 0; i < 3; i++) {
-                    setTimeout(() => {
-                        const x = rect.left + Math.random() * rect.width;
-                        const y = rect.top + Math.random() * rect.height;
-                        createFirework(x, y);
-                    }, i * 400);
-                }
-            }
+        // Запуск боковых эффектов при загрузке
+        function startSideEffects() {
+            // Запускаем эффекты с небольшой задержкой после загрузки
+            setTimeout(() => {
+                createLeftEffects();
+                createRightEffects();
+            }, 1000);
         }
 
         // Фейерверк при отправке формы
@@ -931,20 +939,21 @@
         window.addEventListener('load', () => {
             resizeCanvases();
             
-            // Начинаем конфетти по бокам
-            startSideConfetti();
+            // Запускаем боковые эффекты
+            startSideEffects();
             
-            // Проверяем видимость приглашения при скролле
-            window.addEventListener('scroll', checkInvitationVisibility);
-            checkInvitationVisibility(); // Проверяем сразу
+            // Запускаем периодические фейерверки
+            startPeriodicFireworks();
             
             // Обновляем размеры при изменении размера окна
             window.addEventListener('resize', resizeCanvases);
         });
 
-        // Останавливаем конфетти при уходе со страницы
+        // Останавливаем интервалы при уходе со страницы
         window.addEventListener('beforeunload', () => {
-            clearInterval(sideConfettiInterval);
+            if (periodicFireworksInterval) {
+                clearInterval(periodicFireworksInterval);
+            }
         });
     </script>
 </body>
