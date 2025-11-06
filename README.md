@@ -412,7 +412,7 @@
         .side-effects-left, .side-effects-right {
             position: absolute;
             top: 0;
-            width: 150px;
+            width: 200px; /* Увеличил ширину для более заметных эффектов */
             height: 100%;
             pointer-events: none;
             z-index: 1;
@@ -449,7 +449,7 @@
             }
             
             .side-effects-left, .side-effects-right {
-                width: 80px;
+                width: 100px; /* Увеличил для мобильных */
             }
         }
         
@@ -459,7 +459,7 @@
             }
             
             .side-effects-left, .side-effects-right {
-                width: 60px;
+                width: 80px; /* Увеличил для мобильных */
             }
         }
     </style>
@@ -637,8 +637,8 @@
 
         // Цвета в вашей гамме
         const colors = {
-            fireworks: ['#c92236', '#e9cec5', '#eedad3', '#f8f7f3', '#ffd700'],
-            confetti: ['#c92236', '#e9cec5', '#eedad3', '#f8f7f3', '#ffd700', '#c0c0c0']
+            fireworks: ['#c92236', '#e9cec5', '#eedad3', '#f8f7f3', '#ffd700', '#ff6b6b', '#ffa726'],
+            confetti: ['#c92236', '#e9cec5', '#eedad3', '#f8f7f3', '#ffd700', '#c0c0c0', '#ff6b6b', '#ffa726']
         };
 
         // Установка размеров canvas
@@ -649,9 +649,9 @@
             const invitationRect = document.querySelector('.custom-invitation').getBoundingClientRect();
             const imageHeight = invitationRect.height;
             
-            leftCanvas.width = 150;
+            leftCanvas.width = 200; // Увеличил ширину для более заметных эффектов
             leftCanvas.height = imageHeight;
-            rightCanvas.width = 150;
+            rightCanvas.width = 200; // Увеличил ширину для более заметных эффектов
             rightCanvas.height = imageHeight;
             
             // Позиционируем боковые canvas рядом с изображением
@@ -666,22 +666,29 @@
 
         // Класс для частиц фейерверка
         class Firework {
-            constructor(x, y, color) {
+            constructor(x, y, color, isBig = false) {
                 this.x = x;
                 this.y = y;
                 this.color = color || colors.fireworks[Math.floor(Math.random() * colors.fireworks.length)];
                 this.particles = [];
-                this.createParticles();
+                this.createParticles(isBig);
             }
             
-            createParticles() {
-                const particleCount = 80 + Math.floor(Math.random() * 40);
+            createParticles(isBig) {
+                // Увеличил количество частиц для более эффектного взрыва
+                const particleCount = isBig ? 
+                    150 + Math.floor(Math.random() * 80) : // Большой фейерверк
+                    100 + Math.floor(Math.random() * 50);  // Обычный фейерверк
                 
                 for (let i = 0; i < particleCount; i++) {
                     const angle = Math.random() * Math.PI * 2;
-                    const speed = Math.random() * 4 + 2;
-                    const size = Math.random() * 3 + 1;
-                    const decay = Math.random() * 0.02 + 0.01;
+                    const speed = isBig ? 
+                        Math.random() * 6 + 3 : // Большая скорость для больших фейерверков
+                        Math.random() * 4 + 2;  // Обычная скорость
+                    const size = isBig ? 
+                        Math.random() * 4 + 2 : // Большие частицы
+                        Math.random() * 3 + 1;  // Обычные частицы
+                    const decay = Math.random() * 0.015 + 0.01; // Медленнее исчезают
                     
                     this.particles.push({
                         x: this.x,
@@ -729,25 +736,32 @@
 
         // Класс для конфетти
         class Confetti {
-            constructor(x, y, canvasWidth, isLeft = true) {
+            constructor(x, y, canvasWidth, isLeft = true, isBig = false) {
                 this.x = x;
                 this.y = y;
                 this.canvasWidth = canvasWidth;
                 this.isLeft = isLeft;
                 this.particles = [];
-                this.createParticles();
+                this.createParticles(isBig);
             }
             
-            createParticles() {
-                const particleCount = 30 + Math.floor(Math.random() * 20);
+            createParticles(isBig) {
+                // Увеличил количество конфетти
+                const particleCount = isBig ? 
+                    60 + Math.floor(Math.random() * 30) : // Большой взрыв конфетти
+                    40 + Math.floor(Math.random() * 20);  // Обычный взрыв конфетти
                 
                 for (let i = 0; i < particleCount; i++) {
                     const angle = this.isLeft ? 
                         Math.random() * Math.PI * 0.5 + Math.PI * 0.25 : // Вправо
                         Math.random() * Math.PI * 0.5 + Math.PI * 0.75;  // Влево
                     
-                    const speed = Math.random() * 3 + 1;
-                    const size = Math.random() * 5 + 3;
+                    const speed = isBig ? 
+                        Math.random() * 4 + 2 : // Большая скорость
+                        Math.random() * 3 + 1;  // Обычная скорость
+                    const size = isBig ? 
+                        Math.random() * 8 + 5 : // Большие конфетти
+                        Math.random() * 6 + 3;  // Обычные конфетти
                     const shape = Math.random() > 0.5 ? 'rect' : 'circle';
                     const color = colors.confetti[Math.floor(Math.random() * colors.confetti.length)];
                     
@@ -760,7 +774,7 @@
                         color: color,
                         shape: shape,
                         rotation: Math.random() * Math.PI * 2,
-                        rotationSpeed: (Math.random() - 0.5) * 0.1,
+                        rotationSpeed: (Math.random() - 0.5) * 0.15, // Быстрее вращаются
                         gravity: 0.1
                     });
                 }
@@ -808,39 +822,41 @@
         }
 
         // Функции для создания эффектов
-        function createFirework(x, y) {
-            particles.push(new Firework(x, y));
+        function createFirework(x, y, isBig = false) {
+            particles.push(new Firework(x, y, null, isBig));
         }
 
         function createLeftEffects() {
-            // Создаем несколько эффектов слева
-            for (let i = 0; i < 3; i++) {
+            // Увеличил количество эффектов слева и сделал их более заметными
+            for (let i = 0; i < 5; i++) { // Было 3, стало 5
                 setTimeout(() => {
-                    const x = 20;
+                    const x = 30;
                     const y = Math.random() * leftCanvas.height;
-                    leftParticles.push(new Confetti(x, y, leftCanvas.width, true));
+                    // Создаем большие эффекты для боковых салютов
+                    leftParticles.push(new Confetti(x, y, leftCanvas.width, true, true));
                     
-                    // Также добавляем фейерверк
-                    const fireworkX = 30;
+                    // Также добавляем большие фейерверки
+                    const fireworkX = 40;
                     const fireworkY = Math.random() * leftCanvas.height * 0.8;
-                    leftParticles.push(new Firework(fireworkX, fireworkY));
-                }, i * 400);
+                    leftParticles.push(new Firework(fireworkX, fireworkY, null, true));
+                }, i * 300); // Уменьшил задержку между эффектами
             }
         }
 
         function createRightEffects() {
-            // Создаем несколько эффектов справа
-            for (let i = 0; i < 3; i++) {
+            // Увеличил количество эффектов справа и сделал их более заметными
+            for (let i = 0; i < 5; i++) { // Было 3, стало 5
                 setTimeout(() => {
-                    const x = rightCanvas.width - 20;
+                    const x = rightCanvas.width - 30;
                     const y = Math.random() * rightCanvas.height;
-                    rightParticles.push(new Confetti(x, y, rightCanvas.width, false));
+                    // Создаем большие эффекты для боковых салютов
+                    rightParticles.push(new Confetti(x, y, rightCanvas.width, false, true));
                     
-                    // Также добавляем фейерверк
-                    const fireworkX = rightCanvas.width - 30;
+                    // Также добавляем большие фейерверки
+                    const fireworkX = rightCanvas.width - 40;
                     const fireworkY = Math.random() * rightCanvas.height * 0.8;
-                    rightParticles.push(new Firework(fireworkX, fireworkY));
-                }, i * 400);
+                    rightParticles.push(new Firework(fireworkX, fireworkY, null, true));
+                }, i * 300); // Уменьшил задержку между эффектами
             }
         }
 
@@ -851,13 +867,15 @@
                 // Случайная позиция в верхней трети экрана
                 const x = Math.random() * mainCanvas.width;
                 const y = Math.random() * mainCanvas.height * 0.3;
-                createFirework(x, y);
+                createFirework(x, y, Math.random() > 0.7); // 30% больших фейерверков
             }, 5000 + Math.random() * 3000); // 5-8 секунд
         }
 
         // Функции анимации для каждого canvas
         function animateMain() {
-            mainCtx.clearRect(0, 0, mainCanvas.width, mainCanvas.height);
+            // Слегка прозрачный фон для создания шлейфа
+            mainCtx.fillStyle = 'rgba(233, 206, 197, 0.08)';
+            mainCtx.fillRect(0, 0, mainCanvas.width, mainCanvas.height);
             
             for (let i = particles.length - 1; i >= 0; i--) {
                 if (!particles[i].update()) {
@@ -921,12 +939,12 @@
             document.getElementById('submitBtn').style.display = 'none';
             
             // Запускаем большой фейерверк в центре экрана
-            for (let i = 0; i < 5; i++) {
+            for (let i = 0; i < 7; i++) { // Увеличил количество фейерверков
                 setTimeout(() => {
-                    const x = window.innerWidth / 2;
-                    const y = window.innerHeight / 2;
-                    createFirework(x, y);
-                }, i * 300);
+                    const x = window.innerWidth / 2 + (Math.random() - 0.5) * 300;
+                    const y = window.innerHeight / 2 + (Math.random() - 0.5) * 200;
+                    createFirework(x, y, true); // Все большие фейерверки
+                }, i * 250); // Уменьшил задержку
             }
             
             // Также отправляем форму (через 3 секунды, чтобы показать эффекты)
