@@ -74,7 +74,7 @@
             width: 100%;
         }
         
-        .vertical-gallery img {
+        .vertical-gallery  {
             width: 100%;
             height: auto;
             display: block;
@@ -82,7 +82,7 @@
         }
         
         /* Убираем любые промежутки между фото */
-        .vertical-gallery img:not(:last-child) {
+        .vertical-gallery :not(:last-child) {
             margin-bottom: 0;
             border-bottom: none;
         }
@@ -484,10 +484,10 @@
         <!-- Ваше приглашение с 4 фотографиями вертикально -->
         <div class="custom-invitation">
             <div class="vertical-gallery" id="invitationImage">
-                <img src="22/photo1.jpg" alt="Свадебное фото 1">
-                <img src="22/photo2.jpg" alt="Свадебное фото 2">
-                <img src="22/photo3.jpg" alt="Свадебное фото 3">
-                <img src="22/photo4.jpg" alt="Свадебное фото 4">
+                <img src="22/photo1.png" alt="Свадебное фото 1">
+                <img src="22/photo2.png" alt="Свадебное фото 2">
+                <img src="22/photo3.png" alt="Свадебное фото 3">
+                <img src="22/photo4.png" alt="Свадебное фото 4">
             </div>
         </div>
 
