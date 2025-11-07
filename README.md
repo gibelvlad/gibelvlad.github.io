@@ -12,11 +12,6 @@
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Свадьба Владислава и Анастасии">
     
-    <!-- Предзагрузка критических ресурсов -->
-    <link rel="preload" href="22/photo1.png" as="image">
-    <link rel="preload" href="22/photo2.png" as="image">
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&family=Montserrat:wght@300;400;500&display=swap" as="style">
-    
     <!-- Twitter Card метатеги -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Владислав & Анастасия - Свадьба 12 декабря 2025">
@@ -45,47 +40,6 @@
             font-family: 'Montserrat', sans-serif;
             background: linear-gradient(135deg, #e9cec5 0%, #eedad3 100%);
             position: relative;
-        }
-
-        /* Индикатор загрузки */
-        .loading-indicator {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 3px;
-            background: rgba(201, 34, 54, 0.2);
-            z-index: 9999;
-            display: none;
-        }
-
-        .loading-progress {
-            height: 100%;
-            background: linear-gradient(90deg, #c92236, #ff6b6b);
-            width: 0%;
-            transition: width 0.3s ease;
-        }
-
-        .image-loading {
-            background: #f0f0f0;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .image-loading::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
-            animation: loadingShimmer 1.5s infinite;
-        }
-
-        @keyframes loadingShimmer {
-            0% { left: -100%; }
-            100% { left: 100%; }
         }
 
         body::before {
@@ -132,15 +86,6 @@
             height: auto;
             display: block;
             object-fit: cover;
-            transition: opacity 0.5s ease;
-        }
-
-        .vertical-gallery img[data-src] {
-            opacity: 0;
-        }
-
-        .vertical-gallery img.loaded {
-            opacity: 1;
         }
         
         .vertical-gallery img:not(:last-child) {
@@ -148,7 +93,7 @@
             border-bottom: none;
         }
         
-        /* Остальные стили остаются такими же... */
+        /* Обновленные стили для мероприятий */
         .events {
             margin: 30px 0;
         }
@@ -367,6 +312,7 @@
             box-shadow: 0 0 0 3px rgba(201, 34, 54, 0.1);
         }
 
+        /* Стиль для скрытого поля второго гостя */
         .companion-field {
             display: none;
             margin-top: 15px;
@@ -387,6 +333,7 @@
             font-style: italic;
         }
         
+        /* Новая анимация для кнопки отправки */
         @keyframes sparkle {
             0%, 100% { 
                 transform: scale(1);
@@ -429,6 +376,7 @@
             transform: translateY(1px);
         }
         
+        /* Анимация сердечек для кнопки */
         @keyframes float {
             0%, 100% { 
                 transform: translateY(0) rotate(0deg);
@@ -480,6 +428,7 @@
             z-index: 2;
         }
         
+        /* ОБНОВЛЕННЫЙ ПЛЕЕР - ЭЛЕГАНТНЫЙ КРУГ С МУЗЫКАЛЬНЫМИ НОТАМИ */
         .music-player {
             position: fixed;
             bottom: 25px;
@@ -532,6 +481,7 @@
             transform: scale(1.05);
         }
 
+        /* Анимация пульсации для кнопки музыки */
         @keyframes pulse {
             0% {
                 box-shadow: 0 0 0 0 rgba(201, 34, 54, 0.7);
@@ -560,6 +510,7 @@
             z-index: 2;
         }
         
+        /* ОБНОВЛЕННЫЙ РАЗДЕЛИТЕЛЬ - СВАДЕБНЫЕ КОЛЬЦА */
         .floral-divider {
             text-align: center;
             margin: 30px 0;
@@ -635,6 +586,7 @@
             height: 100%;
         }
 
+        /* Стикер для ссылки на карту */
         .map-sticker {
             display: inline-block;
             margin-right: 10px;
@@ -690,11 +642,6 @@
     </style>
 </head>
 <body>
-    <!-- Индикатор загрузки -->
-    <div class="loading-indicator" id="loadingIndicator">
-        <div class="loading-progress" id="loadingProgress"></div>
-    </div>
-
     <div class="effects-container">
         <canvas id="effectsCanvas"></canvas>
     </div>
@@ -709,19 +656,17 @@
     <div class="container">
         <div class="custom-invitation">
             <div class="vertical-gallery" id="invitationImage">
-                <img src="22/photo1.png" alt="Свадебное фото 1" loading="eager" 
-                     onerror="this.src='https://images.unsplash.com/photo-1519225421980-715cb0215aed?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80'">
-                <img src="22/photo2.png" alt="Свадебное фото 2" loading="lazy" 
-                     onerror="this.src='https://images.unsplash.com/photo-1465495976277-4387d4b0e4a6?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80'">
-                <img src="22/photo3.png" alt="Свадебное фото 3" loading="lazy" 
-                     onerror="this.src='https://images.unsplash.com/photo-1532712988316-4f6d2b5a0e6e?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80'">
-                <img src="22/photo4.png" alt="Свадебное фото 4" loading="lazy" 
-                     onerror="this.src='https://images.unsplash.com/photo-1519741497674-611481863552?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80'">
+                <img src="22/photo1.png" alt="Свадебное фото 1" onerror="this.src='https://images.unsplash.com/photo-1519225421980-715cb0215aed?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80'">
+                <img src="22/photo2.png" alt="Свадебное фото 2" onerror="this.src='https://images.unsplash.com/photo-1465495976277-4387d4b0e4a6?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80'">
+                <img src="22/photo3.png" alt="Свадебное фото 3" onerror="this.src='https://images.unsplash.com/photo-1532712988316-4f6d2b5a0e6e?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80'">
+                <img src="22/photo4.png" alt="Свадебное фото 4" onerror="this.src='https://images.unsplash.com/photo-1519741497674-611481863552?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80'">
             </div>
         </div>
 
+        <!-- ОБНОВЛЕННЫЙ РАЗДЕЛИТЕЛЬ - СВАДЕБНЫЕ КОЛЬЦА -->
         <div class="floral-divider">💍 💍 💍</div>
         
+        <!-- Обновленный блок с двумя мероприятиями -->
         <div class="events">
             <div class="event">
                 <div class="section-title">Торжественная регистрация</div>
@@ -743,6 +688,7 @@
             </div>
         </div>
         
+        <!-- Кнопка карты теперь с красивым стикером -->
         <a href="https://go.2gis.com/Kupg2" class="map-button" target="_blank">
             <span class="map-sticker">🗺️</span> ПОСМОТРЕТЬ БАНКЕТНЫЙ ЗАЛ НА КАРТЕ
             <div class="bubble"></div>
@@ -783,6 +729,7 @@
                     <div class="companion-note">Если планируете прийти с парой, выберите "2 человека"</div>
                 </div>
 
+                <!-- Новое поле для второго гостя -->
                 <div class="form-group companion-field" id="companionField">
                     <label for="companion_name">Имя и фамилия вашего спутника</label>
                     <input type="text" id="companion_name" name="companion_name" placeholder="Например, Мария Петрова">
@@ -836,6 +783,7 @@
         
         <div class="hearts">💖 💕 💗 💓 💞</div>
         
+        <!-- Улучшенное закрывающее сообщение -->
         <div class="closing-message">
             Мы с нетерпением ждём этот день<br> 
             и будем рады разделить его с вами!<br>
@@ -848,6 +796,7 @@
         </div>
     </div>
 
+    <!-- ОБНОВЛЕННЫЙ ПЛЕЕР - ЭЛЕГАНТНЫЙ КРУГ С МУЗЫКАЛЬНЫМИ НОТАМИ -->
     <div class="music-player">
         <button class="music-btn" id="musicToggleBtn">♪♫</button>
     </div>
@@ -859,62 +808,7 @@
     </audio>
 
     <script>
-        // Улучшенная загрузка изображений
-        document.addEventListener('DOMContentLoaded', function() {
-            const loadingIndicator = document.getElementById('loadingIndicator');
-            const loadingProgress = document.getElementById('loadingProgress');
-            const images = document.querySelectorAll('img');
-            let loadedCount = 0;
-            const totalImages = images.length;
-
-            // Показываем индикатор загрузки
-            loadingIndicator.style.display = 'block';
-
-            images.forEach((img, index) => {
-                // Добавляем класс загрузки
-                img.classList.add('image-loading');
-
-                const image = new Image();
-                image.onload = function() {
-                    loadedCount++;
-                    const progress = (loadedCount / totalImages) * 100;
-                    loadingProgress.style.width = progress + '%';
-                    
-                    // Убираем класс загрузки и добавляем класс загруженного
-                    img.classList.remove('image-loading');
-                    img.classList.add('loaded');
-
-                    // Скрываем индикатор когда все загружено
-                    if (loadedCount === totalImages) {
-                        setTimeout(() => {
-                            loadingIndicator.style.display = 'none';
-                        }, 500);
-                    }
-                };
-
-                image.onerror = function() {
-                    loadedCount++;
-                    const progress = (loadedCount / totalImages) * 100;
-                    loadingProgress.style.width = progress + '%';
-                    img.classList.remove('image-loading');
-                    
-                    if (loadedCount === totalImages) {
-                        setTimeout(() => {
-                            loadingIndicator.style.display = 'none';
-                        }, 500);
-                    }
-                };
-
-                image.src = img.src;
-            });
-
-            // Если нет изображений, сразу скрываем индикатор
-            if (totalImages === 0) {
-                loadingIndicator.style.display = 'none';
-            }
-        });
-
-        // Остальной JavaScript код остается таким же...
+        // Исправленная логика для кнопки музыки
         const music = document.getElementById('weddingMusic');
         const musicToggleBtn = document.getElementById('musicToggleBtn');
         let isPlaying = false;
@@ -936,8 +830,10 @@
             }
         }
 
+        // Назначаем обработчик на кнопку
         musicToggleBtn.addEventListener('click', toggleMusic);
 
+        // Автовоспроизведение через 1 секунду после загрузки страницы
         window.addEventListener('load', function() {
             setTimeout(function() {
                 if (!isPlaying) {
@@ -955,7 +851,7 @@
             }, 1000);
         });
 
-        // Управление полем второго гостя
+        // Код для управления полем второго гостя
         document.addEventListener('DOMContentLoaded', function() {
             const companionsSelect = document.getElementById('companions');
             const companionField = document.getElementById('companionField');
@@ -968,13 +864,17 @@
                 } else {
                     companionField.classList.remove('show');
                     companionInput.required = false;
-                    companionInput.value = '';
+                    companionInput.value = ''; // Очищаем поле при скрытии
                 }
             }
 
+            // Инициализация при загрузке
             toggleCompanionField();
+
+            // Обработчик изменения выбора количества гостей
             companionsSelect.addEventListener('change', toggleCompanionField);
 
+            // Обработчик отправки формы для валидации
             document.getElementById('rsvpForm').addEventListener('submit', function(e) {
                 if (companionsSelect.value === '2' && !companionInput.value.trim()) {
                     e.preventDefault();
@@ -1009,8 +909,324 @@
             }
         }
 
-        // Код для эффектов (остается без изменений)
-        // ... (остальной JavaScript код для анимаций)
+        // Код для эффектов (остается таким же)
+        const mainCanvas = document.getElementById('effectsCanvas');
+        const mainCtx = mainCanvas.getContext('2d');
+        
+        const leftCanvas = document.getElementById('leftEffectsCanvas');
+        const leftCtx = leftCanvas.getContext('2d');
+        
+        const rightCanvas = document.getElementById('rightEffectsCanvas');
+        const rightCtx = rightCanvas.getContext('2d');
+        
+        let particles = [];
+        let leftParticles = [];
+        let rightParticles = [];
+        let periodicFireworksInterval;
+
+        const colors = {
+            fireworks: ['#c92236', '#e9cec5', '#eedad3', '#f8f7f3', '#ffd700', '#ff6b6b', '#ffa726'],
+            confetti: ['#c92236', '#e9cec5', '#eedad3', '#f8f7f3', '#ffd700', '#c0c0c0', '#ff6b6b', '#ffa726']
+        };
+
+        function resizeCanvases() {
+            mainCanvas.width = window.innerWidth;
+            mainCanvas.height = window.innerHeight;
+            
+            const invitationRect = document.getElementById('invitationImage').getBoundingClientRect();
+            const imageHeight = invitationRect.height;
+            
+            leftCanvas.width = 200;
+            leftCanvas.height = imageHeight;
+            rightCanvas.width = 200;
+            rightCanvas.height = imageHeight;
+            
+            const leftContainer = document.querySelector('.side-effects-left');
+            const rightContainer = document.querySelector('.side-effects-right');
+            
+            leftContainer.style.top = invitationRect.top + 'px';
+            leftContainer.style.height = imageHeight + 'px';
+            rightContainer.style.top = invitationRect.top + 'px';
+            rightContainer.style.height = imageHeight + 'px';
+        }
+
+        class Firework {
+            constructor(x, y, color, isBig = false) {
+                this.x = x;
+                this.y = y;
+                this.color = color || colors.fireworks[Math.floor(Math.random() * colors.fireworks.length)];
+                this.particles = [];
+                this.createParticles(isBig);
+            }
+            
+            createParticles(isBig) {
+                const particleCount = isBig ? 
+                    150 + Math.floor(Math.random() * 80) :
+                    100 + Math.floor(Math.random() * 50);
+                
+                for (let i = 0; i < particleCount; i++) {
+                    const angle = Math.random() * Math.PI * 2;
+                    const speed = isBig ? 
+                        Math.random() * 6 + 3 :
+                        Math.random() * 4 + 2;
+                    const size = isBig ? 
+                        Math.random() * 4 + 2 :
+                        Math.random() * 3 + 1;
+                    const decay = Math.random() * 0.015 + 0.01;
+                    
+                    this.particles.push({
+                        x: this.x,
+                        y: this.y,
+                        vx: Math.cos(angle) * speed,
+                        vy: Math.sin(angle) * speed,
+                        size: size,
+                        color: this.color,
+                        alpha: 1,
+                        decay: decay,
+                        gravity: 0.05
+                    });
+                }
+            }
+            
+            update() {
+                for (let i = this.particles.length - 1; i >= 0; i--) {
+                    const p = this.particles[i];
+                    
+                    p.x += p.vx;
+                    p.y += p.vy;
+                    p.vy += p.gravity;
+                    p.alpha -= p.decay;
+                    
+                    if (p.alpha <= 0) {
+                        this.particles.splice(i, 1);
+                    }
+                }
+                
+                return this.particles.length > 0;
+            }
+            
+            draw(ctx) {
+                for (const p of this.particles) {
+                    ctx.save();
+                    ctx.globalAlpha = p.alpha;
+                    ctx.fillStyle = p.color;
+                    ctx.beginPath();
+                    ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+                    ctx.fill();
+                    ctx.restore();
+                }
+            }
+        }
+
+        class Confetti {
+            constructor(x, y, canvasWidth, isLeft = true, isBig = false) {
+                this.x = x;
+                this.y = y;
+                this.canvasWidth = canvasWidth;
+                this.isLeft = isLeft;
+                this.particles = [];
+                this.createParticles(isBig);
+            }
+            
+            createParticles(isBig) {
+                const particleCount = isBig ? 
+                    60 + Math.floor(Math.random() * 30) :
+                    40 + Math.floor(Math.random() * 20);
+                
+                for (let i = 0; i < particleCount; i++) {
+                    const angle = this.isLeft ? 
+                        Math.random() * Math.PI * 0.5 + Math.PI * 0.25 :
+                        Math.random() * Math.PI * 0.5 + Math.PI * 0.75;
+                    
+                    const speed = isBig ? 
+                        Math.random() * 4 + 2 :
+                        Math.random() * 3 + 1;
+                    const size = isBig ? 
+                        Math.random() * 8 + 5 :
+                        Math.random() * 6 + 3;
+                    const shape = Math.random() > 0.5 ? 'rect' : 'circle';
+                    const color = colors.confetti[Math.floor(Math.random() * colors.confetti.length)];
+                    
+                    this.particles.push({
+                        x: this.x,
+                        y: this.y,
+                        vx: Math.cos(angle) * speed,
+                        vy: Math.sin(angle) * speed,
+                        size: size,
+                        color: color,
+                        shape: shape,
+                        rotation: Math.random() * Math.PI * 2,
+                        rotationSpeed: (Math.random() - 0.5) * 0.15,
+                        gravity: 0.1
+                    });
+                }
+            }
+            
+            update() {
+                for (let i = this.particles.length - 1; i >= 0; i--) {
+                    const p = this.particles[i];
+                    
+                    p.x += p.vx;
+                    p.y += p.vy;
+                    p.vy += p.gravity;
+                    p.rotation += p.rotationSpeed;
+                    
+                    p.vx *= 0.99;
+                    p.vy *= 0.99;
+                    
+                    if (p.y > this.canvasWidth || p.x < 0 || p.x > this.canvasWidth) {
+                        this.particles.splice(i, 1);
+                    }
+                }
+                
+                return this.particles.length > 0;
+            }
+            
+            draw(ctx) {
+                for (const p of this.particles) {
+                    ctx.save();
+                    ctx.translate(p.x, p.y);
+                    ctx.rotate(p.rotation);
+                    ctx.fillStyle = p.color;
+                    
+                    if (p.shape === 'rect') {
+                        ctx.fillRect(-p.size/2, -p.size/2, p.size, p.size);
+                    } else {
+                        ctx.beginPath();
+                        ctx.arc(0, 0, p.size/2, 0, Math.PI * 2);
+                        ctx.fill();
+                    }
+                    
+                    ctx.restore();
+                }
+            }
+        }
+
+        function createFirework(x, y, isBig = false) {
+            particles.push(new Firework(x, y, null, isBig));
+        }
+
+        function createLeftEffects() {
+            for (let i = 0; i < 5; i++) {
+                setTimeout(() => {
+                    const x = 30;
+                    const y = Math.random() * leftCanvas.height;
+                    leftParticles.push(new Confetti(x, y, leftCanvas.width, true, true));
+                    
+                    const fireworkX = 40;
+                    const fireworkY = Math.random() * leftCanvas.height * 0.8;
+                    leftParticles.push(new Firework(fireworkX, fireworkY, null, true));
+                }, i * 300);
+            }
+        }
+
+        function createRightEffects() {
+            for (let i = 0; i < 5; i++) {
+                setTimeout(() => {
+                    const x = rightCanvas.width - 30;
+                    const y = Math.random() * rightCanvas.height;
+                    rightParticles.push(new Confetti(x, y, rightCanvas.width, false, true));
+                    
+                    const fireworkX = rightCanvas.width - 40;
+                    const fireworkY = Math.random() * rightCanvas.height * 0.8;
+                    rightParticles.push(new Firework(fireworkX, fireworkY, null, true));
+                }, i * 300);
+            }
+        }
+
+        function startPeriodicFireworks() {
+            periodicFireworksInterval = setInterval(() => {
+                const x = Math.random() * mainCanvas.width;
+                const y = Math.random() * mainCanvas.height * 0.3;
+                createFirework(x, y, Math.random() > 0.7);
+            }, 5000 + Math.random() * 3000);
+        }
+
+        function animateMain() {
+            mainCtx.fillStyle = 'rgba(233, 206, 197, 0.08)';
+            mainCtx.fillRect(0, 0, mainCanvas.width, mainCanvas.height);
+            
+            for (let i = particles.length - 1; i >= 0; i--) {
+                if (!particles[i].update()) {
+                    particles.splice(i, 1);
+                } else {
+                    particles[i].draw(mainCtx);
+                }
+            }
+            
+            requestAnimationFrame(animateMain);
+        }
+
+        function animateLeftEffects() {
+            leftCtx.clearRect(0, 0, leftCanvas.width, leftCanvas.height);
+            
+            for (let i = leftParticles.length - 1; i >= 0; i--) {
+                if (!leftParticles[i].update()) {
+                    leftParticles.splice(i, 1);
+                } else {
+                    leftParticles[i].draw(leftCtx);
+                }
+            }
+            
+            requestAnimationFrame(animateLeftEffects);
+        }
+
+        function animateRightEffects() {
+            rightCtx.clearRect(0, 0, rightCanvas.width, rightCanvas.height);
+            
+            for (let i = rightParticles.length - 1; i >= 0; i--) {
+                if (!rightParticles[i].update()) {
+                    rightParticles.splice(i, 1);
+                } else {
+                    rightParticles[i].draw(rightCtx);
+                }
+            }
+            
+            requestAnimationFrame(animateRightEffects);
+        }
+
+        animateMain();
+        animateLeftEffects();
+        animateRightEffects();
+
+        function startSideEffects() {
+            setTimeout(() => {
+                createLeftEffects();
+                createRightEffects();
+            }, 1000);
+        }
+
+        document.getElementById('rsvpForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            document.getElementById('successMessage').style.display = 'block';
+            document.getElementById('submitBtn').style.display = 'none';
+            
+            for (let i = 0; i < 7; i++) {
+                setTimeout(() => {
+                    const x = window.innerWidth / 2 + (Math.random() - 0.5) * 300;
+                    const y = window.innerHeight / 2 + (Math.random() - 0.5) * 200;
+                    createFirework(x, y, true);
+                }, i * 250);
+            }
+            
+            setTimeout(() => {
+                this.submit();
+            }, 3000);
+        });
+
+        window.addEventListener('load', () => {
+            resizeCanvases();
+            startSideEffects();
+            startPeriodicFireworks();
+            window.addEventListener('resize', resizeCanvases);
+        });
+
+        window.addEventListener('beforeunload', () => {
+            if (periodicFireworksInterval) {
+                clearInterval(periodicFireworksInterval);
+            }
+        });
     </script>
 </body>
 </html>
