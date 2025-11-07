@@ -599,6 +599,42 @@
             50% { transform: translateY(-5px); }
         }
 
+        /* Подсказка для мобильных устройств */
+        .mobile-music-hint {
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(135deg, #c92236, #b31e30);
+            color: white;
+            padding: 12px 20px;
+            border-radius: 25px;
+            font-size: 14px;
+            font-weight: 500;
+            z-index: 10000;
+            box-shadow: 0 4px 15px rgba(201, 34, 54, 0.4);
+            animation: hintPulse 2s infinite;
+            cursor: pointer;
+            text-align: center;
+            max-width: 90%;
+            display: none;
+        }
+
+        @keyframes hintPulse {
+            0% {
+                transform: translateX(-50%) scale(1);
+                box-shadow: 0 4px 15px rgba(201, 34, 54, 0.4);
+            }
+            50% {
+                transform: translateX(-50%) scale(1.05);
+                box-shadow: 0 6px 20px rgba(201, 34, 54, 0.6);
+            }
+            100% {
+                transform: translateX(-50%) scale(1);
+                box-shadow: 0 4px 15px rgba(201, 34, 54, 0.4);
+            }
+        }
+
         @media (max-width: 768px) {
             .container {
                 padding: 15px 15px 30px;
@@ -642,6 +678,11 @@
     </style>
 </head>
 <body>
+    <!-- Подсказка для мобильных устройств -->
+    <div class="mobile-music-hint" id="mobileMusicHint">
+        🎵 Нажмите для включения музыки 🎵
+    </div>
+
     <div class="effects-container">
         <canvas id="effectsCanvas"></canvas>
     </div>
@@ -808,47 +849,122 @@
     </audio>
 
     <script>
-        // Исправленная логика для кнопки музыки
+        // УЛУЧШЕННАЯ ЛОГИКА ДЛЯ МУЗЫКИ С ПОДДЕРЖКОЙ МОБИЛЬНЫХ УСТРОЙСТВ
         const music = document.getElementById('weddingMusic');
         const musicToggleBtn = document.getElementById('musicToggleBtn');
+        const mobileMusicHint = document.getElementById('mobileMusicHint');
         let isPlaying = false;
+        let musicInitialized = false;
+
+        // Функция инициализации музыки при первом взаимодействии
+        function initializeMusic() {
+            if (musicInitialized) return;
+            
+            // Предзагрузка музыки
+            music.load();
+            music.volume = 0.7; // Устанавливаем комфортную громкость
+            musicInitialized = true;
+            
+            // Скрываем подсказку на мобильных устройствах после инициализации
+            if (isMobileDevice()) {
+                setTimeout(() => {
+                    mobileMusicHint.style.display = 'none';
+                }, 1000);
+            }
+        }
+
+        // Проверка мобильного устройства
+        function isMobileDevice() {
+            return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+        }
+
+        // Показать подсказку для мобильных
+        function showMobileMusicHint() {
+            if (isMobileDevice() && !musicInitialized) {
+                mobileMusicHint.style.display = 'block';
+                
+                // Автоматически убрать подсказку через 5 секунд
+                setTimeout(() => {
+                    if (mobileMusicHint.style.display === 'block') {
+                        mobileMusicHint.style.display = 'none';
+                    }
+                }, 5000);
+            }
+        }
 
         function toggleMusic() {
+            initializeMusic();
+            
             if (isPlaying) {
                 music.pause();
                 isPlaying = false;
                 musicToggleBtn.innerHTML = '♪♫';
                 musicToggleBtn.classList.remove('playing');
             } else {
-                music.play().then(() => {
-                    isPlaying = true;
-                    musicToggleBtn.innerHTML = '❚❚';
-                    musicToggleBtn.classList.add('playing');
-                }).catch(e => {
-                    console.log('Не удалось воспроизвести музыку');
-                });
+                const playPromise = music.play();
+                if (playPromise !== undefined) {
+                    playPromise.then(() => {
+                        isPlaying = true;
+                        musicToggleBtn.innerHTML = '❚❚';
+                        musicToggleBtn.classList.add('playing');
+                        mobileMusicHint.style.display = 'none';
+                    }).catch(error => {
+                        console.log('Воспроизведение заблокировано:', error);
+                        // Показываем подсказку, если воспроизведение заблокировано
+                        showMobileMusicHint();
+                    });
+                }
             }
         }
 
         // Назначаем обработчик на кнопку
         musicToggleBtn.addEventListener('click', toggleMusic);
 
-        // Автовоспроизведение через 1 секунду после загрузки страницы
+        // Обработчик для мобильной подсказки
+        mobileMusicHint.addEventListener('click', function() {
+            toggleMusic();
+            this.style.display = 'none';
+        });
+
+        // Инициализация при любом взаимодействии с страницей
+        document.addEventListener('click', function() {
+            initializeMusic();
+        });
+        
+        document.addEventListener('touchstart', function() {
+            initializeMusic();
+        });
+        
+        document.addEventListener('scroll', function() {
+            initializeMusic();
+        });
+
+        // Попытка автовоспроизведения после загрузки (только для десктопов)
         window.addEventListener('load', function() {
-            setTimeout(function() {
-                if (!isPlaying) {
-                    music.play().then(() => {
-                        isPlaying = true;
-                        musicToggleBtn.innerHTML = '❚❚';
-                        musicToggleBtn.classList.add('playing');
-                    }).catch(error => {
-                        console.log('Автовоспроизведение заблокировано. Для включения музыки нажмите на кнопку.');
-                        isPlaying = false;
-                        musicToggleBtn.innerHTML = '♪♫';
-                        musicToggleBtn.classList.remove('playing');
-                    });
-                }
-            }, 1000);
+            // Инициализируем музыку при загрузке
+            musicInitialized = true;
+            music.volume = 0.7;
+            
+            // Показываем подсказку на мобильных устройствах
+            if (isMobileDevice()) {
+                setTimeout(showMobileMusicHint, 1000);
+            } else {
+                // Только для десктопов - пробуем автовоспроизведение
+                setTimeout(function() {
+                    if (!isPlaying) {
+                        const playPromise = music.play();
+                        if (playPromise !== undefined) {
+                            playPromise.then(() => {
+                                isPlaying = true;
+                                musicToggleBtn.innerHTML = '❚❚';
+                                musicToggleBtn.classList.add('playing');
+                            }).catch(error => {
+                                console.log('Автовоспроизведение заблокировано');
+                            });
+                        }
+                    }
+                }, 2000);
+            }
         });
 
         // Код для управления полем второго гостя
