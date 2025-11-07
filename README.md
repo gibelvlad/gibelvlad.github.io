@@ -290,11 +290,6 @@
             color: #c92236;
             font-size: 16px;
         }
-
-        .required::after {
-            content: ' *';
-            color: #c92236;
-        }
         
         .form-group input,
         .form-group select,
@@ -338,13 +333,25 @@
             font-style: italic;
         }
         
+        /* Новая анимация для кнопки отправки */
+        @keyframes sparkle {
+            0%, 100% { 
+                transform: scale(1);
+                box-shadow: 0 5px 15px rgba(201, 34, 54, 0.3);
+            }
+            50% { 
+                transform: scale(1.02);
+                box-shadow: 0 8px 25px rgba(201, 34, 54, 0.5);
+            }
+        }
+        
         .submit-button {
             width: 100%;
-            padding: 16px;
+            padding: 18px;
             background: linear-gradient(135deg, #c92236, #b31e30);
             color: #f8f7f3;
             border: none;
-            border-radius: 8px;
+            border-radius: 12px;
             font-size: 18px;
             cursor: pointer;
             margin-top: 15px;
@@ -355,12 +362,40 @@
             position: relative;
             overflow: hidden;
             z-index: 2;
+            animation: sparkle 2s infinite;
         }
 
         .submit-button:hover {
             transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(201, 34, 54, 0.4);
+            box-shadow: 0 10px 30px rgba(201, 34, 54, 0.6);
             background: linear-gradient(135deg, #d9263a, #c92236);
+            animation: none;
+        }
+
+        .submit-button:active {
+            transform: translateY(1px);
+        }
+        
+        /* Анимация сердечек для кнопки */
+        @keyframes float {
+            0%, 100% { 
+                transform: translateY(0) rotate(0deg);
+                opacity: 0;
+            }
+            50% { 
+                opacity: 1;
+            }
+            100% { 
+                transform: translateY(-20px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+        
+        .heart {
+            position: absolute;
+            font-size: 16px;
+            opacity: 0;
+            pointer-events: none;
         }
         
         .hearts {
@@ -602,12 +637,12 @@
                 <input type="hidden" name="_language" value="ru">
                 
                 <div class="form-group">
-                    <label for="name" class="required">Ваше имя и фамилия</label>
+                    <label for="name">Ваше имя и фамилия</label>
                     <input type="text" id="name" name="name" required placeholder="Например, Иван Иванов">
                 </div>
                 
                 <div class="form-group">
-                    <label for="attendance" class="required">Вы сможете прийти?</label>
+                    <label for="attendance">Вы сможете прийти?</label>
                     <select id="attendance" name="attendance" required>
                         <option value="">Выберите вариант</option>
                         <option value="yes">С радостью приду!</option>
@@ -617,7 +652,7 @@
                 </div>
                 
                 <div class="form-group">
-                    <label for="companions" class="required">Сколько человек будет (включая вас)</label>
+                    <label for="companions">Сколько человек будет (включая вас)</label>
                     <select id="companions" name="companions" required>
                         <option value="1">1 человек</option>
                         <option value="2">2 человека</option>
@@ -627,8 +662,22 @@
 
                 <!-- Новое поле для второго гостя -->
                 <div class="form-group companion-field" id="companionField">
-                    <label for="companion_name" class="required">Имя и фамилия вашего спутника</label>
+                    <label for="companion_name">Имя и фамилия вашего спутника</label>
                     <input type="text" id="companion_name" name="companion_name" placeholder="Например, Мария Петрова">
+                    
+                    <div class="form-group">
+                        <label for="companion_alcohol">Предпочтения в напитках вашего спутника</label>
+                        <select id="companion_alcohol" name="companion_alcohol">
+                            <option value="none">💧 Трезвый(ая), слежу за порядком</option>
+                            <option value="wine">🍷 Вино (красное/белое) — для ценителей</option>
+                            <option value="champagne">🥂 Шампанское - чтобы любовь искрилась!</option>
+                            <option value="strong">🥃 Крепкие напитки (водка, коньяк, виски)</option>
+                            <option value="cocktails">🍸 Коктейли - для настоящих гурманов</option>
+                            <option value="all">🎯 Любые напитки - доверяю вашему вкусу!</option>
+                            <option value="other">💫 Особые пожелания...(напишите в пожеланиях)</option>
+                        </select>
+                    </div>
+                    
                     <div class="companion-note">Пожалуйста, укажите имя и фамилию человека, который придет с вами</div>
                 </div>
 
@@ -636,9 +685,11 @@
                     <label for="alcohol">Ваши предпочтения в напитках</label>
                     <select id="alcohol" name="alcohol">
                         <option value="none">💧 Я сегодня трезвый, слежу за порядком</option>
-                        <option value="wine">🍷 Вино (красное/белое) — для ценителей </option>
+                        <option value="wine">🍷 Вино (красное/белое) — для ценителей</option>
                         <option value="champagne">🥂 Шампанское - чтобы любовь искрилась!</option>
-                        <option value="strong">🎯 Любые напитки - я доверяю вашему вкусу!</option>
+                        <option value="strong">🥃 Крепкие напитки (водка, коньяк, виски)</option>
+                        <option value="cocktails">🍸 Коктейли - для настоящих гурманов</option>
+                        <option value="all">🎯 Любые напитки - я доверяю вашему вкусу!</option>
                         <option value="other">💫 У меня есть особые пожелания...(напишите в пожеланиях)</option>
                     </select>
                 </div>
@@ -677,57 +728,53 @@
     </div>
 
     <div class="music-player">
-        <button class="music-btn" onclick="toggleMusic()">❚❚</button>
+        <button class="music-btn" id="musicToggleBtn">❚❚</button>
     </div>
 
-    <audio id="weddingMusic" loop autoplay>
+    <audio id="weddingMusic" loop>
         <source src="22/wedding-music.mp3" type="audio/mpeg">
         <source src="22/wedding-music.ogg" type="audio/ogg">
         Ваш браузер не поддерживает аудио элемент.
     </audio>
 
     <script>
+        // Исправленная логика для кнопки музыки
         const music = document.getElementById('weddingMusic');
-        let isPlaying = true; // Сразу устанавливаем, что музыка играет
+        const musicToggleBtn = document.getElementById('musicToggleBtn');
+        let isPlaying = false;
 
         function toggleMusic() {
             if (isPlaying) {
                 music.pause();
                 isPlaying = false;
-                document.querySelector('.music-btn').innerHTML = '♫';
+                musicToggleBtn.innerHTML = '♫';
             } else {
                 music.play().then(() => {
                     isPlaying = true;
-                    document.querySelector('.music-btn').innerHTML = '❚❚';
+                    musicToggleBtn.innerHTML = '❚❚';
                 }).catch(e => {
-                    alert('Нажмите на кнопку музыки еще раз чтобы включить');
+                    console.log('Не удалось воспроизвести музыку');
                 });
             }
         }
 
-        // Пытаемся запустить музыку сразу при загрузке страницы
-        window.addEventListener('load', function() {
-            music.play().then(() => {
-                isPlaying = true;
-                document.querySelector('.music-btn').innerHTML = '❚❚';
-            }).catch(error => {
-                // Если автовоспроизведение заблокировано, показываем кнопку воспроизведения
-                console.log('Автовоспроизведение заблокировано. Для включения музыки нажмите на кнопку.');
-                isPlaying = false;
-                document.querySelector('.music-btn').innerHTML = '♫';
-            });
-        });
+        // Назначаем обработчик на кнопку
+        musicToggleBtn.addEventListener('click', toggleMusic);
 
-        // Дополнительная попытка запустить музыку при первом клике пользователя
-        document.addEventListener('click', function() {
-            if (!isPlaying) {
-                music.play().then(() => {
-                    isPlaying = true;
-                    document.querySelector('.music-btn').innerHTML = '❚❚';
-                }).catch(e => {
-                    console.log('Воспроизведение заблокировано до взаимодействия пользователя');
-                });
-            }
+        // Автовоспроизведение через 1 секунду после загрузки страницы
+        window.addEventListener('load', function() {
+            setTimeout(function() {
+                if (!isPlaying) {
+                    music.play().then(() => {
+                        isPlaying = true;
+                        musicToggleBtn.innerHTML = '❚❚';
+                    }).catch(error => {
+                        console.log('Автовоспроизведение заблокировано. Для включения музыки нажмите на кнопку.');
+                        isPlaying = false;
+                        musicToggleBtn.innerHTML = '♫';
+                    });
+                }
+            }, 1000);
         });
 
         // Код для управления полем второго гостя
@@ -762,6 +809,31 @@
                 }
             });
         });
+
+        // Анимация сердечек для кнопки отправки
+        document.getElementById('submitBtn').addEventListener('click', function(e) {
+            if (document.getElementById('rsvpForm').checkValidity()) {
+                createHeartsAnimation(e);
+            }
+        });
+
+        function createHeartsAnimation(event) {
+            const button = event.target;
+            const rect = button.getBoundingClientRect();
+            
+            for (let i = 0; i < 8; i++) {
+                const heart = document.createElement('div');
+                heart.className = 'heart';
+                heart.innerHTML = '💖';
+                heart.style.left = (Math.random() * 80 + 10) + '%';
+                heart.style.animation = `float ${Math.random() * 1 + 1}s ease-out forwards`;
+                button.appendChild(heart);
+                
+                setTimeout(() => {
+                    heart.remove();
+                }, 1200);
+            }
+        }
 
         // Код для эффектов (остается таким же)
         const mainCanvas = document.getElementById('effectsCanvas');
