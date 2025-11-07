@@ -4,11 +4,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Владислав & Анастасия - Свадьба 12 декабря 2025</title>
     
-    <!-- Open Graph метатеги для красивых превью в соцсетях -->
+    <!-- Open Graph метатеги -->
     <meta property="og:title" content="Владислав & Анастасия - Свадьба 12 декабря 2025">
     <meta property="og:description" content="Приглашение на свадьбу Владислава и Анастасии. Ждём вас 12 декабря 2025 года">
-    <meta property="og:image" content="https://ваш-username.github.io/ваш-репозиторий/22/wedding-preview.jpg">
-    <meta property="og:url" content="https://ваш-username.github.io/ваш-репозиторий">
+    <meta property="og:image" content="https://example.com/wedding-preview.jpg">
+    <meta property="og:url" content="https://example.com">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Свадьба Владислава и Анастасии">
     
@@ -16,7 +16,7 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Владислав & Анастасия - Свадьба 12 декабря 2025">
     <meta name="twitter:description" content="Приглашение на свадьбу Владислава и Анастасии">
-    <meta name="twitter:image" content="https://ваш-username.github.io/ваш-репозиторий/22/wedding-preview.jpg">
+    <meta name="twitter:image" content="https://example.com/wedding-preview.jpg">
     
     <!-- Дополнительные метатеги -->
     <meta name="description" content="Приглашение на свадьбу Владислава и Анастасии. 12 декабря 2025 года">
@@ -428,6 +428,7 @@
             z-index: 2;
         }
         
+        /* ОБНОВЛЕННЫЙ ПЛЕЕР - В ФОРМЕ СЕРДЦА */
         .music-player {
             position: fixed;
             bottom: 25px;
@@ -436,8 +437,8 @@
         }
         
         .music-btn {
-            width: 55px;
-            height: 55px;
+            width: 60px;
+            height: 60px;
             border-radius: 50%;
             background: linear-gradient(135deg, #c92236, #b31e30);
             color: #f8f7f3;
@@ -449,10 +450,12 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            /* Сердцевидная форма */
+            clip-path: polygon(50% 0%, 100% 35%, 82% 100%, 50% 75%, 18% 100%, 0% 35%);
         }
 
         .music-btn:hover {
-            transform: scale(1.1);
+            transform: scale(1.1) rotate(5deg);
             box-shadow: 0 8px 20px rgba(201, 34, 54, 0.4);
         }
         
@@ -468,14 +471,16 @@
             z-index: 2;
         }
         
+        /* ОБНОВЛЕННЫЙ РАЗДЕЛИТЕЛЬ - СВАДЕБНЫЕ КОЛЬЦА */
         .floral-divider {
             text-align: center;
             margin: 30px 0;
             color: #c92236;
-            font-size: 24px;
+            font-size: 28px;
             opacity: 0.7;
             position: relative;
             z-index: 2;
+            letter-spacing: 15px;
         }
 
         .section-title {
@@ -542,6 +547,19 @@
             height: 100%;
         }
 
+        /* Стикер для ссылки на карту */
+        .map-sticker {
+            display: inline-block;
+            margin-right: 10px;
+            font-size: 20px;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-5px); }
+        }
+
         @media (max-width: 768px) {
             .container {
                 padding: 15px 15px 30px;
@@ -553,12 +571,17 @@
             }
             
             .music-btn {
-                width: 50px;
-                height: 50px;
+                width: 55px;
+                height: 55px;
             }
             
             .side-effects-left, .side-effects-right {
                 width: 100px;
+            }
+            
+            .floral-divider {
+                letter-spacing: 10px;
+                font-size: 24px;
             }
         }
         
@@ -569,6 +592,11 @@
             
             .side-effects-left, .side-effects-right {
                 width: 80px;
+            }
+            
+            .floral-divider {
+                letter-spacing: 8px;
+                font-size: 20px;
             }
         }
     </style>
@@ -588,14 +616,15 @@
     <div class="container">
         <div class="custom-invitation">
             <div class="vertical-gallery" id="invitationImage">
-                <img src="22/photo1.png" alt="Свадебное фото 1">
-                <img src="22/photo2.png" alt="Свадебное фото 2">
-                <img src="22/photo3.png" alt="Свадебное фото 3">
-                <img src="22/photo4.png" alt="Свадебное фото 4">
+                <img src="22/photo1.png" alt="Свадебное фото 1" onerror="this.src='https://images.unsplash.com/photo-1519225421980-715cb0215aed?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80'">
+                <img src="22/photo2.png" alt="Свадебное фото 2" onerror="this.src='https://images.unsplash.com/photo-1465495976277-4387d4b0e4a6?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80'">
+                <img src="22/photo3.png" alt="Свадебное фото 3" onerror="this.src='https://images.unsplash.com/photo-1532712988316-4f6d2b5a0e6e?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80'">
+                <img src="22/photo4.png" alt="Свадебное фото 4" onerror="this.src='https://images.unsplash.com/photo-1519741497674-611481863552?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80'">
             </div>
         </div>
 
-        <div class="floral-divider">❀ ❀ ❀</div>
+        <!-- ОБНОВЛЕННЫЙ РАЗДЕЛИТЕЛЬ - СВАДЕБНЫЕ КОЛЬЦА -->
+        <div class="floral-divider">💍 💍 💍</div>
         
         <!-- Обновленный блок с двумя мероприятиями -->
         <div class="events">
@@ -619,9 +648,9 @@
             </div>
         </div>
         
-        <!-- Кнопка карты теперь ведет к банкетному залу -->
+        <!-- Кнопка карты теперь с красивым стикером -->
         <a href="https://go.2gis.com/Kupg2" class="map-button" target="_blank">
-            ПОСМОТРЕТЬ БАНКЕТНЫЙ ЗАЛ НА КАРТЕ
+            <span class="map-sticker">🗺️</span> ПОСМОТРЕТЬ БАНКЕТНЫЙ ЗАЛ НА КАРТЕ
             <div class="bubble"></div>
             <div class="bubble"></div>
             <div class="bubble"></div>
@@ -672,7 +701,7 @@
                             <option value="wine">🍷 Вино (красное/белое) — для ценителей</option>
                             <option value="champagne">🥂 Шампанское - чтобы любовь искрилась!</option>
                             <option value="strong">🥃 Крепкие напитки (водка, коньяк, виски)</option>
-                            <option value="cocktails">🍸 Самогон - для настоящих гурманов</option>
+                            <option value="samogon">🏺 Самогон - для настоящих ценителей</option>
                             <option value="all">🎯 Любые напитки - доверяю вашему вкусу!</option>
                             <option value="other">💫 Особые пожелания...(напишите в пожеланиях)</option>
                         </select>
@@ -684,11 +713,11 @@
                 <div class="form-group">
                     <label for="alcohol">Ваши предпочтения в напитках</label>
                     <select id="alcohol" name="alcohol">
-                        <option value="none">💧 Я сегодня трезвый(ая), слежу за порядком</option>
+                        <option value="none">💧 Я сегодня трезвый, слежу за порядком</option>
                         <option value="wine">🍷 Вино (красное/белое) — для ценителей</option>
                         <option value="champagne">🥂 Шампанское - чтобы любовь искрилась!</option>
                         <option value="strong">🥃 Крепкие напитки (водка, коньяк, виски)</option>
-                        <option value="cocktails">🍸 Самогон - для настоящих гурманов</option>
+                        <option value="samogon">🏺 Самогон - для настоящих ценителей</option>
                         <option value="all">🎯 Любые напитки - я доверяю вашему вкусу!</option>
                         <option value="other">💫 У меня есть особые пожелания...(напишите в пожеланиях)</option>
                     </select>
@@ -727,6 +756,7 @@
         </div>
     </div>
 
+    <!-- ОБНОВЛЕННЫЙ ПЛЕЕР В ФОРМЕ СЕРДЦА -->
     <div class="music-player">
         <button class="music-btn" id="musicToggleBtn">❚❚</button>
     </div>
