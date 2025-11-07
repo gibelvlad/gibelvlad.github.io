@@ -7,7 +7,7 @@
     <!-- Open Graph метатеги - ОБНОВЛЕННЫЕ ДЛЯ КРАСИВОГО ПРЕВЬЮ -->
     <meta property="og:title" content="💒 Владислав & Анастасия - Свадьба 12 декабря 2025">
     <meta property="og:description" content="🎉 Приглашение на нашу свадьбу! Торжественная регистрация и банкет в Барнауле. Ждём вас разделить с нами этот особенный день!">
-    <meta property="og:image" content="https://gibelvlad.github.io/22/wedding-preview.jpg">
+    <meta property="og:image" content="https://gibelvlad.github.io/22/wedding-preview.png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
     <meta property="og:image:type" content="image/jpeg">
@@ -20,7 +20,7 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="💒 Владислав & Анастасия - Свадьба 12 декабря 2025">
     <meta name="twitter:description" content="🎉 Приглашение на свадьбу! Торжественная регистрация и банкет в Барнауле">
-    <meta name="twitter:image" content="https://gibelvlad.github.io/22/wedding-preview.jpg">
+    <meta name="twitter:image" content="https://gibelvlad.github.io/22/wedding-preview.png">
     <meta name="twitter:site" content="@wedding">
     
     <!-- Дополнительные метатеги -->
