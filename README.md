@@ -1,35 +1,45 @@
+<!DOCTYPE html>
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Владислав & Анастасия - Свадьба 12 декабря 2025</title>
     
-    <!-- Open Graph метатеги - ОБНОВЛЕННЫЕ ДЛЯ КРАСИВОГО ПРЕВЬЮ -->
+    <!-- Open Graph метатеги - ОБНОВЛЕННЫЕ ДЛЯ WHATSAPP И TELEGRAM -->
+    <meta property="og:site_name" content="Свадьба Владислава и Анастасии">
     <meta property="og:title" content="💒 Владислав & Анастасия - Свадьба 12 декабря 2025">
     <meta property="og:description" content="🎉 Приглашение на нашу свадьбу! Торжественная регистрация и банкет в Барнауле. Ждём вас разделить с нами этот особенный день!">
-    <meta property="og:image" content="https://gibelvlad.github.io/22/wedding-preview.png">
+    <meta property="og:image" content="https://gibelvlad.github.io/22/wedding-preview.jpg">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
     <meta property="og:image:type" content="image/jpeg">
+    <meta property="og:image:alt" content="Приглашение на свадьбу">
     <meta property="og:url" content="https://gibelvlad.github.io/wedding-invitation">
     <meta property="og:type" content="website">
-    <meta property="og:site_name" content="Свадьба Владислава и Анастасии">
     <meta property="og:locale" content="ru_RU">
     
     <!-- Twitter Card метатеги -->
     <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@wedding">
+    <meta name="twitter:creator" content="@wedding">
     <meta name="twitter:title" content="💒 Владислав & Анастасия - Свадьба 12 декабря 2025">
     <meta name="twitter:description" content="🎉 Приглашение на свадьбу! Торжественная регистрация и банкет в Барнауле">
-    <meta name="twitter:image" content="https://gibelvlad.github.io/22/wedding-preview.png">
-    <meta name="twitter:site" content="@wedding">
+    <meta name="twitter:image" content="https://gibelvlad.github.io/22/wedding-preview.jpg">
+    <meta name="twitter:image:alt" content="Приглашение на свадьбу">
     
     <!-- Дополнительные метатеги -->
     <meta name="description" content="Приглашение на свадьбу Владислава и Анастасии. 12 декабря 2025 года - торжественная регистрация и банкет в Барнауле">
     <meta name="keywords" content="свадьба, приглашение, Владислав, Анастасия, 12 декабря 2025, Барнаул, банкет">
+    <meta name="author" content="Владислав и Анастасия">
     
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="https://gibelvlad.github.io/22/favicon.ico">
     <link rel="apple-touch-icon" sizes="180x180" href="https://gibelvlad.github.io/22/apple-touch-icon.png">
+    
+    <!-- Кеширование для превью -->
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
     
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
     
@@ -832,7 +842,7 @@
                 <div class="form-group">
                     <label for="alcohol">Ваши предпочтения в напитках</label>
                     <select id="alcohol" name="alcohol">
-                        <option value="none">💧 Я сегодня трезвый, слежу за порядком</option>
+                        <option value="none">💧 Я сегодня трезвый(ая), слежу за порядком</option>
                         <option value="wine">🍷 Вино (красное/белое) — для ценителей</option>
                         <option value="champagne">🥂 Шампанское - чтобы любовь искрилась!</option>
                         <option value="strong">🥃 Крепкие напитки (водка, коньяк, виски)</option>
@@ -885,7 +895,7 @@
     </audio>
 
     <script>
-        // КОД МУЗЫКИ ОСТАЕТСЯ ПРЕЖНИМ
+        // Музыка
         const music = document.getElementById('weddingMusic');
         const musicToggleBtn = document.getElementById('musicToggleBtn');
         const mobileMusicHint = document.getElementById('mobileMusicHint');
@@ -991,7 +1001,7 @@
             }
         });
 
-        // ИСПРАВЛЕННЫЙ КОД ОТПРАВКИ ФОРМЫ
+        // Форма RSVP
         document.addEventListener('DOMContentLoaded', function() {
             const companionsSelect = document.getElementById('companions');
             const companionField = document.getElementById('companionField');
@@ -1051,24 +1061,6 @@
                 .catch(error => {
                     console.log('Ошибка сети при отправке через fetch:', error);
                 });
-                
-                try {
-                    const iframe = document.createElement('iframe');
-                    iframe.name = 'form_target_' + Date.now();
-                    iframe.style.display = 'none';
-                    document.body.appendChild(iframe);
-                    
-                    form.target = iframe.name;
-                    form.submit();
-                    
-                    setTimeout(() => {
-                        if (iframe.parentNode) {
-                            iframe.parentNode.removeChild(iframe);
-                        }
-                    }, 1000);
-                } catch (err) {
-                    console.log('Классический метод отправки не сработал:', err);
-                }
             });
         });
 
@@ -1091,7 +1083,7 @@
             }
         }
 
-        // КОД ДЛЯ ЭФФЕКТОВ
+        // Эффекты
         const mainCanvas = document.getElementById('effectsCanvas');
         const mainCtx = mainCanvas.getContext('2d');
         const leftCanvas = document.getElementById('leftEffectsCanvas');
