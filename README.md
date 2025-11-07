@@ -6,25 +6,20 @@
     
     <!-- Open Graph метатеги для красивых превью в соцсетях -->
     <meta property="og:title" content="Владислав & Анастасия - Свадьба 12 декабря 2025">
-    <meta property="og:description" content="Приглашение на свадьбу Владислава и Анастасии. Ждём вас 12 декабря 2025 года в банкетном зале 'Олимп'">
-    <meta property="og:image" content="https://avatars.mds.yandex.net/i?id=d893b6d62eccbc0068d6117fce7e9370_l-5666476-images-thumbs&n=13">
-    <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="630">
-    <meta property="og:image:type" content="image/jpeg">
-    <meta property="og:url" content="https://gibelvlad.github.io">
+    <meta property="og:description" content="Приглашение на свадьбу Владислава и Анастасии. Ждём вас 12 декабря 2025 года">
+    <meta property="og:image" content="https://ваш-username.github.io/ваш-репозиторий/22/wedding-preview.jpg">
+    <meta property="og:url" content="https://ваш-username.github.io/ваш-репозиторий">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Свадьба Владислава и Анастасии">
-    <meta property="og:locale" content="ru_RU">
     
     <!-- Twitter Card метатеги -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Владислав & Анастасия - Свадьба 12 декабря 2025">
     <meta name="twitter:description" content="Приглашение на свадьбу Владислава и Анастасии">
-    <meta name="twitter:image" content="https://gibelvlad.github.io/22/wedding-preview.jpg">
-    <meta name="twitter:site" content="@wedding">
+    <meta name="twitter:image" content="https://ваш-username.github.io/ваш-репозиторий/22/wedding-preview.jpg">
     
     <!-- Дополнительные метатеги -->
-    <meta name="description" content="Приглашение на свадьбу Владислава и Анастасии. 12 декабря 2025 года. Банкетный зал 'Олимп'">
+    <meta name="description" content="Приглашение на свадьбу Владислава и Анастасии. 12 декабря 2025 года">
     <meta name="keywords" content="свадьба, приглашение, Владислав, Анастасия, 12 декабря 2025">
     
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
@@ -70,7 +65,6 @@
             z-index: 2;
         }
         
-        /* Стили для вашего приглашения */
         .custom-invitation {
             background: rgba(248, 247, 243, 0.95);
             padding: 0;
@@ -83,7 +77,8 @@
             overflow: hidden;
         }
         
-        .custom-invitation::before {
+        /* УБИРАЕМ КРАСНУЮ ПОЛОСУ СВЕРХУ */
+        /* .custom-invitation::before {
             content: '';
             position: absolute;
             top: 0;
@@ -92,9 +87,8 @@
             height: 3px;
             background: linear-gradient(90deg, #c92236, #e9cec5, #c92236);
             border-radius: 12px 12px 0 0;
-        }
+        } */
         
-        /* Вертикальная галерея - 4 фото друг под другом */
         .vertical-gallery {
             width: 100%;
         }
@@ -106,27 +100,30 @@
             object-fit: cover;
         }
         
-        /* Убираем любые промежутки между фото */
         .vertical-gallery img:not(:last-child) {
             margin-bottom: 0;
             border-bottom: none;
         }
         
-        .address {
-            font-size: 18px;
-            text-align: center;
+        /* Обновленные стили для мероприятий */
+        .events {
             margin: 30px 0;
-            padding: 25px;
+        }
+        
+        .event {
             background: rgba(248, 247, 243, 0.9);
+            padding: 25px;
             border-radius: 12px;
             box-shadow: 0 5px 15px rgba(201, 34, 54, 0.1);
             border: 1px solid rgba(201, 34, 54, 0.08);
+            margin-bottom: 20px;
             position: relative;
             z-index: 2;
+            text-align: center;
         }
 
-        .address::before {
-            content: '📍';
+        .event::before {
+            content: '💒';
             position: absolute;
             top: -15px;
             left: 50%;
@@ -138,8 +135,47 @@
             box-shadow: 0 3px 10px rgba(201, 34, 54, 0.1);
             color: #c92236;
         }
+
+        .event.reception::before {
+            content: '🎉';
+        }
         
-        /* Новая кнопка в вашей цветовой гамме */
+        .event-time {
+            font-size: 18px;
+            color: #c92236;
+            font-weight: 600;
+            margin: 10px 0;
+        }
+        
+        .event-location {
+            font-size: 20px;
+            margin: 10px 0;
+        }
+        
+        .event-address {
+            font-style: italic;
+            margin: 10px 0;
+        }
+        
+        .address-link {
+            color: inherit;
+            text-decoration: none;
+            border-bottom: 1px dotted #c92236;
+            transition: all 0.3s ease;
+        }
+
+        .address-link:hover {
+            color: #c92236;
+            border-bottom: 1px solid #c92236;
+        }
+        
+        .event-note {
+            font-size: 14px;
+            color: #888;
+            margin-top: 10px;
+            font-style: italic;
+        }
+
         .map-button {
             position: relative;
             display: block;
@@ -173,7 +209,6 @@
             transform: translateY(1px);
         }
 
-        /* Анимация пузырьков в цветовой гамме */
         @keyframes bubble {
             0% {
                 transform: translateY(0) scale(0.5);
@@ -402,7 +437,6 @@
             font-weight: 600;
         }
 
-        /* Стили для эффектов */
         .effects-container {
             position: fixed;
             top: 0;
@@ -435,7 +469,6 @@
             z-index: 2;
         }
 
-        /* Контейнеры для боковых эффектов */
         .side-effects-left, .side-effects-right {
             position: absolute;
             top: 0;
@@ -492,12 +525,10 @@
     </style>
 </head>
 <body>
-    <!-- Контейнер для эффектов на заднем плане -->
     <div class="effects-container">
         <canvas id="effectsCanvas"></canvas>
     </div>
 
-    <!-- Контейнеры для боковых эффектов -->
     <div class="side-effects-left">
         <canvas id="leftEffectsCanvas" class="side-effects-canvas"></canvas>
     </div>
@@ -506,27 +537,42 @@
     </div>
 
     <div class="container">
-        <!-- Ваше приглашение с 4 фотографиями вертикально -->
         <div class="custom-invitation">
             <div class="vertical-gallery" id="invitationImage">
-                <img src="22/photo1.png" alt="Свадебное фото 1" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAwIiBoZWlnaHQ9IjQwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZTljZWM1Ii8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIyNCIgZmlsbD0iI2M5MjIzNiIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZHk9Ii4zZW0iPuKEliDQv9C+0LTQtNC10YDQttC60LAg0L3QtSDRgdC+0YXRgNCw0L3QuNGC0Yw8L3RleHQ+PC9zdmc+'">
-                <img src="22/photo2.png" alt="Свадебное фото 2" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAwIiBoZWlnaHQ9IjQwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZTljZWM1Ii8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIyNCIgZmlsbD0iI2M5MjIzNiIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZHk9Ii4zZW0iPuKEliDQv9C+0LTQtNC10YDQttC60LAg0L3QtSDRgdC+0YXRgNCw0L3QuNGC0Yw8L3RleHQ+PC9zdmc+'">
-                <img src="22/photo3.png" alt="Свадебное фото 3" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAwIiBoZWlnaHQ9IjQwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZTljZWM1Ii8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIyNCIgZmlsbD0iI2M5MjIzNiIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZHk9Ii4zZW0iPuKEliDQv9C+0LTQtNC10YDQttC60LAg0L3QtSDRgdC+0YXRgNCw0L3QuNGC0Yw8L3RleHQ+PC9zdmc+'">
-                <img src="22/photo4.png" alt="Свадебное фото 4" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAwIiBoZWlnaHQ9IjQwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZTljZWM1Ii8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIyNCIgZmlsbD0iI2M5MjIzNiIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZHk9Ii4zZW0iPuKEliDQv9C+0LTQtNC10YDQttC60LAg0L3QtSDRgdC+0YXRgNCw0L3QuNGC0Yw8L3RleHQ+PC9zdmc+'">
+                <img src="22/photo1.png" alt="Свадебное фото 1">
+                <img src="22/photo2.png" alt="Свадебное фото 2">
+                <img src="22/photo3.png" alt="Свадебное фото 3">
+                <img src="22/photo4.png" alt="Свадебное фото 4">
             </div>
         </div>
 
         <div class="floral-divider">❀ ❀ ❀</div>
         
-        <div class="address">
-            Ждём вас в банкетном зале<br>
-            <strong>"Олимп"</strong><br>
-            <em>Лесной тракт, 85</em>
+        <!-- Обновленный блок с двумя мероприятиями -->
+        <div class="events">
+            <div class="event">
+                <div class="section-title">Торжественная регистрация</div>
+                <div class="event-time">09:40</div>
+                <div class="event-location">Дворец бракосочетания</div>
+                <div class="event-address">
+                    <a href="https://go.2gis.com/TN7gW" class="address-link" target="_blank">
+                        Пр. Ленина, 11 / ул. Гоголя, 46
+                    </a>
+                </div>
+                <div class="event-note">Камерное мероприятие для самых близких</div>
+            </div>
+            
+            <div class="event reception">
+                <div class="section-title">Банкет в честь свадьбы</div>
+                <div class="event-time">15:00</div>
+                <div class="event-location">Банкетный зал "Олимп"</div>
+                <div class="event-address">Лесной тракт, 85</div>
+            </div>
         </div>
         
-        <!-- Новая кнопка с пузырьками в вашей цветовой гамме -->
+        <!-- Кнопка карты теперь ведет к банкетному залу -->
         <a href="https://go.2gis.com/Kupg2" class="map-button" target="_blank">
-            ПОСМОТРЕТЬ НА КАРТЕ
+            ПОСМОТРЕТЬ БАНКЕТНЫЙ ЗАЛ НА КАРТЕ
             <div class="bubble"></div>
             <div class="bubble"></div>
             <div class="bubble"></div>
@@ -595,10 +641,13 @@
         </div>
         
         <div class="hearts">💖 💕 💗 💓 💞</div>
+        
+        <!-- Улучшенное закрывающее сообщение -->
         <div class="closing-message">
-            С нетерпением ждём этого дня и надеемся разделить его с вами!<br>
-            Этот праздник станет началом нашей семейной истории, и нам так важно, 
-            чтобы вы были его частью.
+            Мы с нетерпением ждём этот день<br> 
+            и будем рады разделить его с вами!<br>
+            Ваше присутствие сделает наш праздник<br>
+            ещё более тёплым и незабываемым.
         </div>
         
         <div class="designer">
@@ -617,7 +666,7 @@
     </audio>
 
     <script>
-        // JavaScript код
+        // JavaScript код остается без изменений
         const music = document.getElementById('weddingMusic');
         let isPlaying = false;
 
@@ -651,7 +700,7 @@
             }
         });
 
-        // Код для эффектов
+        // Код для эффектов (остается таким же)
         const mainCanvas = document.getElementById('effectsCanvas');
         const mainCtx = mainCanvas.getContext('2d');
         
