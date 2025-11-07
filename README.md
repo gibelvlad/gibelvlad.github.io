@@ -290,6 +290,11 @@
             color: #c92236;
             font-size: 16px;
         }
+
+        .required::after {
+            content: ' *';
+            color: #c92236;
+        }
         
         .form-group input,
         .form-group select,
@@ -310,6 +315,27 @@
             outline: none;
             border-color: #c92236;
             box-shadow: 0 0 0 3px rgba(201, 34, 54, 0.1);
+        }
+
+        /* Стиль для скрытого поля второго гостя */
+        .companion-field {
+            display: none;
+            margin-top: 15px;
+            padding: 15px;
+            background: rgba(201, 34, 54, 0.05);
+            border-radius: 8px;
+            border-left: 3px solid #c92236;
+        }
+
+        .companion-field.show {
+            display: block;
+        }
+
+        .companion-note {
+            font-size: 14px;
+            color: #888;
+            margin-top: 5px;
+            font-style: italic;
         }
         
         .submit-button {
@@ -576,12 +602,12 @@
                 <input type="hidden" name="_language" value="ru">
                 
                 <div class="form-group">
-                    <label for="name">Ваше имя и фамилия</label>
+                    <label for="name" class="required">Ваше имя и фамилия</label>
                     <input type="text" id="name" name="name" required placeholder="Например, Иван Иванов">
                 </div>
                 
                 <div class="form-group">
-                    <label for="attendance">Вы сможете прийти?</label>
+                    <label for="attendance" class="required">Вы сможете прийти?</label>
                     <select id="attendance" name="attendance" required>
                         <option value="">Выберите вариант</option>
                         <option value="yes">С радостью приду!</option>
@@ -591,12 +617,19 @@
                 </div>
                 
                 <div class="form-group">
-                    <label for="companions">Сколько человек будет (включая вас)</label>
-                    <select id="companions" name="companions">
+                    <label for="companions" class="required">Сколько человек будет (включая вас)</label>
+                    <select id="companions" name="companions" required>
                         <option value="1">1 человек</option>
                         <option value="2">2 человека</option>
-                        <option value="3">3 человека</option>
                     </select>
+                    <div class="companion-note">Если планируете прийти с парой, выберите "2 человека"</div>
+                </div>
+
+                <!-- Новое поле для второго гостя -->
+                <div class="form-group companion-field" id="companionField">
+                    <label for="companion_name" class="required">Имя и фамилия вашего спутника</label>
+                    <input type="text" id="companion_name" name="companion_name" placeholder="Например, Мария Петрова">
+                    <div class="companion-note">Пожалуйста, укажите имя и фамилию человека, который придет с вами</div>
                 </div>
 
                 <div class="form-group">
@@ -644,10 +677,10 @@
     </div>
 
     <div class="music-player">
-        <button class="music-btn" onclick="toggleMusic()">♫</button>
+        <button class="music-btn" onclick="toggleMusic()">❚❚</button>
     </div>
 
-    <audio id="weddingMusic" loop>
+    <audio id="weddingMusic" loop autoplay>
         <source src="22/wedding-music.mp3" type="audio/mpeg">
         <source src="22/wedding-music.ogg" type="audio/ogg">
         Ваш браузер не поддерживает аудио элемент.
@@ -655,7 +688,7 @@
 
     <script>
         const music = document.getElementById('weddingMusic');
-        let isPlaying = false;
+        let isPlaying = true; // Сразу устанавливаем, что музыка играет
 
         function toggleMusic() {
             if (isPlaying) {
@@ -672,18 +705,62 @@
             }
         }
 
-        // Автовоспроизведение через 3 секунды после загрузки страницы
+        // Пытаемся запустить музыку сразу при загрузке страницы
         window.addEventListener('load', function() {
-            setTimeout(function() {
-                if (!isPlaying) {
-                    music.play().then(() => {
-                        isPlaying = true;
-                        document.querySelector('.music-btn').innerHTML = '❚❚';
-                    }).catch(e => {
-                        console.log('Автовоспроизведение заблокировано. Для включения музыки нажмите на кнопку.');
-                    });
+            music.play().then(() => {
+                isPlaying = true;
+                document.querySelector('.music-btn').innerHTML = '❚❚';
+            }).catch(error => {
+                // Если автовоспроизведение заблокировано, показываем кнопку воспроизведения
+                console.log('Автовоспроизведение заблокировано. Для включения музыки нажмите на кнопку.');
+                isPlaying = false;
+                document.querySelector('.music-btn').innerHTML = '♫';
+            });
+        });
+
+        // Дополнительная попытка запустить музыку при первом клике пользователя
+        document.addEventListener('click', function() {
+            if (!isPlaying) {
+                music.play().then(() => {
+                    isPlaying = true;
+                    document.querySelector('.music-btn').innerHTML = '❚❚';
+                }).catch(e => {
+                    console.log('Воспроизведение заблокировано до взаимодействия пользователя');
+                });
+            }
+        });
+
+        // Код для управления полем второго гостя
+        document.addEventListener('DOMContentLoaded', function() {
+            const companionsSelect = document.getElementById('companions');
+            const companionField = document.getElementById('companionField');
+            const companionInput = document.getElementById('companion_name');
+
+            function toggleCompanionField() {
+                if (companionsSelect.value === '2') {
+                    companionField.classList.add('show');
+                    companionInput.required = true;
+                } else {
+                    companionField.classList.remove('show');
+                    companionInput.required = false;
+                    companionInput.value = ''; // Очищаем поле при скрытии
                 }
-            }, 3000);
+            }
+
+            // Инициализация при загрузке
+            toggleCompanionField();
+
+            // Обработчик изменения выбора количества гостей
+            companionsSelect.addEventListener('change', toggleCompanionField);
+
+            // Обработчик отправки формы для валидации
+            document.getElementById('rsvpForm').addEventListener('submit', function(e) {
+                if (companionsSelect.value === '2' && !companionInput.value.trim()) {
+                    e.preventDefault();
+                    alert('Пожалуйста, укажите имя и фамилию вашего спутника');
+                    companionInput.focus();
+                }
+            });
         });
 
         // Код для эффектов (остается таким же)
