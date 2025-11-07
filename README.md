@@ -4,28 +4,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Владислав & Анастасия - Свадьба 12 декабря 2025</title>
     
-    <!-- Open Graph метатеги -->
-    <meta property="og:title" content="Владислав & Анастасия - Свадьба 12 декабря 2025">
-    <meta property="og:description" content="Приглашение на свадьбу Владислава и Анастасии. Ждём вас 12 декабря 2025 года">
-    <meta property="og:image" content="https://example.com/wedding-preview.jpg">
-    <meta property="og:url" content="https://example.com">
+    <!-- Open Graph метатеги - ОБНОВЛЕННЫЕ ДЛЯ КРАСИВОГО ПРЕВЬЮ -->
+    <meta property="og:title" content="💒 Владислав & Анастасия - Свадьба 12 декабря 2025">
+    <meta property="og:description" content="🎉 Приглашение на нашу свадьбу! Торжественная регистрация и банкет в Барнауле. Ждём вас разделить с нами этот особенный день!">
+    <meta property="og:image" content="https://gibelvlad.github.io/22/wedding-preview.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:type" content="image/jpeg">
+    <meta property="og:url" content="https://gibelvlad.github.io/wedding-invitation">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Свадьба Владислава и Анастасии">
+    <meta property="og:locale" content="ru_RU">
     
     <!-- Twitter Card метатеги -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Владислав & Анастасия - Свадьба 12 декабря 2025">
-    <meta name="twitter:description" content="Приглашение на свадьбу Владислава и Анастасии">
-    <meta name="twitter:image" content="https://example.com/wedding-preview.jpg">
+    <meta name="twitter:title" content="💒 Владислав & Анастасия - Свадьба 12 декабря 2025">
+    <meta name="twitter:description" content="🎉 Приглашение на свадьбу! Торжественная регистрация и банкет в Барнауле">
+    <meta name="twitter:image" content="https://gibelvlad.github.io/22/wedding-preview.jpg">
+    <meta name="twitter:site" content="@wedding">
     
     <!-- Дополнительные метатеги -->
-    <meta name="description" content="Приглашение на свадьбу Владислава и Анастасии. 12 декабря 2025 года">
-    <meta name="keywords" content="свадьба, приглашение, Владислав, Анастасия, 12 декабря 2025">
+    <meta name="description" content="Приглашение на свадьбу Владислава и Анастасии. 12 декабря 2025 года - торжественная регистрация и банкет в Барнауле">
+    <meta name="keywords" content="свадьба, приглашение, Владислав, Анастасия, 12 декабря 2025, Барнаул, банкет">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="https://gibelvlad.github.io/22/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="https://gibelvlad.github.io/22/apple-touch-icon.png">
     
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
     
     <style>
-        /* ВСЕ СТИЛИ ОСТАЮТСЯ ПРЕЖНИМИ */
         * {
             margin: 0;
             padding: 0;
@@ -830,7 +838,7 @@
                         <option value="strong">🥃 Крепкие напитки (водка, коньяк, виски)</option>
                         <option value="samogon">🏺 Самогон - для настоящих ценителей</option>
                         <option value="all">🎯 Любые напитки - я доверяю вашему вкусу!</option>
-                        <option value="other">💫 *У меня есть особые пожелания...(напишите в пожеланиях)</option>
+                        <option value="other">💫 У меня есть особые пожелания...(напишите в пожеланиях)</option>
                     </select>
                 </div>
                 
@@ -1003,22 +1011,18 @@
             toggleCompanionField();
             companionsSelect.addEventListener('change', toggleCompanionField);
 
-            // ИСПРАВЛЕННЫЙ ОБРАБОТЧИК ФОРМЫ - ОТПРАВКА СРАЗУ
             document.getElementById('rsvpForm').addEventListener('submit', function(e) {
                 e.preventDefault();
                 
-                // Проверяем обязательное поле для второго гостя
                 if (companionsSelect.value === '2' && !companionInput.value.trim()) {
                     alert('Пожалуйста, укажите имя и фамилию вашего спутника');
                     companionInput.focus();
                     return;
                 }
                 
-                // Сразу показываем сообщение об успехе и скрываем кнопку
                 document.getElementById('successMessage').style.display = 'block';
                 document.getElementById('submitBtn').style.display = 'none';
                 
-                // Запускаем анимацию
                 for (let i = 0; i < 7; i++) {
                     setTimeout(() => {
                         const x = window.innerWidth / 2 + (Math.random() - 0.5) * 300;
@@ -1027,11 +1031,9 @@
                     }, i * 250);
                 }
                 
-                // ОТПРАВЛЯЕМ ФОРМУ СРАЗУ - два способа для надежности
                 const form = this;
-                
-                // Способ 1: Отправка через fetch (современный способ)
                 const formData = new FormData(form);
+                
                 fetch(form.action, {
                     method: form.method,
                     body: formData,
@@ -1050,19 +1052,15 @@
                     console.log('Ошибка сети при отправке через fetch:', error);
                 });
                 
-                // Способ 2: Классическая отправка формы (резервный вариант)
                 try {
-                    // Создаем временный iframe для отправки
                     const iframe = document.createElement('iframe');
                     iframe.name = 'form_target_' + Date.now();
                     iframe.style.display = 'none';
                     document.body.appendChild(iframe);
                     
-                    // Устанавливаем цель формы и отправляем
                     form.target = iframe.name;
                     form.submit();
                     
-                    // Удаляем iframe через секунду
                     setTimeout(() => {
                         if (iframe.parentNode) {
                             iframe.parentNode.removeChild(iframe);
@@ -1074,7 +1072,6 @@
             });
         });
 
-        // Анимация сердечек для кнопки отправки
         document.getElementById('submitBtn').addEventListener('click', function(e) {
             if (document.getElementById('rsvpForm').checkValidity()) {
                 createHeartsAnimation(e);
@@ -1094,7 +1091,7 @@
             }
         }
 
-        // ОСТАВШИЙСЯ КОД ДЛЯ ЭФФЕКТОВ (без изменений)
+        // КОД ДЛЯ ЭФФЕКТОВ
         const mainCanvas = document.getElementById('effectsCanvas');
         const mainCtx = mainCanvas.getContext('2d');
         const leftCanvas = document.getElementById('leftEffectsCanvas');
