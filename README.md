@@ -40,6 +40,7 @@
             font-family: 'Montserrat', sans-serif;
             background: linear-gradient(135deg, #e9cec5 0%, #eedad3 100%);
             position: relative;
+            touch-action: manipulation;
         }
 
         body::before {
@@ -602,37 +603,74 @@
         /* Подсказка для мобильных устройств */
         .mobile-music-hint {
             position: fixed;
-            top: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: linear-gradient(135deg, #c92236, #b31e30);
-            color: white;
-            padding: 12px 20px;
-            border-radius: 25px;
-            font-size: 14px;
-            font-weight: 500;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.85);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
             z-index: 10000;
-            box-shadow: 0 4px 15px rgba(201, 34, 54, 0.4);
-            animation: hintPulse 2s infinite;
-            cursor: pointer;
+            color: white;
             text-align: center;
-            max-width: 90%;
-            display: none;
+            padding: 20px;
+            backdrop-filter: blur(10px);
+        }
+
+        .mobile-music-content {
+            background: linear-gradient(135deg, #c92236, #b31e30);
+            padding: 30px;
+            border-radius: 20px;
+            max-width: 320px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            animation: hintPulse 2s infinite;
         }
 
         @keyframes hintPulse {
             0% {
-                transform: translateX(-50%) scale(1);
-                box-shadow: 0 4px 15px rgba(201, 34, 54, 0.4);
+                transform: scale(1);
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
             }
             50% {
-                transform: translateX(-50%) scale(1.05);
-                box-shadow: 0 6px 20px rgba(201, 34, 54, 0.6);
+                transform: scale(1.03);
+                box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
             }
             100% {
-                transform: translateX(-50%) scale(1);
-                box-shadow: 0 4px 15px rgba(201, 34, 54, 0.4);
+                transform: scale(1);
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
             }
+        }
+
+        .mobile-music-hint h3 {
+            font-size: 24px;
+            margin-bottom: 15px;
+            color: white;
+        }
+
+        .mobile-music-hint p {
+            font-size: 16px;
+            margin-bottom: 20px;
+            line-height: 1.5;
+        }
+
+        .enable-music-btn {
+            background: white;
+            color: #c92236;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 50px;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .enable-music-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
         }
 
         @media (max-width: 768px) {
@@ -680,7 +718,11 @@
 <body>
     <!-- Подсказка для мобильных устройств -->
     <div class="mobile-music-hint" id="mobileMusicHint">
-        🎵 Нажмите для включения музыки 🎵
+        <div class="mobile-music-content">
+            <h3>🎵 Свадебная музыка 🎵</h3>
+            <p>Для полного погружения в атмосферу праздника включите фоновую музыку</p>
+            <button class="enable-music-btn" id="enableMusicBtn">ВКЛЮЧИТЬ МУЗЫКУ</button>
+        </div>
     </div>
 
     <div class="effects-container">
@@ -842,128 +884,143 @@
         <button class="music-btn" id="musicToggleBtn">♪♫</button>
     </div>
 
-    <audio id="weddingMusic" loop>
+    <audio id="weddingMusic" loop preload="auto">
         <source src="22/wedding-music.mp3" type="audio/mpeg">
         <source src="22/wedding-music.ogg" type="audio/ogg">
         Ваш браузер не поддерживает аудио элемент.
     </audio>
 
     <script>
-        // УЛУЧШЕННАЯ ЛОГИКА ДЛЯ МУЗЫКИ С ПОДДЕРЖКОЙ МОБИЛЬНЫХ УСТРОЙСТВ
+        // СОВЕРШЕННО НОВАЯ ЛОГИКА ДЛЯ МУЗЫКИ
         const music = document.getElementById('weddingMusic');
         const musicToggleBtn = document.getElementById('musicToggleBtn');
         const mobileMusicHint = document.getElementById('mobileMusicHint');
+        const enableMusicBtn = document.getElementById('enableMusicBtn');
+        
         let isPlaying = false;
         let musicInitialized = false;
-
-        // Функция инициализации музыки при первом взаимодействии
-        function initializeMusic() {
-            if (musicInitialized) return;
-            
-            // Предзагрузка музыки
-            music.load();
-            music.volume = 0.7; // Устанавливаем комфортную громкость
-            musicInitialized = true;
-            
-            // Скрываем подсказку на мобильных устройствах после инициализации
-            if (isMobileDevice()) {
-                setTimeout(() => {
-                    mobileMusicHint.style.display = 'none';
-                }, 1000);
-            }
-        }
+        let userInteracted = false;
 
         // Проверка мобильного устройства
         function isMobileDevice() {
             return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
         }
 
-        // Показать подсказку для мобильных
-        function showMobileMusicHint() {
-            if (isMobileDevice() && !musicInitialized) {
-                mobileMusicHint.style.display = 'block';
-                
-                // Автоматически убрать подсказку через 5 секунд
-                setTimeout(() => {
-                    if (mobileMusicHint.style.display === 'block') {
-                        mobileMusicHint.style.display = 'none';
+        // Инициализация музыки
+        function initializeMusic() {
+            if (musicInitialized) return;
+            
+            // Настройка музыки
+            music.volume = 0.6; // Немного тише для комфорта
+            music.preload = 'auto';
+            
+            // Предзагрузка
+            music.load();
+            musicInitialized = true;
+            
+            console.log('Музыка инициализирована');
+        }
+
+        // Функция включения музыки
+        function playMusic() {
+            if (!musicInitialized) initializeMusic();
+            
+            const playPromise = music.play();
+            
+            if (playPromise !== undefined) {
+                playPromise.then(() => {
+                    isPlaying = true;
+                    musicToggleBtn.innerHTML = '❚❚';
+                    musicToggleBtn.classList.add('playing');
+                    mobileMusicHint.style.display = 'none';
+                    userInteracted = true;
+                    
+                    // Сохраняем состояние в localStorage
+                    localStorage.setItem('musicEnabled', 'true');
+                    
+                    console.log('Музыка успешно запущена');
+                }).catch(error => {
+                    console.log('Ошибка воспроизведения:', error);
+                    // Показываем подсказку на мобильных
+                    if (isMobileDevice()) {
+                        mobileMusicHint.style.display = 'flex';
                     }
-                }, 5000);
+                });
             }
         }
 
+        // Функция выключения музыки
+        function pauseMusic() {
+            music.pause();
+            isPlaying = false;
+            musicToggleBtn.innerHTML = '♪♫';
+            musicToggleBtn.classList.remove('playing');
+            localStorage.setItem('musicEnabled', 'false');
+        }
+
+        // Переключение музыки
         function toggleMusic() {
-            initializeMusic();
-            
             if (isPlaying) {
-                music.pause();
-                isPlaying = false;
-                musicToggleBtn.innerHTML = '♪♫';
-                musicToggleBtn.classList.remove('playing');
+                pauseMusic();
             } else {
-                const playPromise = music.play();
-                if (playPromise !== undefined) {
-                    playPromise.then(() => {
-                        isPlaying = true;
-                        musicToggleBtn.innerHTML = '❚❚';
-                        musicToggleBtn.classList.add('playing');
-                        mobileMusicHint.style.display = 'none';
-                    }).catch(error => {
-                        console.log('Воспроизведение заблокировано:', error);
-                        // Показываем подсказку, если воспроизведение заблокировано
-                        showMobileMusicHint();
-                    });
+                playMusic();
+            }
+        }
+
+        // Обработчики событий
+        musicToggleBtn.addEventListener('click', toggleMusic);
+        enableMusicBtn.addEventListener('click', playMusic);
+
+        // Попытка автоматического воспроизведения для десктопов
+        function tryAutoPlay() {
+            if (!isMobileDevice()) {
+                // Для десктопов пробуем автовоспроизведение
+                setTimeout(() => {
+                    if (!userInteracted) {
+                        playMusic();
+                    }
+                }, 1500);
+            } else {
+                // Для мобильных проверяем, был ли ранее включен звук
+                const musicEnabled = localStorage.getItem('musicEnabled');
+                if (musicEnabled === 'true') {
+                    // Если пользователь ранее включал музыку, пробуем воспроизвести
+                    setTimeout(() => {
+                        playMusic();
+                    }, 1000);
+                } else {
+                    // Показываем подсказку для мобильных
+                    setTimeout(() => {
+                        mobileMusicHint.style.display = 'flex';
+                    }, 2000);
                 }
             }
         }
 
-        // Назначаем обработчик на кнопку
-        musicToggleBtn.addEventListener('click', toggleMusic);
-
-        // Обработчик для мобильной подсказки
-        mobileMusicHint.addEventListener('click', function() {
-            toggleMusic();
-            this.style.display = 'none';
-        });
-
-        // Инициализация при любом взаимодействии с страницей
-        document.addEventListener('click', function() {
-            initializeMusic();
-        });
-        
-        document.addEventListener('touchstart', function() {
-            initializeMusic();
-        });
-        
-        document.addEventListener('scroll', function() {
-            initializeMusic();
-        });
-
-        // Попытка автовоспроизведения после загрузки (только для десктопов)
+        // Инициализация при загрузке страницы
         window.addEventListener('load', function() {
-            // Инициализируем музыку при загрузке
-            musicInitialized = true;
-            music.volume = 0.7;
+            initializeMusic();
             
-            // Показываем подсказку на мобильных устройствах
-            if (isMobileDevice()) {
-                setTimeout(showMobileMusicHint, 1000);
-            } else {
-                // Только для десктопов - пробуем автовоспроизведение
-                setTimeout(function() {
-                    if (!isPlaying) {
-                        const playPromise = music.play();
-                        if (playPromise !== undefined) {
-                            playPromise.then(() => {
-                                isPlaying = true;
-                                musicToggleBtn.innerHTML = '❚❚';
-                                musicToggleBtn.classList.add('playing');
-                            }).catch(error => {
-                                console.log('Автовоспроизведение заблокировано');
-                            });
-                        }
-                    }
-                }, 2000);
+            // Даем время на загрузку страницы
+            setTimeout(() => {
+                tryAutoPlay();
+            }, 500);
+        });
+
+        // Обработка пользовательского взаимодействия для мобильных
+        document.addEventListener('click', function() {
+            userInteracted = true;
+        });
+
+        document.addEventListener('touchstart', function() {
+            userInteracted = true;
+        });
+
+        // Обработка видимости страницы (когда пользователь возвращается на вкладку)
+        document.addEventListener('visibilitychange', function() {
+            if (!document.hidden && isPlaying && userInteracted) {
+                // Если страница снова стала активной и музыка должна играть
+                music.play().catch(e => console.log('Не удалось возобновить музыку'));
             }
         });
 
@@ -980,17 +1037,13 @@
                 } else {
                     companionField.classList.remove('show');
                     companionInput.required = false;
-                    companionInput.value = ''; // Очищаем поле при скрытии
+                    companionInput.value = '';
                 }
             }
 
-            // Инициализация при загрузке
             toggleCompanionField();
-
-            // Обработчик изменения выбора количества гостей
             companionsSelect.addEventListener('change', toggleCompanionField);
 
-            // Обработчик отправки формы для валидации
             document.getElementById('rsvpForm').addEventListener('submit', function(e) {
                 if (companionsSelect.value === '2' && !companionInput.value.trim()) {
                     e.preventDefault();
@@ -1009,8 +1062,6 @@
 
         function createHeartsAnimation(event) {
             const button = event.target;
-            const rect = button.getBoundingClientRect();
-            
             for (let i = 0; i < 8; i++) {
                 const heart = document.createElement('div');
                 heart.className = 'heart';
@@ -1018,20 +1069,15 @@
                 heart.style.left = (Math.random() * 80 + 10) + '%';
                 heart.style.animation = `float ${Math.random() * 1 + 1}s ease-out forwards`;
                 button.appendChild(heart);
-                
-                setTimeout(() => {
-                    heart.remove();
-                }, 1200);
+                setTimeout(() => heart.remove(), 1200);
             }
         }
 
-        // Код для эффектов (остается таким же)
+        // Код для эффектов (остается без изменений)
         const mainCanvas = document.getElementById('effectsCanvas');
         const mainCtx = mainCanvas.getContext('2d');
-        
         const leftCanvas = document.getElementById('leftEffectsCanvas');
         const leftCtx = leftCanvas.getContext('2d');
-        
         const rightCanvas = document.getElementById('rightEffectsCanvas');
         const rightCtx = rightCanvas.getContext('2d');
         
