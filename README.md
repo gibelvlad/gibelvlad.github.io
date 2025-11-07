@@ -1,22 +1,22 @@
+<!DOCTYPE html>
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Владислав & Анастасия - Свадьба 12 декабря 2025</title>
     
-    <!-- ОБНОВЛЕННЫЕ Open Graph метатеги -->
+    <!-- КРИТИЧЕСКИ ВАЖНЫЕ META-ТЕГИ ДЛЯ ПРЕВЬЮ -->
     <meta property="og:title" content="Владислав & Анастасия - Свадьба 12 декабря 2025">
     <meta property="og:description" content="Приглашение на свадьбу Владислава и Анастасии. Ждём вас 12 декабря 2025 года">
-    <meta property="og:image" content="https://images.unsplash.com/photo-1519225421980-715cb0215aed?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80">
+    <meta property="og:image" content="https://raw.githubusercontent.com/gibelvlad/gibelvlad.github.io/main/22/photo1.png">
     <meta property="og:url" content="https://gibelvlad.github.io">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Свадьба Владислава и Анастасии">
     
-    <!-- ОБНОВЛЕННЫЕ Twitter Card метатеги -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Владислав & Анастасия - Свадьба 12 декабря 2025">
     <meta name="twitter:description" content="Приглашение на свадьбу Владислава и Анастасии">
-    <meta name="twitter:image" content="https://images.unsplash.com/photo-1519225421980-715cb0215aed?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80">
+    <meta name="twitter:image" content="https://raw.githubusercontent.com/gibelvlad/gibelvlad.github.io/main/22/photo1.png">
     
     <!-- Дополнительные метатеги -->
     <meta name="description" content="Приглашение на свадьбу Владислава и Анастасии. 12 декабря 2025 года">
@@ -424,7 +424,7 @@
             z-index: 2;
         }
         
-        /* ОБНОВЛЕННАЯ КНОПКА МУЗЫКИ */
+        /* ПРОСТАЯ И КРАСИВАЯ КНОПКА МУЗЫКИ */
         .music-player {
             position: fixed;
             bottom: 25px;
@@ -446,30 +446,10 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .music-btn::before {
-            content: '';
-            position: absolute;
-            top: -2px;
-            left: -2px;
-            right: -2px;
-            bottom: -2px;
-            background: linear-gradient(135deg, #ffd700, #ff6b6b, #c92236);
-            border-radius: 50%;
-            z-index: -1;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-
-        .music-btn:hover::before {
-            opacity: 1;
         }
 
         .music-btn:hover {
-            transform: scale(1.1) rotate(15deg);
+            transform: scale(1.1);
             box-shadow: 0 8px 25px rgba(201, 34, 54, 0.6);
         }
         
@@ -628,10 +608,10 @@
     <div class="container">
         <div class="custom-invitation">
             <div class="vertical-gallery" id="invitationImage">
-                <img src="22/photo1.png" alt="Свадебное фото 1">
-                <img src="22/photo2.png" alt="Свадебное фото 2">
-                <img src="22/photo3.png" alt="Свадебное фото 3">
-                <img src="22/photo4.png" alt="Свадебное фото 4">
+                <img src="22/photo1.png" alt="Владислав и Анастасия" onerror="this.src='https://images.unsplash.com/photo-1519225421980-715cb0215aed?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80'">
+                <img src="22/photo2.png" alt="Свадебное фото" onerror="this.src='https://images.unsplash.com/photo-1465495976277-4387d4b0e4a6?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80'">
+                <img src="22/photo3.png" alt="Влюбленная пара" onerror="this.src='https://images.unsplash.com/photo-1532712988316-4f6d2b5a0e6e?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80'">
+                <img src="22/photo4.png" alt="Свадьба" onerror="this.src='https://images.unsplash.com/photo-1519741497674-611481863552?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80'">
             </div>
         </div>
 
@@ -722,7 +702,7 @@
                     <label for="alcohol">Ваши предпочтения в напитках</label>
                     <select id="alcohol" name="alcohol">
                         <option value="none">💧 Я сегодня трезвый, слежу за порядком</option>
-                        <option value="wine">🍷 Вино (красное/белое) — для ценителей</option>
+                        <option value="wine">🍷 Виномарка (красное/белое) — для ценителей</option>
                         <option value="champagne">🥂 Шампанское - чтобы любовь искрилась!</option>
                         <option value="strong">🥃 Крепкие напитки (водка, коньяк, виски)</option>
                         <option value="samogon">🏺 Самогон - для настоящих ценителей</option>
@@ -865,7 +845,7 @@
             }
         }
 
-        // Эффекты (остальной код остается без изменений)
+        // Эффекты
         const mainCanvas = document.getElementById('effectsCanvas');
         const mainCtx = mainCanvas.getContext('2d');
         
