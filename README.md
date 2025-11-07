@@ -4,19 +4,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Владислав & Анастасия - Свадьба 12 декабря 2025</title>
     
-    <!-- Open Graph метатеги -->
+    <!-- ОБНОВЛЕННЫЕ Open Graph метатеги -->
     <meta property="og:title" content="Владислав & Анастасия - Свадьба 12 декабря 2025">
     <meta property="og:description" content="Приглашение на свадьбу Владислава и Анастасии. Ждём вас 12 декабря 2025 года">
-    <meta property="og:image" content="https://example.com/wedding-preview.jpg">
-    <meta property="og:url" content="https://example.com">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1519225421980-715cb0215aed?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80">
+    <meta property="og:url" content="https://gibelvlad.github.io">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Свадьба Владислава и Анастасии">
     
-    <!-- Twitter Card метатеги -->
+    <!-- ОБНОВЛЕННЫЕ Twitter Card метатеги -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Владислав & Анастасия - Свадьба 12 декабря 2025">
     <meta name="twitter:description" content="Приглашение на свадьбу Владислава и Анастасии">
-    <meta name="twitter:image" content="https://example.com/wedding-preview.jpg">
+    <meta name="twitter:image" content="https://images.unsplash.com/photo-1519225421980-715cb0215aed?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80">
     
     <!-- Дополнительные метатеги -->
     <meta name="description" content="Приглашение на свадьбу Владислава и Анастасии. 12 декабря 2025 года">
@@ -93,7 +93,6 @@
             border-bottom: none;
         }
         
-        /* Обновленные стили для мероприятий */
         .events {
             margin: 30px 0;
         }
@@ -312,7 +311,6 @@
             box-shadow: 0 0 0 3px rgba(201, 34, 54, 0.1);
         }
 
-        /* Стиль для скрытого поля второго гостя */
         .companion-field {
             display: none;
             margin-top: 15px;
@@ -333,7 +331,6 @@
             font-style: italic;
         }
         
-        /* Новая анимация для кнопки отправки */
         @keyframes sparkle {
             0%, 100% { 
                 transform: scale(1);
@@ -376,7 +373,6 @@
             transform: translateY(1px);
         }
         
-        /* Анимация сердечек для кнопки */
         @keyframes float {
             0%, 100% { 
                 transform: translateY(0) rotate(0deg);
@@ -428,7 +424,7 @@
             z-index: 2;
         }
         
-        /* ОБНОВЛЕННЫЙ ПЛЕЕР - В ФОРМЕ СЕРДЦА */
+        /* ОБНОВЛЕННАЯ КНОПКА МУЗЫКИ */
         .music-player {
             position: fixed;
             bottom: 25px;
@@ -442,21 +438,39 @@
             border-radius: 50%;
             background: linear-gradient(135deg, #c92236, #b31e30);
             color: #f8f7f3;
-            border: none;
+            border: 3px solid #f8f7f3;
             font-size: 1.4em;
             cursor: pointer;
-            box-shadow: 0 5px 15px rgba(201, 34, 54, 0.3);
+            box-shadow: 0 5px 20px rgba(201, 34, 54, 0.4);
             transition: all 0.3s ease;
             display: flex;
             align-items: center;
             justify-content: center;
-            /* Сердцевидная форма */
-            clip-path: polygon(50% 0%, 100% 35%, 82% 100%, 50% 75%, 18% 100%, 0% 35%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .music-btn::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(135deg, #ffd700, #ff6b6b, #c92236);
+            border-radius: 50%;
+            z-index: -1;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .music-btn:hover::before {
+            opacity: 1;
         }
 
         .music-btn:hover {
-            transform: scale(1.1) rotate(5deg);
-            box-shadow: 0 8px 20px rgba(201, 34, 54, 0.4);
+            transform: scale(1.1) rotate(15deg);
+            box-shadow: 0 8px 25px rgba(201, 34, 54, 0.6);
         }
         
         .designer {
@@ -471,7 +485,6 @@
             z-index: 2;
         }
         
-        /* ОБНОВЛЕННЫЙ РАЗДЕЛИТЕЛЬ - СВАДЕБНЫЕ КОЛЬЦА */
         .floral-divider {
             text-align: center;
             margin: 30px 0;
@@ -547,7 +560,6 @@
             height: 100%;
         }
 
-        /* Стикер для ссылки на карту */
         .map-sticker {
             display: inline-block;
             margin-right: 10px;
@@ -616,17 +628,15 @@
     <div class="container">
         <div class="custom-invitation">
             <div class="vertical-gallery" id="invitationImage">
-                <img src="22/photo1.png" alt="Свадебное фото 1" onerror="this.src='https://images.unsplash.com/photo-1519225421980-715cb0215aed?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80'">
-                <img src="22/photo2.png" alt="Свадебное фото 2" onerror="this.src='https://images.unsplash.com/photo-1465495976277-4387d4b0e4a6?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80'">
-                <img src="22/photo3.png" alt="Свадебное фото 3" onerror="this.src='https://images.unsplash.com/photo-1532712988316-4f6d2b5a0e6e?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80'">
-                <img src="22/photo4.png" alt="Свадебное фото 4" onerror="this.src='https://images.unsplash.com/photo-1519741497674-611481863552?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80'">
+                <img src="22/photo1.png" alt="Свадебное фото 1">
+                <img src="22/photo2.png" alt="Свадебное фото 2">
+                <img src="22/photo3.png" alt="Свадебное фото 3">
+                <img src="22/photo4.png" alt="Свадебное фото 4">
             </div>
         </div>
 
-        <!-- ОБНОВЛЕННЫЙ РАЗДЕЛИТЕЛЬ - СВАДЕБНЫЕ КОЛЬЦА -->
         <div class="floral-divider">💍 💍 💍</div>
         
-        <!-- Обновленный блок с двумя мероприятиями -->
         <div class="events">
             <div class="event">
                 <div class="section-title">Торжественная регистрация</div>
@@ -648,7 +658,6 @@
             </div>
         </div>
         
-        <!-- Кнопка карты теперь с красивым стикером -->
         <a href="https://go.2gis.com/Kupg2" class="map-button" target="_blank">
             <span class="map-sticker">🗺️</span> ПОСМОТРЕТЬ БАНКЕТНЫЙ ЗАЛ НА КАРТЕ
             <div class="bubble"></div>
@@ -689,7 +698,6 @@
                     <div class="companion-note">Если планируете прийти с парой, выберите "2 человека"</div>
                 </div>
 
-                <!-- Новое поле для второго гостя -->
                 <div class="form-group companion-field" id="companionField">
                     <label for="companion_name">Имя и фамилия вашего спутника</label>
                     <input type="text" id="companion_name" name="companion_name" placeholder="Например, Мария Петрова">
@@ -743,7 +751,6 @@
         
         <div class="hearts">💖 💕 💗 💓 💞</div>
         
-        <!-- Улучшенное закрывающее сообщение -->
         <div class="closing-message">
             Мы с нетерпением ждём этот день<br> 
             и будем рады разделить его с вами!<br>
@@ -756,7 +763,6 @@
         </div>
     </div>
 
-    <!-- ОБНОВЛЕННЫЙ ПЛЕЕР В ФОРМЕ СЕРДЦА -->
     <div class="music-player">
         <button class="music-btn" id="musicToggleBtn">❚❚</button>
     </div>
@@ -768,7 +774,7 @@
     </audio>
 
     <script>
-        // Исправленная логика для кнопки музыки
+        // Музыка
         const music = document.getElementById('weddingMusic');
         const musicToggleBtn = document.getElementById('musicToggleBtn');
         let isPlaying = false;
@@ -788,10 +794,8 @@
             }
         }
 
-        // Назначаем обработчик на кнопку
         musicToggleBtn.addEventListener('click', toggleMusic);
 
-        // Автовоспроизведение через 1 секунду после загрузки страницы
         window.addEventListener('load', function() {
             setTimeout(function() {
                 if (!isPlaying) {
@@ -807,7 +811,7 @@
             }, 1000);
         });
 
-        // Код для управления полем второго гостя
+        // Поле второго гостя
         document.addEventListener('DOMContentLoaded', function() {
             const companionsSelect = document.getElementById('companions');
             const companionField = document.getElementById('companionField');
@@ -820,17 +824,13 @@
                 } else {
                     companionField.classList.remove('show');
                     companionInput.required = false;
-                    companionInput.value = ''; // Очищаем поле при скрытии
+                    companionInput.value = '';
                 }
             }
 
-            // Инициализация при загрузке
             toggleCompanionField();
-
-            // Обработчик изменения выбора количества гостей
             companionsSelect.addEventListener('change', toggleCompanionField);
 
-            // Обработчик отправки формы для валидации
             document.getElementById('rsvpForm').addEventListener('submit', function(e) {
                 if (companionsSelect.value === '2' && !companionInput.value.trim()) {
                     e.preventDefault();
@@ -840,7 +840,7 @@
             });
         });
 
-        // Анимация сердечек для кнопки отправки
+        // Анимация сердечек
         document.getElementById('submitBtn').addEventListener('click', function(e) {
             if (document.getElementById('rsvpForm').checkValidity()) {
                 createHeartsAnimation(e);
@@ -865,7 +865,7 @@
             }
         }
 
-        // Код для эффектов (остается таким же)
+        // Эффекты (остальной код остается без изменений)
         const mainCanvas = document.getElementById('effectsCanvas');
         const mainCtx = mainCanvas.getContext('2d');
         
