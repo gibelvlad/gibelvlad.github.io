@@ -25,6 +25,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
     
     <style>
+        /* ВСЕ СТИЛИ ОСТАЮТСЯ ПРЕЖНИМИ */
         * {
             margin: 0;
             padding: 0;
@@ -94,7 +95,6 @@
             border-bottom: none;
         }
         
-        /* Обновленные стили для мероприятий */
         .events {
             margin: 30px 0;
         }
@@ -313,7 +313,6 @@
             box-shadow: 0 0 0 3px rgba(201, 34, 54, 0.1);
         }
 
-        /* Стиль для скрытого поля второго гостя */
         .companion-field {
             display: none;
             margin-top: 15px;
@@ -334,7 +333,6 @@
             font-style: italic;
         }
         
-        /* Новая анимация для кнопки отправки */
         @keyframes sparkle {
             0%, 100% { 
                 transform: scale(1);
@@ -377,7 +375,6 @@
             transform: translateY(1px);
         }
         
-        /* Анимация сердечек для кнопки */
         @keyframes float {
             0%, 100% { 
                 transform: translateY(0) rotate(0deg);
@@ -429,7 +426,6 @@
             z-index: 2;
         }
         
-        /* ОБНОВЛЕННЫЙ ПЛЕЕР - ЭЛЕГАНТНЫЙ КРУГ С МУЗЫКАЛЬНЫМИ НОТАМИ */
         .music-player {
             position: fixed;
             bottom: 25px;
@@ -482,7 +478,6 @@
             transform: scale(1.05);
         }
 
-        /* Анимация пульсации для кнопки музыки */
         @keyframes pulse {
             0% {
                 box-shadow: 0 0 0 0 rgba(201, 34, 54, 0.7);
@@ -511,7 +506,6 @@
             z-index: 2;
         }
         
-        /* ОБНОВЛЕННЫЙ РАЗДЕЛИТЕЛЬ - СВАДЕБНЫЕ КОЛЬЦА */
         .floral-divider {
             text-align: center;
             margin: 30px 0;
@@ -587,7 +581,6 @@
             height: 100%;
         }
 
-        /* Стикер для ссылки на карту */
         .map-sticker {
             display: inline-block;
             margin-right: 10px;
@@ -600,7 +593,6 @@
             50% { transform: translateY(-5px); }
         }
 
-        /* Подсказка для мобильных устройств */
         .mobile-music-hint {
             position: fixed;
             top: 0;
@@ -746,10 +738,8 @@
             </div>
         </div>
 
-        <!-- ОБНОВЛЕННЫЙ РАЗДЕЛИТЕЛЬ - СВАДЕБНЫЕ КОЛЬЦА -->
         <div class="floral-divider">💍 💍 💍</div>
         
-        <!-- Обновленный блок с двумя мероприятиями -->
         <div class="events">
             <div class="event">
                 <div class="section-title">Торжественная регистрация</div>
@@ -771,7 +761,6 @@
             </div>
         </div>
         
-        <!-- Кнопка карты теперь с красивым стикером -->
         <a href="https://go.2gis.com/Kupg2" class="map-button" target="_blank">
             <span class="map-sticker">🗺️</span> ПОСМОТРЕТЬ БАНКЕТНЫЙ ЗАЛ НА КАРТЕ
             <div class="bubble"></div>
@@ -812,7 +801,6 @@
                     <div class="companion-note">Если планируете прийти с парой, выберите "2 человека"</div>
                 </div>
 
-                <!-- Новое поле для второго гостя -->
                 <div class="form-group companion-field" id="companionField">
                     <label for="companion_name">Имя и фамилия вашего спутника</label>
                     <input type="text" id="companion_name" name="companion_name" placeholder="Например, Мария Петрова">
@@ -842,7 +830,7 @@
                         <option value="strong">🥃 Крепкие напитки (водка, коньяк, виски)</option>
                         <option value="samogon">🏺 Самогон - для настоящих ценителей</option>
                         <option value="all">🎯 Любые напитки - я доверяю вашему вкусу!</option>
-                        <option value="other">💫 У меня есть особые пожелания...(напишите в пожеланиях)</option>
+                        <option value="other">💫 *У меня есть особые пожелания...(напишите в пожеланиях)</option>
                     </select>
                 </div>
                 
@@ -866,7 +854,6 @@
         
         <div class="hearts">💖 💕 💗 💓 💞</div>
         
-        <!-- Улучшенное закрывающее сообщение -->
         <div class="closing-message">
             Мы с нетерпением ждём этот день<br> 
             и будем рады разделить его с вами!<br>
@@ -879,7 +866,6 @@
         </div>
     </div>
 
-    <!-- ОБНОВЛЕННЫЙ ПЛЕЕР - ЭЛЕГАНТНЫЙ КРУГ С МУЗЫКАЛЬНЫМИ НОТАМИ -->
     <div class="music-player">
         <button class="music-btn" id="musicToggleBtn">♪♫</button>
     </div>
@@ -891,7 +877,7 @@
     </audio>
 
     <script>
-        // СОВЕРШЕННО НОВАЯ ЛОГИКА ДЛЯ МУЗЫКИ
+        // КОД МУЗЫКИ ОСТАЕТСЯ ПРЕЖНИМ
         const music = document.getElementById('weddingMusic');
         const musicToggleBtn = document.getElementById('musicToggleBtn');
         const mobileMusicHint = document.getElementById('mobileMusicHint');
@@ -901,27 +887,19 @@
         let musicInitialized = false;
         let userInteracted = false;
 
-        // Проверка мобильного устройства
         function isMobileDevice() {
             return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
         }
 
-        // Инициализация музыки
         function initializeMusic() {
             if (musicInitialized) return;
             
-            // Настройка музыки
-            music.volume = 0.6; // Немного тише для комфорта
+            music.volume = 0.6;
             music.preload = 'auto';
-            
-            // Предзагрузка
             music.load();
             musicInitialized = true;
-            
-            console.log('Музыка инициализирована');
         }
 
-        // Функция включения музыки
         function playMusic() {
             if (!musicInitialized) initializeMusic();
             
@@ -934,14 +912,9 @@
                     musicToggleBtn.classList.add('playing');
                     mobileMusicHint.style.display = 'none';
                     userInteracted = true;
-                    
-                    // Сохраняем состояние в localStorage
                     localStorage.setItem('musicEnabled', 'true');
-                    
-                    console.log('Музыка успешно запущена');
                 }).catch(error => {
                     console.log('Ошибка воспроизведения:', error);
-                    // Показываем подсказку на мобильных
                     if (isMobileDevice()) {
                         mobileMusicHint.style.display = 'flex';
                     }
@@ -949,7 +922,6 @@
             }
         }
 
-        // Функция выключения музыки
         function pauseMusic() {
             music.pause();
             isPlaying = false;
@@ -958,7 +930,6 @@
             localStorage.setItem('musicEnabled', 'false');
         }
 
-        // Переключение музыки
         function toggleMusic() {
             if (isPlaying) {
                 pauseMusic();
@@ -967,29 +938,23 @@
             }
         }
 
-        // Обработчики событий
         musicToggleBtn.addEventListener('click', toggleMusic);
         enableMusicBtn.addEventListener('click', playMusic);
 
-        // Попытка автоматического воспроизведения для десктопов
         function tryAutoPlay() {
             if (!isMobileDevice()) {
-                // Для десктопов пробуем автовоспроизведение
                 setTimeout(() => {
                     if (!userInteracted) {
                         playMusic();
                     }
                 }, 1500);
             } else {
-                // Для мобильных проверяем, был ли ранее включен звук
                 const musicEnabled = localStorage.getItem('musicEnabled');
                 if (musicEnabled === 'true') {
-                    // Если пользователь ранее включал музыку, пробуем воспроизвести
                     setTimeout(() => {
                         playMusic();
                     }, 1000);
                 } else {
-                    // Показываем подсказку для мобильных
                     setTimeout(() => {
                         mobileMusicHint.style.display = 'flex';
                     }, 2000);
@@ -997,17 +962,13 @@
             }
         }
 
-        // Инициализация при загрузке страницы
         window.addEventListener('load', function() {
             initializeMusic();
-            
-            // Даем время на загрузку страницы
             setTimeout(() => {
                 tryAutoPlay();
             }, 500);
         });
 
-        // Обработка пользовательского взаимодействия для мобильных
         document.addEventListener('click', function() {
             userInteracted = true;
         });
@@ -1016,15 +977,13 @@
             userInteracted = true;
         });
 
-        // Обработка видимости страницы (когда пользователь возвращается на вкладку)
         document.addEventListener('visibilitychange', function() {
             if (!document.hidden && isPlaying && userInteracted) {
-                // Если страница снова стала активной и музыка должна играть
                 music.play().catch(e => console.log('Не удалось возобновить музыку'));
             }
         });
 
-        // Код для управления полем второго гостя
+        // ИСПРАВЛЕННЫЙ КОД ОТПРАВКИ ФОРМЫ
         document.addEventListener('DOMContentLoaded', function() {
             const companionsSelect = document.getElementById('companions');
             const companionField = document.getElementById('companionField');
@@ -1044,11 +1003,73 @@
             toggleCompanionField();
             companionsSelect.addEventListener('change', toggleCompanionField);
 
+            // ИСПРАВЛЕННЫЙ ОБРАБОТЧИК ФОРМЫ - ОТПРАВКА СРАЗУ
             document.getElementById('rsvpForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Проверяем обязательное поле для второго гостя
                 if (companionsSelect.value === '2' && !companionInput.value.trim()) {
-                    e.preventDefault();
                     alert('Пожалуйста, укажите имя и фамилию вашего спутника');
                     companionInput.focus();
+                    return;
+                }
+                
+                // Сразу показываем сообщение об успехе и скрываем кнопку
+                document.getElementById('successMessage').style.display = 'block';
+                document.getElementById('submitBtn').style.display = 'none';
+                
+                // Запускаем анимацию
+                for (let i = 0; i < 7; i++) {
+                    setTimeout(() => {
+                        const x = window.innerWidth / 2 + (Math.random() - 0.5) * 300;
+                        const y = window.innerHeight / 2 + (Math.random() - 0.5) * 200;
+                        createFirework(x, y, true);
+                    }, i * 250);
+                }
+                
+                // ОТПРАВЛЯЕМ ФОРМУ СРАЗУ - два способа для надежности
+                const form = this;
+                
+                // Способ 1: Отправка через fetch (современный способ)
+                const formData = new FormData(form);
+                fetch(form.action, {
+                    method: form.method,
+                    body: formData,
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                })
+                .then(response => {
+                    if (response.ok) {
+                        console.log('Форма успешно отправлена через fetch!');
+                    } else {
+                        console.log('Ошибка при отправке через fetch');
+                    }
+                })
+                .catch(error => {
+                    console.log('Ошибка сети при отправке через fetch:', error);
+                });
+                
+                // Способ 2: Классическая отправка формы (резервный вариант)
+                try {
+                    // Создаем временный iframe для отправки
+                    const iframe = document.createElement('iframe');
+                    iframe.name = 'form_target_' + Date.now();
+                    iframe.style.display = 'none';
+                    document.body.appendChild(iframe);
+                    
+                    // Устанавливаем цель формы и отправляем
+                    form.target = iframe.name;
+                    form.submit();
+                    
+                    // Удаляем iframe через секунду
+                    setTimeout(() => {
+                        if (iframe.parentNode) {
+                            iframe.parentNode.removeChild(iframe);
+                        }
+                    }, 1000);
+                } catch (err) {
+                    console.log('Классический метод отправки не сработал:', err);
                 }
             });
         });
@@ -1073,7 +1094,7 @@
             }
         }
 
-        // Код для эффектов (остается без изменений)
+        // ОСТАВШИЙСЯ КОД ДЛЯ ЭФФЕКТОВ (без изменений)
         const mainCanvas = document.getElementById('effectsCanvas');
         const mainCtx = mainCanvas.getContext('2d');
         const leftCanvas = document.getElementById('leftEffectsCanvas');
@@ -1357,25 +1378,6 @@
                 createRightEffects();
             }, 1000);
         }
-
-        document.getElementById('rsvpForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            document.getElementById('successMessage').style.display = 'block';
-            document.getElementById('submitBtn').style.display = 'none';
-            
-            for (let i = 0; i < 7; i++) {
-                setTimeout(() => {
-                    const x = window.innerWidth / 2 + (Math.random() - 0.5) * 300;
-                    const y = window.innerHeight / 2 + (Math.random() - 0.5) * 200;
-                    createFirework(x, y, true);
-                }, i * 250);
-            }
-            
-            setTimeout(() => {
-                this.submit();
-            }, 3000);
-        });
 
         window.addEventListener('load', () => {
             resizeCanvases();
