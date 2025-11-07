@@ -77,18 +77,6 @@
             overflow: hidden;
         }
         
-        /* УБИРАЕМ КРАСНУЮ ПОЛОСУ СВЕРХУ */
-        /* .custom-invitation::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 3px;
-            background: linear-gradient(90deg, #c92236, #e9cec5, #c92236);
-            border-radius: 12px 12px 0 0;
-        } */
-        
         .vertical-gallery {
             width: 100%;
         }
@@ -666,7 +654,6 @@
     </audio>
 
     <script>
-        // JavaScript код остается без изменений
         const music = document.getElementById('weddingMusic');
         let isPlaying = false;
 
@@ -685,19 +672,18 @@
             }
         }
 
-        let firstClick = true;
-        document.addEventListener('click', function() {
-            if (firstClick && !isPlaying) {
-                firstClick = false;
-                setTimeout(() => {
+        // Автовоспроизведение через 3 секунды после загрузки страницы
+        window.addEventListener('load', function() {
+            setTimeout(function() {
+                if (!isPlaying) {
                     music.play().then(() => {
                         isPlaying = true;
                         document.querySelector('.music-btn').innerHTML = '❚❚';
                     }).catch(e => {
-                        console.log('Автовоспроизведение заблокировано');
+                        console.log('Автовоспроизведение заблокировано. Для включения музыки нажмите на кнопку.');
                     });
-                }, 1000);
-            }
+                }
+            }, 3000);
         });
 
         // Код для эффектов (остается таким же)
